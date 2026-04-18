@@ -27,37 +27,37 @@
         "title": "Suryasta",
         "desc": "Prince Neupane • Original",
         "link": "https://www.youtube.com/@Prince_on_guitar",
-        "bg_class": "from-orange-400 to-red-600"
+        "img": "images/prince-img-03.jpg"
       },
       {
         "title": "Ajambari",
         "desc": "Prince Neupane • Original",
         "link": "https://www.youtube.com/@Prince_on_guitar",
-        "bg_class": "from-gray-400 to-gray-600"
+        "img": "images/prince-img-04.jpg"
       },
       {
-        "title": "Oi<br>Chanchali",
+        "title": "Oi Chanchali",
         "desc": "Prince Neupane • Original",
         "link": "https://www.youtube.com/@Prince_on_guitar",
-        "bg_class": "from-yellow-400 to-green-500"
+        "img": "images/prince-img-05.jpg"
       },
       {
         "title": "Biraha",
         "desc": "Prince Neupane • Original",
         "link": "https://www.youtube.com/@Prince_on_guitar",
-        "bg_class": "from-blue-700 to-indigo-900"
+        "img": "images/prince-img-06.jpg"
       },
       {
         "title": "Lust",
         "desc": "Prince Neupane • Original",
         "link": "https://www.youtube.com/@Prince_on_guitar",
-        "bg_class": "from-red-600 to-red-300"
+        "img": "images/prince-img-07.jpg"
       },
       {
-        "title": "<i class=\"fa-solid fa-brain mb-2\"></i> Confusion",
+        "title": "Confusion",
         "desc": "Prince Neupane • Original",
         "link": "https://www.youtube.com/@Prince_on_guitar",
-        "bg_class": "from-pink-300 to-purple-400"
+        "img": "images/prince-img-08.jpg"
       }
     ],
     "cta": "More on YouTube",
