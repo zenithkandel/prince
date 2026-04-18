@@ -44,9 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function drag(e) {
             if (!isDragging) return;
-            
+
             const event = e.type.includes('mouse') ? e : e.touches[0];
-            
+
             initialX = event.clientX - startX;
             initialY = event.clientY - startY;
 
@@ -59,12 +59,12 @@ document.addEventListener('DOMContentLoaded', () => {
         function stopDrag() {
             if (!isDragging) return;
             isDragging = false;
-            
+
             // Re-enable transition for smooth hover states
             item.style.transition = 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
             item.style.cursor = 'grab';
             item.style.filter = '';
-            
+
             // Snap a bit or reset tilt (Keep translation)
             item.style.transform = `translate(${initialX}px, ${initialY}px) rotate(${Math.random() * 10 - 5}deg)`;
         }
@@ -78,11 +78,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const rect = el.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            
+
             // Calculate center
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-            
+
             // Calculate distance from center (-1 to 1)
             const rotateX = ((y - centerY) / centerY) * -5; // Up/down tilt
             const rotateY = ((x - centerX) / centerX) * 5; // Left/right tilt
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
         el.addEventListener('mouseleave', () => {
             el.style.transform = '';
             el.style.transition = 'transform 0.5s ease, box-shadow 0.5s ease';
-            
+
             // Quick clean transition reset
             setTimeout(() => {
                 el.style.transition = '';
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. SMOOTH SCROLL FOR NAV LINKS
     document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetElem = document.querySelector(targetId);
