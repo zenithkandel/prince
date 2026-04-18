@@ -278,66 +278,10 @@
             <?php endforeach; ?>
         </div>
 
-          <!-- Release 4 -->
-          <a href="https://www.youtube.com/@Prince_on_guitar" target="_blank"
-            class="bg-white border-[4px] border-ink shadow-brutal-md p-4 group hover:-translate-y-2 hover:shadow-brutal-lg transition-all rotate-[1deg]">
-            <div
-              class="aspect-square bg-gradient-to-bl from-blue-700 to-indigo-900 border-[2px] border-ink mb-4 flex items-center justify-center overflow-hidden relative">
-              <span
-                class="font-handwriting text-5xl text-white font-bold z-10 group-hover:scale-110 transition-transform"
-                style="text-shadow: var(--shadow-solid-sm)">Biraha</span>
-              <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity"></div>
-              <i
-                class="fa-solid fa-circle-play absolute text-white text-6xl opacity-0 group-hover:opacity-100 transition-opacity z-20 drop-shadow-md"></i>
-            </div>
-            <h3 class="font-mono font-bold text-xl uppercase">Biraha</h3>
-            <p class="font-sans text-gray-600 text-sm">
-              Prince Neupane • Original
-            </p>
-          </a>
-
-          <!-- Release 5 -->
-          <a href="https://www.youtube.com/@Prince_on_guitar" target="_blank"
-            class="bg-white border-[4px] border-ink shadow-brutal-md p-4 group hover:-translate-y-2 hover:shadow-brutal-lg transition-all rotate-[-2deg]">
-            <div
-              class="aspect-square bg-gradient-to-t from-red-600 to-red-300 border-[2px] border-ink mb-4 flex items-center justify-center overflow-hidden relative text-center">
-              <span class="font-marker text-6xl text-white font-bold z-10 group-hover:scale-110 transition-transform"
-                style="text-shadow: var(--shadow-solid-sm)">LUST</span>
-              <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity"></div>
-              <i
-                class="fa-solid fa-circle-play absolute text-white text-6xl opacity-0 group-hover:opacity-100 transition-opacity z-20 drop-shadow-md"></i>
-            </div>
-            <h3 class="font-mono font-bold text-xl uppercase">Lust</h3>
-            <p class="font-sans text-gray-600 text-sm">
-              Prince Neupane • Original
-            </p>
-          </a>
-
-          <!-- Release 6 -->
-          <a href="https://www.youtube.com/@Prince_on_guitar" target="_blank"
-            class="bg-white border-[4px] border-ink shadow-brutal-md p-4 group hover:-translate-y-2 hover:shadow-brutal-lg transition-all rotate-[1deg]">
-            <div
-              class="aspect-square bg-gradient-to-r from-pink-300 to-purple-400 border-[2px] border-ink mb-4 flex items-center justify-center overflow-hidden relative">
-              <span
-                class="font-handwriting text-5xl text-white font-bold z-10 group-hover:scale-110 transition-transform flex flex-col items-center"
-                style="text-shadow: var(--shadow-solid-sm)">
-                <i class="fa-solid fa-brain mb-2"></i> Confusion
-              </span>
-              <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity"></div>
-              <i
-                class="fa-solid fa-circle-play absolute text-white text-6xl opacity-0 group-hover:opacity-100 transition-opacity z-20 drop-shadow-md"></i>
-            </div>
-            <h3 class="font-mono font-bold text-xl uppercase">Confusion</h3>
-            <p class="font-sans text-gray-600 text-sm">
-              Prince Neupane • Original
-            </p>
-          </a>
-        </div>
-
         <!-- CTA -->
-        <a href="https://www.youtube.com/@Prince_on_guitar" target="_blank"
+        <a href="<?php echo htmlspecialchars($data['music']['cta_link']); ?>" target="_blank"
           class="mt-12 bg-accent-pink text-white font-mono font-black text-xl px-10 py-4 border-[4px] border-ink shadow-brutal-md transition-all duration-300 hover:shadow-brutal-lg hover:-translate-y-1 rotate-[-1deg]">
-          <i class="fa-brands fa-youtube mr-2"></i> More on YouTube
+          <i class="fa-brands fa-youtube mr-2"></i> <?php echo htmlspecialchars($data['music']['cta']); ?>
         </a>
       </div>
     </section>
