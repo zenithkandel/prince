@@ -9,7 +9,8 @@ if (!is_dir('images')) {
     mkdir('images', 0777, true);
 }
 
-function handle_upload($input_name) {
+function handle_upload($input_name)
+{
     if (isset($_FILES[$input_name]) && $_FILES[$input_name]['error'] === UPLOAD_ERR_OK) {
         $target_dir = "images/";
         $filename = time() . '_' . basename($_FILES[$input_name]["name"]);
@@ -22,24 +23,28 @@ function handle_upload($input_name) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
+
     // Action handler: Save General Settings
     if (isset($_POST['action']) && $_POST['action'] === 'save_general') {
         // Hero
         $hero_keys = ['tag', 'title_first', 'title_last', 'subtitle', 'location', 'img_caption', 'img_badge', 'cta'];
         foreach ($hero_keys as $key) {
-            if (isset($_POST['hero'][$key])) $data['hero'][$key] = $_POST['hero'][$key];
+            if (isset($_POST['hero'][$key]))
+                $data['hero'][$key] = $_POST['hero'][$key];
         }
         $hero_img = handle_upload('hero_img');
-        if ($hero_img) $data['hero']['img'] = $hero_img;
+        if ($hero_img)
+            $data['hero']['img'] = $hero_img;
 
         // About
         $about_keys = ['img_caption', 'title', 'content_p1', 'content_highlight', 'content_p2', 'badge_icon', 'badge_text'];
         foreach ($about_keys as $key) {
-            if (isset($_POST['about'][$key])) $data['about'][$key] = $_POST['about'][$key];
+            if (isset($_POST['about'][$key]))
+                $data['about'][$key] = $_POST['about'][$key];
         }
         $about_img = handle_upload('about_img');
-        if ($about_img) $data['about']['img'] = $about_img;
+        if ($about_img)
+            $data['about']['img'] = $about_img;
 
         // Contact
         if (isset($_POST['contact']['footer'])) {
@@ -47,13 +52,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         // Music Meta
-        if (isset($_POST['music_meta']['title'])) $data['music']['title'] = $_POST['music_meta']['title'];
-        if (isset($_POST['music_meta']['cta'])) $data['music']['cta'] = $_POST['music_meta']['cta'];
-        if (isset($_POST['music_meta']['cta_link'])) $data['music']['cta_link'] = $_POST['music_meta']['cta_link'];
+        if (isset($_POST['music_meta']['title']))
+            $data['music']['title'] = $_POST['music_meta']['title'];
+        if (isset($_POST['music_meta']['cta']))
+            $data['music']['cta'] = $_POST['music_meta']['cta'];
+        if (isset($_POST['music_meta']['cta_link']))
+            $data['music']['cta_link'] = $_POST['music_meta']['cta_link'];
 
         // Gallery Meta
-        if (isset($_POST['gallery_meta']['title'])) $data['gallery']['title'] = $_POST['gallery_meta']['title'];
-        if (isset($_POST['gallery_meta']['badge'])) $data['gallery']['badge'] = $_POST['gallery_meta']['badge'];
+        if (isset($_POST['gallery_meta']['title']))
+            $data['gallery']['title'] = $_POST['gallery_meta']['title'];
+        if (isset($_POST['gallery_meta']['badge']))
+            $data['gallery']['badge'] = $_POST['gallery_meta']['badge'];
 
         file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT));
         header("Location: admin.php?success=Settings%20Updated");
@@ -77,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if ($uploaded_img) {
                     $item['img'] = $uploaded_img;
                 }
-                
+
                 $new_releases[] = $item;
             }
             $data['music']['releases'] = $new_releases;
@@ -103,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if ($uploaded_img) {
                     $item['img'] = $uploaded_img;
                 }
-                
+
                 $new_images[] = $item;
             }
             $data['gallery']['images'] = $new_images;
