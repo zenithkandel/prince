@@ -262,26 +262,31 @@
 
         <!-- Releases Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
-            <?php foreach($data['music']['releases'] as $index => $release): 
-                $rotations = ['rotate-[-1deg]', 'rotate-[2deg]', 'rotate-[-2deg]', 'rotate-[1deg]'];
-                $rot = $rotations[$index % 4];
+          <?php foreach ($data['music']['releases'] as $index => $release):
+            $rotations = ['rotate-[-1deg]', 'rotate-[2deg]', 'rotate-[-2deg]', 'rotate-[1deg]'];
+            $rot = $rotations[$index % 4];
             ?>
-            <a href="<?php echo htmlspecialchars($release['link']); ?>" target="_blank" class="bg-white border-[4px] border-ink shadow-brutal-md p-4 group hover:-translate-y-2 hover:shadow-brutal-lg transition-all <?php echo $rot; ?>">
-                <div class="aspect-square border-[2px] border-ink mb-4 flex items-center justify-center overflow-hidden relative bg-gray-200">
-                    <img src="<?php echo htmlspecialchars($release['img']); ?>" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity"></div>
-                    <i class="fa-solid fa-circle-play absolute text-white text-6xl opacity-0 group-hover:opacity-100 transition-opacity z-20 drop-shadow-md"></i>
-                </div>
-                <h3 class="font-mono font-bold text-xl uppercase"><?php echo htmlspecialchars($release['title']); ?></h3>
-                <p class="font-sans text-gray-600 text-sm"><?php echo htmlspecialchars($release['desc']); ?></p>
+            <a href="<?php echo htmlspecialchars($release['link']); ?>" target="_blank"
+              class="bg-white border-[4px] border-ink shadow-brutal-md p-4 group hover:-translate-y-2 hover:shadow-brutal-lg transition-all <?php echo $rot; ?>">
+              <div
+                class="aspect-square border-[2px] border-ink mb-4 flex items-center justify-center overflow-hidden relative bg-gray-200">
+                <img src="<?php echo htmlspecialchars($release['img']); ?>" alt=""
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                <i
+                  class="fa-solid fa-circle-play absolute text-white text-6xl opacity-0 group-hover:opacity-100 transition-opacity z-20 drop-shadow-md"></i>
+              </div>
+              <h3 class="font-mono font-bold text-xl uppercase"><?php echo htmlspecialchars($release['title']); ?></h3>
+              <p class="font-sans text-gray-600 text-sm"><?php echo htmlspecialchars($release['desc']); ?></p>
             </a>
-            <?php endforeach; ?>
+          <?php endforeach; ?>
         </div>
 
         <!-- CTA -->
         <a href="<?php echo htmlspecialchars($data['music']['cta_link']); ?>" target="_blank"
           class="mt-12 bg-accent-pink text-white font-mono font-black text-xl px-10 py-4 border-[4px] border-ink shadow-brutal-md transition-all duration-300 hover:shadow-brutal-lg hover:-translate-y-1 rotate-[-1deg]">
-          <i class="fa-brands fa-youtube mr-2"></i> <?php echo htmlspecialchars($data['music']['cta']); ?>
+          <i class="fa-brands fa-youtube mr-2"></i>
+          <?php echo htmlspecialchars($data['music']['cta']); ?>
         </a>
       </div>
     </section>
