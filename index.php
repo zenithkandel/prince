@@ -262,61 +262,21 @@
 
         <!-- Releases Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
-          <!-- Release 1 -->
-          <a href="https://www.youtube.com/@Prince_on_guitar" target="_blank"
-            class="bg-white border-[4px] border-ink shadow-brutal-md p-4 group hover:-translate-y-2 hover:shadow-brutal-lg transition-all rotate-[-1deg]">
-            <div
-              class="aspect-square bg-gradient-to-br from-orange-400 to-red-600 border-[2px] border-ink mb-4 flex items-center justify-center overflow-hidden relative">
-              <span
-                class="font-handwriting text-5xl text-white font-bold z-10 group-hover:scale-110 transition-transform"
-                style="text-shadow: var(--shadow-solid-sm)">Suryasta</span>
-              <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity"></div>
-              <i
-                class="fa-solid fa-circle-play absolute text-white text-6xl opacity-0 group-hover:opacity-100 transition-opacity z-20 drop-shadow-md"></i>
-            </div>
-            <h3 class="font-mono font-bold text-xl uppercase">Suryasta</h3>
-            <p class="font-sans text-gray-600 text-sm">
-              Prince Neupane • Original
-            </p>
-          </a>
-
-          <!-- Release 2 -->
-          <a href="https://www.youtube.com/@Prince_on_guitar" target="_blank"
-            class="bg-white border-[4px] border-ink shadow-brutal-md p-4 group hover:-translate-y-2 hover:shadow-brutal-lg transition-all rotate-[2deg]">
-            <div
-              class="aspect-square bg-gradient-to-tr from-gray-400 to-gray-600 border-[2px] border-ink mb-4 flex items-center justify-center overflow-hidden relative">
-              <span
-                class="font-handwriting text-5xl text-white font-bold z-10 group-hover:scale-110 transition-transform"
-                style="text-shadow: var(--shadow-solid-sm)">Ajambari</span>
-              <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity"></div>
-              <i
-                class="fa-solid fa-circle-play absolute text-white text-6xl opacity-0 group-hover:opacity-100 transition-opacity z-20 drop-shadow-md"></i>
-            </div>
-            <h3 class="font-mono font-bold text-xl uppercase">Ajambari</h3>
-            <p class="font-sans text-gray-600 text-sm">
-              Prince Neupane • Original
-            </p>
-          </a>
-
-          <!-- Release 3 -->
-          <a href="https://www.youtube.com/@Prince_on_guitar" target="_blank"
-            class="bg-white border-[4px] border-ink shadow-brutal-md p-4 group hover:-translate-y-2 hover:shadow-brutal-lg transition-all rotate-[-1deg]">
-            <div
-              class="aspect-square bg-gradient-to-tr from-yellow-400 to-green-500 border-[2px] border-ink mb-4 flex items-center justify-center overflow-hidden relative">
-              <span
-                class="font-handwriting text-5xl text-white font-bold z-10 group-hover:scale-110 transition-transform text-center"
-                style="text-shadow: var(--shadow-solid-sm)">Oi<br />Chanchali</span>
-              <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity"></div>
-              <i
-                class="fa-solid fa-circle-play absolute text-white text-6xl opacity-0 group-hover:opacity-100 transition-opacity z-20 drop-shadow-md"></i>
-            </div>
-            <h3 class="font-mono font-bold text-xl uppercase">
-              Oi Chanchali
-            </h3>
-            <p class="font-sans text-gray-600 text-sm">
-              Prince Neupane • Original
-            </p>
-          </a>
+            <?php foreach($data['music']['releases'] as $index => $release): 
+                $rotations = ['rotate-[-1deg]', 'rotate-[2deg]', 'rotate-[-2deg]', 'rotate-[1deg]'];
+                $rot = $rotations[$index % 4];
+            ?>
+            <a href="<?php echo htmlspecialchars($release['link']); ?>" target="_blank" class="bg-white border-[4px] border-ink shadow-brutal-md p-4 group hover:-translate-y-2 hover:shadow-brutal-lg transition-all <?php echo $rot; ?>">
+                <div class="aspect-square border-[2px] border-ink mb-4 flex items-center justify-center overflow-hidden relative bg-gray-200">
+                    <img src="<?php echo htmlspecialchars($release['img']); ?>" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                    <i class="fa-solid fa-circle-play absolute text-white text-6xl opacity-0 group-hover:opacity-100 transition-opacity z-20 drop-shadow-md"></i>
+                </div>
+                <h3 class="font-mono font-bold text-xl uppercase"><?php echo htmlspecialchars($release['title']); ?></h3>
+                <p class="font-sans text-gray-600 text-sm"><?php echo htmlspecialchars($release['desc']); ?></p>
+            </a>
+            <?php endforeach; ?>
+        </div>
 
           <!-- Release 4 -->
           <a href="https://www.youtube.com/@Prince_on_guitar" target="_blank"
