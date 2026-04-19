@@ -144,3 +144,22 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
+    // 5. SCROLL REVEAL ANIMATION (Neobrutalist Pop)
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+    const revealOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target); // Only reveal once for that authentic snap
+        });
+    }, revealOptions);
+
+    revealElements.forEach(el => {
+        revealObserver.observe(el);
+    });

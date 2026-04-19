@@ -187,3 +187,14 @@ a:focus, button:focus, input:focus, textarea:focus {
 a:active, button:active {
     transform: translateY(2px);
 }
+
+/* Neobrutalist Scroll Reveal */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}

@@ -120,7 +120,7 @@
 
       <!-- Left Context (Text) -->
       <div
-        class="relative z-10 flex flex-col items-center md:items-start text-center md:text-left md:w-1/2 w-full mt-10 md:mt-0">
+        class="relative z-10 flex flex-col items-center md:items-start text-center md:text-left md:w-1/2 w-full mt-10 md:mt-0 scroll-reveal">
         <!-- Sticker Tag -->
         <div
           class="inline-block bg-accent-pink text-white font-mono font-bold text-sm px-4 py-1 border-[3px] border-ink shadow-brutal-sm rotate-[-4deg] mb-6 interactive-hover">
@@ -160,7 +160,7 @@
       </div>
 
       <!-- Right Context (Image/Collage) -->
-      <div class="relative z-10 w-full md:w-1/2 flex justify-center items-center mt-12 md:mt-0">
+      <div class="relative z-10 w-full md:w-1/2 flex justify-center items-center mt-12 md:mt-0 scroll-reveal" style="transition-delay: 200ms;">
         <!-- Main Polaroid -->
         <div class="relative w-72 md:w-96 polaroid rotate-3 interactive-hover group">
           <!-- Image container with mask -->
@@ -197,7 +197,7 @@
 
         <!-- Notebook Paper Grid & Content -->
         <div
-          class="relative bg-white w-full border-[4px] border-ink shadow-brutal-lg p-6 sm:p-8 md:p-16 flex flex-col lg:flex-row gap-8 sm:gap-12 md:overflow-visible interactive-hover overflow-visible"
+          class="relative bg-white w-full border-[4px] border-ink shadow-brutal-lg p-6 sm:p-8 md:p-16 flex flex-col lg:flex-row gap-8 sm:gap-12 md:overflow-visible interactive-hover overflow-visible scroll-reveal"
           style="
               background-image: linear-gradient(
                 180deg,
@@ -274,7 +274,7 @@
       <div class="relative w-full max-w-6xl mx-auto px-6 z-10 flex flex-col items-center">
         <!-- Section Title (Sticker) -->
         <div
-          class="bg-white border-[3px] border-ink shadow-brutal-md px-8 py-3 mb-16 rotate-[1deg] hover:rotate-0 transition-transform">
+          class="bg-white border-[3px] border-ink shadow-brutal-md px-8 py-3 mb-16 rotate-[1deg] hover:rotate-0 transition-transform scroll-reveal">
           <h2 class="font-marker text-5xl md:text-7xl uppercase">
             Latest Releases
           </h2>
@@ -316,7 +316,7 @@
     <section id="gallery" class="relative w-full min-h-[150vh] py-24 flex flex-col items-center z-10">
       <!-- Title Marker -->
       <div
-        class="bg-accent-yellow border-[3px] border-ink shadow-brutal-md px-10 py-4 mb-20 rotate-[-3deg] z-20 hover:rotate-3 transition-transform">
+        class="bg-accent-yellow border-[3px] border-ink shadow-brutal-md px-10 py-4 mb-20 rotate-[-3deg] z-20 hover:rotate-3 transition-transform scroll-reveal">
         <h2 class="font-marker text-5xl md:text-7xl uppercase text-ink">
           Visuals
         </h2>
@@ -353,7 +353,7 @@
       <div class="relative w-full max-w-4xl mx-auto px-4 flex flex-col items-center">
         <!-- Large Sticky Note -->
         <div
-          class="bg-accent-yellow w-full md:w-3/4 max-w-2xl border-[4px] border-ink shadow-brutal-lg p-8 md:p-14 relative rotate-2 interactive-hover transition-transform duration-300 hover:rotate-1">
+          class="bg-accent-yellow w-full md:w-3/4 max-w-2xl border-[4px] border-ink shadow-brutal-lg p-8 md:p-14 relative rotate-2 interactive-hover transition-transform duration-300 hover:rotate-1 scroll-reveal">
           <!-- Virtual Pin -->
           <div
             class="w-8 h-8 rounded-full bg-red-500 border-2 border-white shadow-md absolute -top-4 left-1/2 transform -translate-x-1/2">
