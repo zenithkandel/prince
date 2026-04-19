@@ -365,7 +365,7 @@
               class="bg-white border-[3px] border-ink p-4 flex items-center gap-4 hover-wiggle group cursor-pointer transition-colors hover:bg-accent-pink shadow-brutal-sm">
               <i class="fa-solid fa-envelope-open-text text-3xl group-hover:text-white transition-colors"></i>
               <div>
-                <h4 class="font-mono font-bold text-lg leading-none group-hover:text-white">Email</h4>
+                <h3 class="font-mono font-bold text-lg leading-none group-hover:text-white">Email</h3>
                 <span class="font-sans text-sm text-gray-600 group-hover:text-gray-200">69.prince.0112@gmail.com</span>
               </div>
             </a>
