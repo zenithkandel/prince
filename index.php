@@ -1,5 +1,4 @@
-<?php $data = json_decode(file_get_contents('data.json'), true); ?>`n
-<!doctype html>
+<?php $data = json_decode(file_get_contents('data.json'), true); ?><!doctype html>
 <html lang="en" class="scroll-smooth">
 
 <head>
