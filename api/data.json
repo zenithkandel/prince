@@ -116,6 +116,11 @@
                 "img": "",
                 "caption": "New Photo",
                 "classes": "w-64 rotate-2"
+            },
+            {
+                "img": "images\/1776559667_image-1765745759683.jpg",
+                "caption": "test",
+                "classes": "tt"
             }
         ]
     },
