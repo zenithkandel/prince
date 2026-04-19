@@ -160,7 +160,8 @@
       </div>
 
       <!-- Right Context (Image/Collage) -->
-      <div class="relative z-10 w-full md:w-1/2 flex justify-center items-center mt-12 md:mt-0 scroll-reveal" style="transition-delay: 200ms;">
+      <div class="relative z-10 w-full md:w-1/2 flex justify-center items-center mt-12 md:mt-0 scroll-reveal"
+        style="transition-delay: 200ms;">
         <!-- Main Polaroid -->
         <div class="relative w-72 md:w-96 polaroid rotate-3 interactive-hover group">
           <!-- Image container with mask -->
@@ -281,7 +282,8 @@
         </div>
 
         <!-- Releases Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full scroll-reveal"
+          style="transition-delay: 200ms;">
           <?php foreach ($data['music']['releases'] as $index => $release):
             $rotations = ['rotate-[-1deg]', 'rotate-[2deg]', 'rotate-[-2deg]', 'rotate-[1deg]'];
             $rot = $rotations[$index % 4];
@@ -328,7 +330,7 @@
 
       <!-- The Grid / Scatter Canvas -->
       <div
-        class="relative w-full max-w-6xl min-h-screen flex flex-wrap justify-center content-center gap-10 px-4 md:px-0 pb-32">
+        class="relative w-full max-w-6xl min-h-screen flex flex-wrap justify-center content-center gap-10 px-4 md:px-0 pb-32 scroll-reveal text-center">
         <?php foreach ($data['gallery']['images'] as $photo): ?>
           <div
             class="gallery-item polaroid bg-white p-3 md:p-4 pb-10 md:pb-12 border-[4px] border-ink cursor-grab hover:z-50 m-4 shadow-brutal-md transition-all duration-300 hover:scale-105 active:scale-95 max-w-[85vw] md:max-w-[400px] <?php echo htmlspecialchars($photo['classes']); ?>"
