@@ -68,39 +68,39 @@
         "badge": "xox",
         "images": [
             {
-                "img": "images\/prince-img-03.jpg",
                 "caption": "backstage \u2728",
-                "classes": "w-64 md:w-80 rotate-6"
+                "classes": "w-64 md:w-80 rotate-6",
+                "img": "images\/prince-img-03.jpg"
             },
             {
-                "img": "images\/prince-img-04.jpg",
                 "caption": "lost in it.",
-                "classes": "w-56 md:w-72 -rotate-12 md:ml-12 mt-12 md:mt-24"
+                "classes": "w-56 md:w-72 -rotate-12 md:ml-12 mt-12 md:mt-24",
+                "img": "images\/prince-img-04.jpg"
             },
             {
-                "img": "images\/prince-img-05.jpg",
                 "caption": "VON Kids Finale",
-                "classes": "w-72 md:w-96 rotate-2 z-20 md:-mt-10"
+                "classes": "w-72 md:w-96 rotate-2 z-20 md:-mt-10",
+                "img": "images\/prince-img-05.jpg"
             },
             {
-                "img": "images\/prince-img-06.jpg",
                 "caption": "good times \ud83d\udc9b",
-                "classes": "w-60 md:w-80 rotate-[-8deg] md:-ml-20"
+                "classes": "w-60 md:w-80 rotate-[-8deg] md:-ml-20",
+                "img": "images\/prince-img-06.jpg"
             },
             {
-                "img": "images\/prince-img-07.jpg",
                 "caption": "vibing in TN",
-                "classes": "w-48 md:w-64 rotate-[15deg] mt-[-30px]"
+                "classes": "w-48 md:w-64 rotate-[15deg] mt-[-30px]",
+                "img": "images\/prince-img-07.jpg"
             },
             {
-                "img": "images\/prince-img-08.jpg",
                 "caption": "friends + fam",
-                "classes": "w-64 md:w-80 rotate-[-4deg] md:mt-20"
+                "classes": "w-64 md:w-80 rotate-[-4deg] md:mt-20",
+                "img": "images\/prince-img-08.jpg"
             },
             {
-                "img": "images\/prince-img-09.jpg",
                 "caption": "random memory",
-                "classes": "w-56 md:w-72 rotate-[7deg] md:-ml-12 mt-10 md:-mt-10"
+                "classes": "w-56 md:w-72 rotate-[7deg] md:-ml-12 mt-10 md:-mt-10",
+                "img": "images\/prince-img-09.jpg"
             }
         ]
     },
@@ -111,8 +111,8 @@
         "email": "69.prince.0112@gmail.com",
         "instagram": "https:\/\/instagram.com\/prince_on_guitar",
         "youtube": "https:\/\/www.youtube.com\/@Prince_on_guitar",
-        "tiktok": "#",
-        "spotify": "#",
+        "tiktok": "https:\/\/www.tiktok.com\/@prince_on_guitar",
+        "spotify": "https:\/\/open.spotify.com\/artist\/0hNrlNh35ry716d21wfkd4",
         "footer": "\u00a9 2026 Prince Neupane. All rights reserved.",
         "signature": "- Prince"
     }
