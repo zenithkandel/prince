@@ -4,8 +4,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO & Meta Tags -->
   <title>Prince Neupane - Portfolio</title>
-
+  <meta name="description" content="Official portfolio of Prince Neupane. Explore the music, photos, and creative journey of an independent artist." />
+  <meta name="keywords" content="Prince Neupane, Music, Portfolio, Artist, Musician, Creative" />
+  <meta name="author" content="Prince Neupane" />
+  <meta property="og:title" content="Prince Neupane - Portfolio" />
+  <meta property="og:description" content="Official portfolio of Prince Neupane. Explore the music, photos, and creative journey of an independent artist." />
+  <meta property="og:image" content="<?php echo htmlspecialchars(isset($data['hero']['img']) ? $data['hero']['img'] : ''); ?>" />
+  <meta property="og:url" content="https://princeneupane.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Prince Neupane - Portfolio" />
+  <meta name="twitter:description" content="Official portfolio of Prince Neupane. Explore the music, photos, and creative journey." />
+  
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -149,7 +161,7 @@
         <div class="relative w-72 md:w-96 polaroid rotate-3 interactive-hover group">
           <!-- Image container with mask -->
           <div class="w-full h-80 md:h-[450px] border-[3px] border-ink overflow-hidden bg-white mb-4">
-            <img src="<?php echo htmlspecialchars($data['hero']['img']); ?>" alt="Prince Neupane"
+              <img src="<?php echo htmlspecialchars($data['hero']['img']); ?>" alt="Prince Neupane - Hero Image" loading="lazy"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" />
           </div>
           <!-- Caption -->
@@ -194,7 +206,7 @@
           <!-- Left: Polaroid / Story Image -->
           <div class="w-full md:w-1/3 relative z-20 flex flex-col gap-6">
             <div class="polaroid -rotate-3">
-              <img src="<?php echo htmlspecialchars($data['about']['img']); ?>" alt="Prince Singing"
+                <img src="<?php echo htmlspecialchars($data['about']['img']); ?>" alt="Prince Singing - About Image" loading="lazy"
                 class="w-full h-auto aspect-[3/4] object-cover border-[2px] border-ink filter sepia hover:sepia-0 transition-all duration-500" />
               <p class="font-handwriting text-xl text-center mt-2">
                 <?php echo htmlspecialchars($data['about']['img_caption']); ?> 🏫
@@ -268,7 +280,7 @@
               class="bg-white border-[4px] border-ink shadow-brutal-md p-4 group hover:-translate-y-2 hover:shadow-brutal-lg transition-all <?php echo $rot; ?>">
               <div
                 class="aspect-square border-[2px] border-ink mb-4 flex items-center justify-center overflow-hidden relative bg-gray-200">
-                <img src="<?php echo htmlspecialchars($release['img']); ?>" alt=""
+                  <img src="<?php echo htmlspecialchars($release['img']); ?>" alt="<?php echo htmlspecialchars($release['title']); ?> Cover Art" loading="lazy"
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                 <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity"></div>
                 <i
@@ -311,7 +323,7 @@
             class="gallery-item polaroid bg-white p-3 md:p-4 pb-10 md:pb-12 border-[4px] border-ink cursor-grab hover:z-50 m-4 shadow-brutal-md transition-all duration-300 hover:scale-105 active:scale-95 max-w-[85vw] md:max-w-[400px] <?php echo htmlspecialchars($photo['classes']); ?>"
             <?php echo !empty($photo['style']) ? 'style="' . htmlspecialchars($photo['style']) . '"' : ''; ?>>
             <div class="w-full aspect-[4/5] border-[3px] border-ink overflow-hidden bg-gray-200">
-              <img src="<?php echo htmlspecialchars($photo['img']); ?>" alt="Gallery" class="w-full h-full object-cover">
+                <img src="<?php echo htmlspecialchars($photo['img']); ?>" alt="Gallery Photo - <?php echo htmlspecialchars($photo['caption'] ?? 'Prince Neupane'); ?>" loading="lazy" class="w-full h-full object-cover">
             </div>
             <p class="font-handwriting text-2xl text-center text-ink mt-2">
               <?php echo htmlspecialchars($photo['caption']); ?></p>

@@ -118,3 +118,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+    // 4. SCROLL SPY - ACTIVE NAV LINKS
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav ul li a');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        const scrollY = window.pageYOffset;
+
+        sections.forEach(section => {
+            const sectionHeight = section.offsetHeight;
+            const sectionTop = section.offsetTop - 150; // offset for nav height/padding
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('underline', 'decoration-4', 'underline-offset-4', 'text-ink');
+            
+            // Re-apply hover class logic dynamically or just use simple active state
+            if (link.getAttribute('href') === #\) {
+                link.classList.add('underline', 'decoration-4', 'underline-offset-4');
+            }
+        });
+    });
