@@ -286,12 +286,7 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
                     </section>
 
                     <!-- Sticky Save Action Footer -->
-                    <div class="sticky bottom-6 mt-16 z-30 pt-4">
-                        <button type="submit"
-                            class="w-full bg-black text-white font-black text-2xl md:text-3xl p-6 uppercase tracking-widest border-[6px] border-black brutal-shadow-lg hover:bg-gray-800 hover:scale-[1.01] hover:-translate-y-1 transition-all block text-center focus:outline-none focus:ring-[8px] focus:ring-yellow-300">
-                            <i class="fa-solid fa-floppy-disk"></i> Save General Settings
-                        </button>
-                    </div>
+                    <div class="fixed bottom-24 md:bottom-10 right-6 z-[90]"><button type="submit" class="bg-black text-white font-black text-xl md:text-2xl px-8 py-4 uppercase tracking-widest border-[4px] border-black brutal-shadow-lg hover:bg-gray-800 hover:scale-105 active:scale-95 transition-all text-center"><i class="fa-solid fa-floppy-disk"></i> Save General</button></div>
                 </form>
             <?php endif; ?>
 
@@ -403,12 +398,7 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
                             <?php endforeach; ?>
                         </div>
 
-                        <div class="sticky bottom-6 mt-16 z-30 pt-4">
-                            <button type="submit"
-                                class="w-full bg-[#00e5ff] text-black font-black text-2xl md:text-3xl p-6 uppercase tracking-widest border-[6px] border-black brutal-shadow-lg hover:bg-cyan-300 hover:scale-[1.01] hover:-translate-y-1 transition-all block text-center focus:outline-none focus:ring-[8px] focus:ring-yellow-300">
-                                <i class="fa-solid fa-floppy-disk"></i> Save Music Configuration
-                            </button>
-                        </div>
+                        <div class="fixed bottom-24 md:bottom-10 right-6 z-[90]"><button type="submit" class="bg-[#00e5ff] text-black font-black text-xl md:text-2xl px-8 py-4 uppercase tracking-widest border-[4px] border-black brutal-shadow-lg hover:bg-cyan-300 hover:scale-105 active:scale-95 transition-all text-center"><i class="fa-solid fa-floppy-disk"></i> Save Music</button></div>
                     <?php endif; ?>
                 </form>
 
@@ -581,12 +571,7 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
                             <?php endforeach; ?>
                         </div>
 
-                        <div class="sticky bottom-6 mt-16 z-30 pt-4">
-                            <button type="submit"
-                                class="w-full bg-[#ff00ff] text-white font-black text-2xl md:text-3xl p-6 uppercase tracking-widest border-[6px] border-black brutal-shadow-lg hover:bg-pink-600 hover:scale-[1.01] hover:-translate-y-1 transition-all block text-center focus:outline-none focus:ring-[8px] focus:ring-pink-300 shadow-[8px_8px_0px_#000]">
-                                <i class="fa-solid fa-floppy-disk"></i> Save Gallery Configuration
-                            </button>
-                        </div>
+                        <div class="fixed bottom-24 md:bottom-10 right-6 z-[90]"><button type="submit" class="bg-[#ff00ff] text-white font-black text-xl md:text-2xl px-8 py-4 uppercase tracking-widest border-[4px] border-black brutal-shadow-lg hover:bg-pink-600 hover:scale-105 active:scale-95 transition-all text-center shadow-[6px_6px_0px_#000]"><i class="fa-solid fa-floppy-disk"></i> Save Gallery</button></div>
                     <?php endif; ?>
                 </form>
 
@@ -682,6 +667,8 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
                 <div>
                     <label class="block font-bold mb-2 uppercase text-sm">Streaming Link</label>
                     <input type="url" name="music_meta[link]" placeholder="https://open.spotify.com/..." class="w-full border-[3px] border-black p-3 font-mono focus:outline-none focus:ring-4 focus:ring-cyan-200 bg-white">
+                                              <!-- Delete trigger -->
+                                              <button type="button" onclick="confirmDelete(\'del-music-<?php echo $index; ?>\', \'<?php echo htmlspecialchars(addslashes($item[\'title\'] ?: \'This item\')); ?>\')" class="absolute -top-4 -right-4 bg-red-500 text-white w-10 h-10 rounded-full border-4 border-black brutal-shadow flex items-center justify-center hover:bg-red-700 hover:scale-110 active:scale-95 transition-all z-50 text-xl font-bold" title="Delete Release">&times;</button>
                 </div>
                 
                 <button type="submit" class="w-full bg-black text-white font-black text-xl p-4 uppercase border-[4px] border-black brutal-shadow hover:bg-gray-800 hover:-translate-y-1 block text-center focus:outline-none">
@@ -712,6 +699,8 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
                 <div>
                     <label class="block font-bold mb-2 uppercase text-sm">CSS Classes</label>
                     <input type="text" name="gallery_meta[classes]" placeholder="rotate-3 w-64 md:right-10" class="w-full border-[3px] border-black p-3 font-mono focus:outline-none focus:ring-4 focus:ring-pink-200 bg-white">
+                                              <!-- Delete trigger -->
+                                              <button type="button" onclick="confirmDelete(\'del-gallery-<?php echo $index; ?>\', \'Photo frame #<?php echo $index + 1; ?>\')" class="absolute -top-4 -right-4 bg-red-500 text-white w-10 h-10 rounded-full border-4 border-black brutal-shadow flex items-center justify-center hover:bg-red-700 hover:scale-110 active:scale-95 transition-all z-50 text-xl font-bold" title="Delete Photo">&times;</button>
                 </div>
                 
                 <button type="submit" class="w-full bg-black text-white font-black text-xl p-4 uppercase border-[4px] border-black brutal-shadow hover:bg-gray-800 hover:-translate-y-1 block text-center focus:outline-none">
@@ -720,6 +709,53 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
             </form>
         </div>
     </div>
+
+
+
+    <!-- Custom Confirm Delete Modal -->
+    <div id="delete-modal" class="hidden fixed inset-0 z-[200] bg-black bg-opacity-70 flex items-center justify-center p-4 backdrop-blur-sm transition-opacity">
+        <div class="bg-white border-[6px] border-black brutal-shadow-lg w-full max-w-sm overflow-hidden transform -rotate-1 relative">
+            <div class="absolute -top-4 -right-4 bg-red-500 w-12 h-12 rounded-full border-4 border-black z-0"></div>
+            <div class="bg-red-600 text-white border-b-4 border-black p-4 flex justify-between items-center relative z-10">
+                <h2 class="font-black text-2xl uppercase tracking-widest"><i class="fa-solid fa-triangle-exclamation"></i> Warning</h2>
+            </div>
+            <div class="p-6 relative z-10">
+                <p class="font-bold text-lg mb-6 leading-tight border-b-2 border-red-200 pb-4">
+                    Are you incredibly sure you want to permanently delete <br/><span id="delete-target-name" class="font-black text-red-600 text-xl inline-block mt-2 bg-red-100 px-2 py-1 transform rotate-1 border-2 border-red-300"></span> ?
+                </p>
+                <div class="flex gap-4">
+                    <button type="button" onclick="closeDeleteModal()" class="flex-1 bg-white text-black font-black p-3 border-[4px] border-black brutal-shadow hover:-translate-y-1 active:translate-y-0 transition-transform uppercase focus:outline-none">
+                        Cancel
+                    </button>
+                    <button type="button" id="confirm-delete-btn" class="flex-1 bg-red-600 text-white font-black p-3 border-[4px] border-black brutal-shadow hover:bg-red-700 hover:-translate-y-1 active:translate-y-0 transition-transform uppercase focus:outline-none">
+                        Delete It!
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script to handle custom delete modal -->
+    <script>
+        let currentDeleteFormId = null;
+
+        function confirmDelete(formId, targetName) {
+            currentDeleteFormId = formId;
+            document.getElementById('delete-target-name').innerText = targetName;
+            document.getElementById('delete-modal').classList.remove('hidden');
+        }
+
+        function closeDeleteModal() {
+            document.getElementById('delete-modal').classList.add('hidden');
+            currentDeleteFormId = null;
+        }
+
+        document.getElementById('confirm-delete-btn').addEventListener('click', function() {
+            if (currentDeleteFormId) {
+                document.getElementById(currentDeleteFormId).submit();
+            }
+        });
+    </script>
 
 </body>
 
