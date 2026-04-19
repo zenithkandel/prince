@@ -179,3 +179,11 @@ body {
     background: var(--color-accent-yellow);
     color: var(--color-text-dark);
 }
+/* Accessibility & Focus States */
+a:focus, button:focus, input:focus, textarea:focus {
+    outline: 3px solid var(--color-accent-pink);
+    outline-offset: 2px;
+}
+a:active, button:active {
+    transform: translateY(2px);
+}

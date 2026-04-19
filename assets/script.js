@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
             link.classList.remove('underline', 'decoration-4', 'underline-offset-4', 'text-ink');
             
             // Re-apply hover class logic dynamically or just use simple active state
-            if (link.getAttribute('href') === #\) {
+            if (link.getAttribute('href') === '#' + current) {
                 link.classList.add('underline', 'decoration-4', 'underline-offset-4');
             }
         });
