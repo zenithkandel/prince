@@ -16,7 +16,7 @@ function handle_upload($input_name)
         $filename = time() . '_' . basename($_FILES[$input_name]["name"]);
         $target_file = $target_dir . $filename;
         if (move_uploaded_file($_FILES[$input_name]["tmp_name"], $target_file)) {
-            return $target_file;
+            return "images/" . $filename;
         }
     }
     return false;
