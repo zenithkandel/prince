@@ -1,0 +1,144 @@
+{
+    "hero": {
+        "tag": "@Prince_on_guitar",
+        "title_first": "Prince",
+        "title_last": "Neupane",
+        "subtitle": "Guitarist. Vocalist. Creator.",
+        "location": "\ud83c\uddf3\ud83c\uddf5 Nepal \u2192 \ud83c\udde8\ud83c\udde6 Toronto",
+        "img": "images\/prince-img-01.jpg",
+        "img_caption": "me! \u2728",
+        "img_badge": "Vibes<br>Only",
+        "cta": "Hit Play"
+    },
+    "about": {
+        "img": "images\/prince-img-02.jpg",
+        "img_caption": "Budhanilkantha Days \ud83c\udfeb",
+        "title": "About Me",
+        "content_p1": "Hey! I'm Prince. Born in the vibrant streets of Nepal, now making noise in Toronto, Canada. \ud83c\udf41",
+        "content_highlight": "Raised at Budhanilkantha School.",
+        "content_p2": "Making music has always been my journey. From early experiences like a brief stint on <span class=\"bg-accent-blue px-2 rotate-[-1deg] inline-block shadow-brutal-sm text-white\">Voice of Nepal Kids<\/span>, to now writing and producing my own original tracks. I play guitar, I sing, and I build worlds through music.",
+        "badge_icon": "fa-solid fa-guitar",
+        "badge_text": "100% Raw"
+    },
+    "music": {
+        "title": "Latest Releases",
+        "releases": [
+            {
+                "title": "Suryasta",
+                "desc": "Prince Neupane \u2022 Original",
+                "link": "https:\/\/www.youtube.com\/@Prince_on_guitar",
+                "img": "images\/1776530338_suryasta.png"
+            },
+            {
+                "title": "Ajambari",
+                "desc": "Prince Neupane \u2022 Original",
+                "link": "https:\/\/www.youtube.com\/@Prince_on_guitar",
+                "img": "images\/1776530338_ajambari.png"
+            },
+            {
+                "title": "Oi Chanchali",
+                "desc": "Prince Neupane \u2022 Original",
+                "link": "https:\/\/www.youtube.com\/@Prince_on_guitar",
+                "img": "images\/1776530338_chanchali.png"
+            },
+            {
+                "title": "Biraha",
+                "desc": "Prince Neupane \u2022 Original",
+                "link": "https:\/\/www.youtube.com\/@Prince_on_guitar",
+                "img": "images\/1776530338_biraha.png"
+            },
+            {
+                "title": "Lust",
+                "desc": "Prince Neupane \u2022 Original",
+                "link": "https:\/\/www.youtube.com\/@Prince_on_guitar",
+                "img": "images\/1776530338_lust.png"
+            },
+            {
+                "title": "Confusion",
+                "desc": "Prince Neupane \u2022 Original",
+                "link": "https:\/\/www.youtube.com\/@Prince_on_guitar",
+                "img": "images\/1776530338_confusion.png"
+            }
+        ],
+        "cta": "More on YouTube",
+        "cta_link": "https:\/\/www.youtube.com\/@Prince_on_guitar"
+    },
+    "gallery": {
+        "title": "Visuals",
+        "badge": "xox",
+        "images": [
+            {
+                "img": "images\/prince-img-03.jpg",
+                "caption": "backstage \u2728",
+                "classes": "w-64 md:w-80 rotate-6"
+            },
+            {
+                "img": "images\/prince-img-04.jpg",
+                "caption": "lost in it.",
+                "classes": "w-56 md:w-72 -rotate-12 md:ml-12 mt-12 md:mt-24"
+            },
+            {
+                "img": "images\/prince-img-05.jpg",
+                "caption": "VON Kids Finale",
+                "classes": "w-72 md:w-96 rotate-2 z-20 md:-mt-10"
+            },
+            {
+                "img": "images\/prince-img-06.jpg",
+                "caption": "good times \ud83d\udc9b",
+                "classes": "w-60 md:w-80 rotate-[-8deg] md:-ml-20"
+            },
+            {
+                "img": "images\/prince-img-07.jpg",
+                "caption": "vibing in TN",
+                "classes": "w-48 md:w-64 rotate-[15deg] mt-[-30px]"
+            },
+            {
+                "img": "images\/prince-img-08.jpg",
+                "caption": "friends + fam",
+                "classes": "w-64 md:w-80 rotate-[-4deg] md:mt-20"
+            },
+            {
+                "img": "images\/prince-img-09.jpg",
+                "caption": "random memory",
+                "classes": "w-56 md:w-72 rotate-[7deg] md:-ml-12 mt-10 md:-mt-10"
+            },
+            {
+                "img": "images\/prince-img-10.jpg",
+                "caption": "The Journey \u2764\ufe0f\u200d\ud83d\udd25",
+                "classes": "w-64 md:w-96 border-[4px] border-accent-pink rotate-[-1deg] z-10 md:mt-16"
+            },
+            {
+                "img": "",
+                "caption": "New Photo",
+                "classes": "w-64 rotate-2"
+            },
+            {
+                "img": "",
+                "caption": "New Photo",
+                "classes": "w-64 rotate-2"
+            },
+            {
+                "img": "images\/1776559667_image-1765745759683.jpg",
+                "caption": "test",
+                "classes": "tt"
+            },
+            {
+                "img": "images\/1776560735_favicon.ico",
+                "caption": "new entry",
+                "classes": "w-48 md:w-64 -rotate-2"
+            }
+        ]
+    },
+    "contact": {
+        "title": "Let's Connect",
+        "desc_p1": "Got a beat? A show? Or just wanna say hi?",
+        "desc_p2": "Drop me a line, I don't bite. \ud83c\udfb8",
+        "email": "69.prince.0112@gmail.com",
+        "instagram": "https:\/\/instagram.com\/prince_on_guitar",
+        "youtube": "https:\/\/www.youtube.com\/@Prince_on_guitar",
+        "tiktok": "#",
+        "spotify": "#",
+        "footer": "\u00a9 2026 Prince Neupane. All rights reserved.",
+        "signature": "- Prince"
+    }
+}
