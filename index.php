@@ -306,7 +306,7 @@
       <!-- The Grid / Scatter Canvas -->
         <div class="relative w-full max-w-6xl h-full flex flex-wrap justify-center content-center gap-6 px-4 md:px-0">
           <?php foreach ($data['gallery']['images'] as $photo): ?>
-          <div class="polaroid <?php echo htmlspecialchars($photo['classes']); ?> md:absolute scale-90 md:scale-100 shadow-brutal-md hover:shadow-brutal-lg z-10 hover:z-[60]"
+          <div class="polaroid bg-white p-4 pb-12 border-[4px] border-ink bg-white transition-all duration-300 md:absolute scale-90 md:scale-100 shadow-brutal-md hover:shadow-brutal-lg z-[10] hover:z-[60] <?php echo htmlspecialchars($photo['classes']); ?>"
              <?php echo !empty($photo['style']) ? 'style="'.htmlspecialchars($photo['style']).'"' : ''; ?>>
             <div class="w-64 h-80 border-[3px] border-ink overflow-hidden bg-gray-200">
               <img src="<?php echo htmlspecialchars($photo['img']); ?>" alt="Gallery" class="w-full h-full object-cover">
