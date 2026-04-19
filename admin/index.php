@@ -13,6 +13,7 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prince Neupane - Admin Panel</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://zenithkandel.com.np/fontawesome/zenith-icons.js"></script>
@@ -94,22 +95,29 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
     </aside>
 
     <!-- Mobile Bottom Navigation -->
-    <nav class="md:hidden fixed bottom-0 left-0 w-full bg-white border-t-4 border-black flex justify-around p-2 z-50">
-        <a href="?tab=general" class="flex-1 flex flex-col items-center justify-center py-2 relative <?php echo $tab === 'general' ? 'text-black' : 'text-gray-400 hover:text-black'; ?>">
-            <?php if($tab === 'general'): ?><div class="absolute inset-0 bg-yellow-300 border-2 border-black brutal-shadow rounded -z-10 w-11/12 mx-auto"></div><?php endif; ?>
-            <i class="fa-solid fa-house mb-1 text-xl"></i>
-            <span class="text-[10px] font-black uppercase tracking-wider">Stats</span>
-        </a>
-        <a href="?tab=music" class="flex-1 flex flex-col items-center justify-center py-2 relative <?php echo $tab === 'music' ? 'text-black' : 'text-gray-400 hover:text-black'; ?>">
-            <?php if($tab === 'music'): ?><div class="absolute inset-0 bg-[#00e5ff] border-2 border-black brutal-shadow rounded -z-10 w-11/12 mx-auto"></div><?php endif; ?>
-            <i class="fa-solid fa-music mb-1 text-xl"></i>
-            <span class="text-[10px] font-black uppercase tracking-wider">Music</span>
-        </a>
-        <a href="?tab=gallery" class="flex-1 flex flex-col items-center justify-center py-2 relative <?php echo $tab === 'gallery' ? 'text-black' : 'text-gray-400 hover:text-black'; ?>">
-            <?php if($tab === 'gallery'): ?><div class="absolute inset-0 bg-[#ff00ff] text-white border-2 border-black brutal-shadow rounded -z-10 w-11/12 mx-auto"></div><?php endif; ?>
-            <i class="fa-solid fa-camera mb-1 text-xl <?php echo $tab === 'gallery' ? 'text-white' : ''; ?>"></i>
-            <span class="text-[10px] font-black uppercase tracking-wider <?php echo $tab === 'gallery' ? 'text-white' : ''; ?>">Gallery</span>
-        </a>
+    <nav class="md:hidden fixed bottom-4 left-0 w-full z-50 px-4">
+        <div class="flex justify-center">
+            <ul class="flex items-center justify-between w-full max-w-sm bg-yellow-300 px-4 py-3 border-[3px] border-black brutal-shadow rotate-1">
+                <li class="text-center w-1/3">
+                    <a href="?tab=general" class="font-mono font-bold text-[10px] uppercase flex flex-col items-center <?php echo $tab === 'general' ? 'text-black scale-110' : 'text-gray-800 opacity-80'; ?>">
+                        <i class="fa-solid fa-house mb-1 text-xl"></i>
+                        <span>Stats</span>
+                    </a>
+                </li>
+                <li class="text-center w-1/3">
+                    <a href="?tab=music" class="font-mono font-bold text-[10px] uppercase flex flex-col items-center <?php echo $tab === 'music' ? 'text-black scale-110' : 'text-gray-800 opacity-80'; ?>">
+                        <i class="fa-solid fa-music mb-1 text-xl"></i>
+                        <span>Music</span>
+                    </a>
+                </li>
+                <li class="text-center w-1/3">
+                    <a href="?tab=gallery" class="font-mono font-bold text-[10px] uppercase flex flex-col items-center <?php echo $tab === 'gallery' ? 'text-black scale-110' : 'text-gray-800 opacity-80'; ?>">
+                        <i class="fa-solid fa-camera mb-1 text-xl"></i>
+                        <span>Gallery</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </nav>
 
     <!-- Main Content Area -->

@@ -107,6 +107,18 @@
                 "caption": "The Journey \u2764\ufe0f\u200d\ud83d\udd25",
                 "classes": "w-64 md:w-96 border-[4px] border-accent-pink rotate-[-1deg] z-10 md:mt-16"
             }
+        ],
+        "..\/images": [
+            {
+                "img": "",
+                "caption": "New Photo",
+                "classes": "w-64 rotate-2"
+            },
+            {
+                "img": "",
+                "caption": "New Photo",
+                "classes": "w-64 rotate-2"
+            }
         ]
     },
     "contact": {
