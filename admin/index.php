@@ -174,7 +174,7 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
                                     <div
                                         class="w-16 h-16 md:w-20 md:h-20 border-2 border-black flex-shrink-0 bg-white overflow-hidden flex items-center justify-center brutal-shadow-sm">
                                         <?php if (isset($data['hero']['img']) && $data['hero']['img']): ?>
-                                            <img src="<?php echo htmlspecialchars($data['hero']['img']); ?>"
+                                            <img src="../<?php echo htmlspecialchars($data['hero']['img']); ?>"
                                                 class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300">
                                         <?php else: ?>
                                             <span class="text-[10px] uppercase font-bold text-gray-400">None</span>
@@ -236,7 +236,7 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
                                     <div
                                         class="w-16 h-16 md:w-20 md:h-20 border-2 border-black flex-shrink-0 bg-white overflow-hidden flex items-center justify-center brutal-shadow-sm">
                                         <?php if (isset($data['about']['img']) && $data['about']['img']): ?>
-                                            <img src="<?php echo htmlspecialchars($data['about']['img']); ?>"
+                                            <img src="../<?php echo htmlspecialchars($data['about']['img']); ?>"
                                                 class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300">
                                         <?php else: ?>
                                             <span class="text-[10px] uppercase font-bold text-gray-400">None</span>
@@ -310,7 +310,7 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
                                         <div
                                             class="w-full xl:w-24 h-48 xl:h-24 border-4 border-black bg-gray-100 flex-shrink-0 flex items-center justify-center overflow-hidden relative group/img">
                                             <?php if (!empty($item['img'])): ?>
-                                                <img src="<?php echo htmlspecialchars($item['img']); ?>"
+                                                <img src="../<?php echo htmlspecialchars($item['img']); ?>"
                                                     class="w-full h-full object-cover relative z-10 grayscale group-hover/img:grayscale-0 transition-all duration-500">
                                             <?php else: ?>
                                                 <span
@@ -476,7 +476,7 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
                                                 <!-- Visual Preview matching frontend scrapbook style -->
                                                 <div
                                                     class="p-2 pb-6 bg-white border-2 border-gray-300 shadow-[2px_4px_10px_rgba(0,0,0,0.1)] w-full h-full relative">
-                                                    <img src="<?php echo htmlspecialchars($item['img']); ?>"
+                                                    <img src="../<?php echo htmlspecialchars($item['img']); ?>"
                                                         class="w-full h-full object-cover sepia-[0.3] contrast-[1.1] grayscale-[0.2]">
                                                     <div class="absolute bottom-1 w-full text-center inset-x-0">
                                                         <span
