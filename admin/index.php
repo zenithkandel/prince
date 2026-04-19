@@ -308,13 +308,10 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
                             Manage your releases. Edit inline & save instantly.</p>
                     </div>
 
-                    <form method="POST" action="../api/update.php" class="inline-block mt-2 md:mt-0 flex-shrink-0">
-                        <input type="hidden" name="action" value="add_music_item">
-                        <button type="submit"
-                            class="bg-yellow-300 font-black flex items-center justify-center gap-3 border-[4px] border-black px-8 py-5 brutal-shadow hover:bg-yellow-400 hover:-translate-y-1 uppercase transition-all w-full text-xl md:text-2xl hover:scale-105 active:scale-95">
-                            <span class="text-3xl leading-none block align-middle mt-[-4px]">+</span> Add Release
-                        </button>
-                    </form>
+                    <button type="button" onclick="document.getElementById('music-modal').classList.remove('hidden')"
+                        class="bg-yellow-300 font-black flex items-center justify-center gap-3 border-[4px] border-black px-8 py-5 brutal-shadow hover:bg-yellow-400 hover:-translate-y-1 uppercase transition-all w-full text-xl md:text-2xl hover:scale-105 active:scale-95">
+                        <span class="text-3xl leading-none block align-middle mt-[-4px]">+</span> Add Release
+                    </button>
                 </div>
 
                 <form action="../api/update.php" method="POST" enctype="multipart/form-data" class="space-y-10">
@@ -471,13 +468,10 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
                             Manage your digital scrapbook. Layout classes use Tailwind.</p>
                     </div>
 
-                    <form method="POST" action="../api/update.php" class="inline-block mt-2 md:mt-0 flex-shrink-0">
-                        <input type="hidden" name="action" value="add_gallery_item">
-                        <button type="submit"
-                            class="bg-[#ff00ff] text-white font-black flex items-center justify-center gap-3 border-[4px] border-black px-8 py-5 brutal-shadow hover:bg-pink-600 hover:-translate-y-1 uppercase transition-all w-full text-xl md:text-2xl hover:scale-105 active:scale-95 shadow-[8px_8px_0px_#000]">
-                            <span class="text-3xl leading-none block align-middle mt-[-4px]">+</span> Add Photo
-                        </button>
-                    </form>
+                    <button type="button" onclick="document.getElementById('gallery-modal').classList.remove('hidden')"
+                        class="bg-[#ff00ff] text-white font-black flex items-center justify-center gap-3 border-[4px] border-black px-8 py-5 brutal-shadow hover:bg-pink-600 hover:-translate-y-1 uppercase transition-all w-full text-xl md:text-2xl hover:scale-105 active:scale-95 shadow-[8px_8px_0px_#000]">
+                        <span class="text-3xl leading-none block align-middle mt-[-4px]">+</span> Add Photo
+                    </button>
                 </div>
 
                 <form action="../api/update.php" method="POST" enctype="multipart/form-data" class="space-y-10">
@@ -630,7 +624,7 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
                                                 Photo #<?php echo $index + 1; ?></span>
                                         </div>
                                         <span
-                                            class="text-3xl group-hover:scale-125 group-hover:-rotate-12 transition-transform opacity-30 group-hover:opacity-100 flex-shrink-0 pr-2">??</span>
+                                            class="text-3xl group-hover:scale-125 group-hover:-rotate-12 transition-transform opacity-30 group-hover:opacity-100 flex-shrink-0 pr-2"><i class="fa-solid fa-trash-can"></i></span>
                                     </button>
                                 </form>
                             <?php endforeach; ?>
@@ -641,6 +635,91 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
 
         </div>
     </main>
+
+
+    <!-- Hidden Delete Forms -->
+    <?php if (isset($data['music']['releases']) && is_array($data['music']['releases'])): ?>
+        <?php foreach ($data['music']['releases'] as $index => $item): ?>
+            <form id="del-music-<?php echo $index; ?>" method="POST" action="../api/update.php" class="hidden">
+                <input type="hidden" name="action" value="delete_music_item">
+                <input type="hidden" name="delete_index" value="<?php echo $index; ?>">
+            </form>
+        <?php endforeach; ?>
+    <?php endif; ?>
+
+    <?php if (isset($data['gallery']['images']) && is_array($data['gallery']['images'])): ?>
+        <?php foreach ($data['gallery']['images'] as $index => $item): ?>
+            <form id="del-gallery-<?php echo $index; ?>" method="POST" action="../api/update.php" class="hidden">
+                <input type="hidden" name="action" value="delete_gallery_item">
+                <input type="hidden" name="delete_index" value="<?php echo $index; ?>">
+            </form>
+        <?php endforeach; ?>
+    <?php endif; ?>
+    
+    <!-- ADD ENTRY MODALS -->
+    <!-- Music Modal -->
+    <div id="music-modal" class="hidden fixed inset-0 z-[100] bg-black bg-opacity-70 flex items-center justify-center p-4 backdrop-blur-sm transition-opacity">
+        <div class="bg-white border-[6px] border-black brutal-shadow-lg w-full max-w-lg overflow-hidden transform -rotate-1">
+            <div class="bg-yellow-300 border-b-4 border-black p-4 flex justify-between items-center">
+                <h2 class="font-black text-2xl uppercase tracking-widest"><i class="fa-solid fa-music"></i> Add Track</h2>
+                <button type="button" onclick="document.getElementById('music-modal').classList.add('hidden')" class="text-3xl font-black hover:text-red-600 focus:outline-none">&times;</button>
+            </div>
+            <form action="../api/update.php" method="POST" enctype="multipart/form-data" class="p-6 space-y-6">
+                <input type="hidden" name="action" value="add_music_item_with_data">
+                
+                <div>
+                    <label class="block font-bold mb-2 uppercase text-sm">Cover Image</label>
+                    <input type="file" name="music_img_new" class="w-full text-sm font-mono file:mr-3 file:py-2 file:px-4 file:border-4 file:border-black file:bg-[transparent] file:text-black file:hover:bg-yellow-300 file:transition-colors file:font-bold file:uppercase cursor-pointer focus:outline-none bg-gray-50 border-[3px] border-black p-2 h-14">
+                </div>
+                <div>
+                    <label class="block font-bold mb-2 uppercase text-sm">Track Title</label>
+                    <input type="text" name="music_meta[title]" required placeholder="E.g. Summer Vibes" class="w-full border-[3px] border-black p-3 font-black text-xl focus:outline-none focus:ring-4 focus:ring-cyan-200 bg-white">
+                </div>
+                <div>
+                    <label class="block font-bold mb-2 uppercase text-sm">Description</label>
+                    <input type="text" name="music_meta[desc]" placeholder="Small description..." class="w-full border-[3px] border-black p-3 font-mono focus:outline-none focus:ring-4 focus:ring-cyan-200 bg-white">
+                </div>
+                <div>
+                    <label class="block font-bold mb-2 uppercase text-sm">Streaming Link</label>
+                    <input type="url" name="music_meta[link]" placeholder="https://open.spotify.com/..." class="w-full border-[3px] border-black p-3 font-mono focus:outline-none focus:ring-4 focus:ring-cyan-200 bg-white">
+                </div>
+                
+                <button type="submit" class="w-full bg-black text-white font-black text-xl p-4 uppercase border-[4px] border-black brutal-shadow hover:bg-gray-800 hover:-translate-y-1 block text-center focus:outline-none">
+                    <i class="fa-solid fa-plus"></i> Create Release
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Gallery Modal -->
+    <div id="gallery-modal" class="hidden fixed inset-0 z-[100] bg-black bg-opacity-70 flex items-center justify-center p-4 backdrop-blur-sm transition-opacity">
+        <div class="bg-white border-[6px] border-black brutal-shadow-lg w-full max-w-lg overflow-hidden transform rotate-1">
+            <div class="bg-[#ff00ff] text-white border-b-4 border-black p-4 flex justify-between items-center">
+                <h2 class="font-black text-2xl uppercase tracking-widest"><i class="fa-solid fa-camera"></i> Add Photo</h2>
+                <button type="button" onclick="document.getElementById('gallery-modal').classList.add('hidden')" class="text-3xl font-black hover:text-black focus:outline-none">&times;</button>
+            </div>
+            <form action="../api/update.php" method="POST" enctype="multipart/form-data" class="p-6 space-y-6">
+                <input type="hidden" name="action" value="add_gallery_item_with_data">
+                
+                <div>
+                    <label class="block font-bold mb-2 uppercase text-sm">Upload Image</label>
+                    <input type="file" name="gallery_img_new" class="w-full text-sm font-mono file:mr-3 file:py-2 file:px-4 file:border-4 file:border-black file:bg-[transparent] file:text-black file:hover:bg-[#ff00ff] file:hover:text-white file:transition-colors file:font-bold file:uppercase cursor-pointer focus:outline-none bg-gray-50 border-[3px] border-black p-2 h-14">
+                </div>
+                <div>
+                    <label class="block font-bold mb-2 uppercase text-sm">Caption</label>
+                    <input type="text" name="gallery_meta[caption]" required placeholder="E.g. Great memories" class="w-full border-[3px] border-black p-3 font-black text-xl focus:outline-none focus:ring-4 focus:ring-pink-200 bg-white">
+                </div>
+                <div>
+                    <label class="block font-bold mb-2 uppercase text-sm">CSS Classes</label>
+                    <input type="text" name="gallery_meta[classes]" placeholder="rotate-3 w-64 md:right-10" class="w-full border-[3px] border-black p-3 font-mono focus:outline-none focus:ring-4 focus:ring-pink-200 bg-white">
+                </div>
+                
+                <button type="submit" class="w-full bg-black text-white font-black text-xl p-4 uppercase border-[4px] border-black brutal-shadow hover:bg-gray-800 hover:-translate-y-1 block text-center focus:outline-none">
+                    <i class="fa-solid fa-plus"></i> Upload Photo
+                </button>
+            </form>
+        </div>
+    </div>
 
 </body>
 
