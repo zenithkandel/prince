@@ -408,45 +408,7 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
 
                 <!-- Dedicated Delete Zone (Cleaner UX) -->
                 <?php if (!empty($data['gallery']['images'])): ?>
-                    <div class="mt-24 w-full pt-12 border-t-[8px] border-black border-dashed relative">
-                        <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-white px-6">
-                            <span class="text-4xl text-[#ff00ff]"><i class="fa-solid fa-fire"></i></span>
-                        </div>
-                        <div class="flex flex-col items-center justify-center text-center gap-2 mb-10">
-                            <h3
-                                class="font-black text-3xl uppercase leading-none text-red-600 bg-red-100 px-4 py-2 border-4 border-black inline-block transform rotate-1 brutal-shadow">
-                                Danger Zone</h3>
-                            <p class="font-mono text-sm text-gray-600 border-b-2 border-red-200 pb-1">Click below to irrevocably
-                                delete a photo frame.</p>
-                        </div>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                            <?php foreach ($data['gallery']['images'] as $index => $item): ?>
-                                <form method="POST" action="../api/update.php"
-                                    onsubmit="return confirm('WARNING: Are you sure you want to permanently delete Frame #<?php echo $index + 1; ?>?');"
-                                    class="h-full">
-                                    <input type="hidden" name="action" value="delete_gallery_item">
-                                    <input type="hidden" name="delete_index" value="<?php echo $index; ?>">
-                                    <button type="submit"
-                                        class="w-full h-full bg-white text-black font-bold border-4 border-black border-b-[6px] p-5 hover:-translate-y-1 active:translate-y-1 active:border-b-4 hover:bg-red-600 hover:text-white uppercase transition-all text-sm text-left flex justify-between items-center group relative overflow-hidden">
-                                        <div
-                                            class="absolute top-0 bottom-0 left-0 w-2 bg-red-600 group-hover:w-0 transition-all duration-300">
-                                        </div>
-                                        <div class="flex flex-col gap-1.5 overflow-hidden pl-4 pr-2 relative z-10 w-[80%]">
-                                            <span
-                                                class="truncate w-full font-black text-lg group-hover:text-white break-all"><?php echo htmlspecialchars($item['caption'] ?: 'Unnamed Frame'); ?></span>
-                                            <span
-                                                class="text-[10px] font-mono text-red-600 group-hover:text-white group-hover:opacity-80 uppercase tracking-widest bg-red-50 group-hover:bg-red-500 inline-block px-2 py-1 self-start border border-red-200 group-hover:border-red-400">Delete
-                                                Photo #<?php echo $index + 1; ?></span>
-                                        </div>
-                                        <span
-                                            class="text-3xl group-hover:scale-125 group-hover:-rotate-12 transition-transform opacity-30 group-hover:opacity-100 flex-shrink-0 pr-2"><i class="fa-solid fa-trash-can"></i></span>
-                                    </button>
-                                </form>
-                            <?php endforeach; ?>
-                        </div>
-                    </div>
-                <?php endif; ?>
+                    <?php endif; ?>
             <?php endif; ?>
 
         </div>
