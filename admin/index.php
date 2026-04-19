@@ -49,22 +49,31 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
     <header class="md:hidden bg-white border-b-4 border-black p-4 flex justify-between items-center z-30 sticky top-0">
         <div>
             <h1 class="text-2xl font-black uppercase tracking-tighter block leading-none">Control Center</h1>
-            <p class="text-[10px] font-mono font-bold mt-1 text-gray-500 uppercase tracking-widest inline-block bg-gray-100 px-1 border-2 border-dashed border-gray-300">v2.1 Brutal UX</p>
+            <p
+                class="text-[10px] font-mono font-bold mt-1 text-gray-500 uppercase tracking-widest inline-block bg-gray-100 px-1 border-2 border-dashed border-gray-300">
+                v2.1 Brutal UX</p>
         </div>
         <div class="flex gap-3">
-            <a href="../index.php" target="_blank" class="bg-black text-white w-10 h-10 flex items-center justify-center border-2 border-black brutal-shadow"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-            <a href="?logout=1" class="bg-white text-black w-10 h-10 flex items-center justify-center border-2 border-black brutal-shadow hover:bg-red-600 hover:text-white"><i class="fa-solid fa-right-from-bracket"></i></a>
+            <a href="../index.php" target="_blank"
+                class="bg-black text-white w-10 h-10 flex items-center justify-center border-2 border-black brutal-shadow"><i
+                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="?logout=1"
+                class="bg-white text-black w-10 h-10 flex items-center justify-center border-2 border-black brutal-shadow hover:bg-red-600 hover:text-white"><i
+                    class="fa-solid fa-right-from-bracket"></i></a>
         </div>
     </header>
 
     <!-- Desktop Sidebar Navigation -->
-    <aside class="hidden md:flex w-64 bg-white border-r-4 border-black flex-col pt-8 brutal-shadow relative z-20 sticky top-0 h-screen overflow-y-auto no-scrollbar flex-shrink-0">
+    <aside
+        class="hidden md:flex w-64 bg-white border-r-4 border-black flex-col pt-8 brutal-shadow relative z-20 sticky top-0 h-screen overflow-y-auto no-scrollbar flex-shrink-0">
         <div class="px-6 mb-10">
             <a href="?tab=general" class="block hover:-translate-y-1 transition-transform">
                 <h1 class="text-3xl font-black uppercase tracking-tighter block break-words leading-none">
                     Control<br>Center</h1>
             </a>
-            <p class="text-xs font-mono font-bold mt-3 text-gray-500 uppercase tracking-widest block bg-gray-100 inline-block px-2 py-1 border-2 border-dashed border-gray-300">v2.1 Brutal UX</p>
+            <p
+                class="text-xs font-mono font-bold mt-3 text-gray-500 uppercase tracking-widest block bg-gray-100 inline-block px-2 py-1 border-2 border-dashed border-gray-300">
+                v2.1 Brutal UX</p>
         </div>
 
         <nav class="flex-grow flex flex-col px-4 gap-4 pb-4">
@@ -97,21 +106,25 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
     <!-- Mobile Bottom Navigation -->
     <nav class="md:hidden fixed bottom-4 left-0 w-full z-50 px-4">
         <div class="flex justify-center">
-            <ul class="flex items-center justify-between w-full max-w-sm bg-yellow-300 px-4 py-3 border-[3px] border-black brutal-shadow rotate-1">
+            <ul
+                class="flex items-center justify-between w-full max-w-sm bg-yellow-300 px-4 py-3 border-[3px] border-black brutal-shadow rotate-1">
                 <li class="text-center w-1/3">
-                    <a href="?tab=general" class="font-mono font-bold text-[10px] uppercase flex flex-col items-center <?php echo $tab === 'general' ? 'text-black scale-110' : 'text-gray-800 opacity-80'; ?>">
+                    <a href="?tab=general"
+                        class="font-mono font-bold text-[10px] uppercase flex flex-col items-center <?php echo $tab === 'general' ? 'text-black scale-110' : 'text-gray-800 opacity-80'; ?>">
                         <i class="fa-solid fa-house mb-1 text-xl"></i>
                         <span>Stats</span>
                     </a>
                 </li>
                 <li class="text-center w-1/3">
-                    <a href="?tab=music" class="font-mono font-bold text-[10px] uppercase flex flex-col items-center <?php echo $tab === 'music' ? 'text-black scale-110' : 'text-gray-800 opacity-80'; ?>">
+                    <a href="?tab=music"
+                        class="font-mono font-bold text-[10px] uppercase flex flex-col items-center <?php echo $tab === 'music' ? 'text-black scale-110' : 'text-gray-800 opacity-80'; ?>">
                         <i class="fa-solid fa-music mb-1 text-xl"></i>
                         <span>Music</span>
                     </a>
                 </li>
                 <li class="text-center w-1/3">
-                    <a href="?tab=gallery" class="font-mono font-bold text-[10px] uppercase flex flex-col items-center <?php echo $tab === 'gallery' ? 'text-black scale-110' : 'text-gray-800 opacity-80'; ?>">
+                    <a href="?tab=gallery"
+                        class="font-mono font-bold text-[10px] uppercase flex flex-col items-center <?php echo $tab === 'gallery' ? 'text-black scale-110' : 'text-gray-800 opacity-80'; ?>">
                         <i class="fa-solid fa-camera mb-1 text-xl"></i>
                         <span>Gallery</span>
                     </a>
@@ -286,7 +299,9 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
                     </section>
 
                     <!-- Sticky Save Action Footer -->
-                    <div class="fixed bottom-24 md:bottom-10 right-6 z-[90]"><button type="submit" class="bg-black text-white font-black text-xl md:text-2xl px-8 py-4 uppercase tracking-widest border-[4px] border-black brutal-shadow-lg hover:bg-gray-800 hover:scale-105 active:scale-95 transition-all text-center"><i class="fa-solid fa-floppy-disk"></i> Save General</button></div>
+                    <div class="fixed bottom-24 md:bottom-10 right-6 z-[90]"><button type="submit"
+                            class="bg-black text-white font-black text-xl md:text-2xl px-8 py-4 uppercase tracking-widest border-[4px] border-black brutal-shadow-lg hover:bg-gray-800 hover:scale-105 active:scale-95 transition-all text-center"><i
+                                class="fa-solid fa-floppy-disk"></i> Save General</button></div>
                 </form>
             <?php endif; ?>
 
@@ -328,7 +343,10 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
                                     class="bg-white border-[6px] border-black p-6 md:p-8 pt-8 brutal-shadow flex flex-col gap-6 relative mt-4 focus-within:ring-4 ring-cyan-200 transition-all hover:bg-gray-50 focus-within:bg-white group">
                                     <!-- Card Header -->
                                     <!-- Delete Button -->
-                                    <button type="button" onclick="confirmDelete('del-music-<?php echo $index; ?>', '<?php echo htmlspecialchars(addslashes($item['title'] ?: 'Item #'.($index+1))); ?>')" class="absolute -top-4 -right-4 bg-red-500 text-white w-10 h-10 rounded-full border-4 border-black brutal-shadow flex items-center justify-center hover:bg-red-700 hover:scale-110 active:scale-95 transition-all z-50 text-xl font-bold" title="Delete Release">&times;</button>
+                                    <button type="button"
+                                        onclick="confirmDelete('del-music-<?php echo $index; ?>', '<?php echo htmlspecialchars(addslashes($item['title'] ?: 'Item #' . ($index + 1))); ?>')"
+                                        class="absolute -top-4 -right-4 bg-red-500 text-white w-10 h-10 rounded-full border-4 border-black brutal-shadow flex items-center justify-center hover:bg-red-700 hover:scale-110 active:scale-95 transition-all z-50 text-xl font-bold"
+                                        title="Delete Release"><i class="fa-solid fa-trash text-sm"></i></button>
                                     <div
                                         class="absolute -top-5 -left-5 bg-black text-[#00e5ff] border-4 border-black px-4 py-1.5 font-black transform -rotate-3 text-lg shadow-[4px_4px_0px_#00e5ff] group-hover:rotate-0 transition-transform z-10 flex items-center gap-2">
                                         <span><i class="fa-solid fa-compact-disc"></i></span> Release #<?php echo $index + 1; ?>
@@ -400,11 +418,13 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
                             <?php endforeach; ?>
                         </div>
 
-                        <div class="fixed bottom-24 md:bottom-10 right-6 z-[90]"><button type="submit" class="bg-[#00e5ff] text-black font-black text-xl md:text-2xl px-8 py-4 uppercase tracking-widest border-[4px] border-black brutal-shadow-lg hover:bg-cyan-300 hover:scale-105 active:scale-95 transition-all text-center"><i class="fa-solid fa-floppy-disk"></i> Save Music</button></div>
+                        <div class="fixed bottom-24 md:bottom-10 right-6 z-[90]"><button type="submit"
+                                class="bg-[#00e5ff] text-black font-black text-xl md:text-2xl px-8 py-4 uppercase tracking-widest border-[4px] border-black brutal-shadow-lg hover:bg-cyan-300 hover:scale-105 active:scale-95 transition-all text-center"><i
+                                    class="fa-solid fa-floppy-disk"></i> Save Music</button></div>
                     <?php endif; ?>
                 </form>
 
-                
+
             <?php endif; ?>
 
 
@@ -445,7 +465,10 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
                                     class="bg-white border-[6px] border-black p-6 md:p-8 pt-8 brutal-shadow flex flex-col gap-6 relative mt-4 focus-within:ring-4 ring-pink-300 transition-all hover:bg-gray-50 focus-within:bg-white group">
                                     <!-- Card Header -->
                                     <!-- Delete Button -->
-                                    <button type="button" onclick="confirmDelete('del-gallery-<?php echo $index; ?>', 'Photo frame #<?php echo $index + 1; ?>')" class="absolute -top-4 -right-4 bg-red-500 text-white w-10 h-10 rounded-full border-4 border-black brutal-shadow flex items-center justify-center hover:bg-red-700 hover:scale-110 active:scale-95 transition-all z-50 text-xl font-bold" title="Delete Photo">&times;</button>
+                                    <button type="button"
+                                        onclick="confirmDelete('del-gallery-<?php echo $index; ?>', 'Photo frame #<?php echo $index + 1; ?>')"
+                                        class="absolute -top-4 -right-4 bg-red-500 text-white w-10 h-10 rounded-full border-4 border-black brutal-shadow flex items-center justify-center hover:bg-red-700 hover:scale-110 active:scale-95 transition-all z-50 text-xl font-bold"
+                                        title="Delete Photo"><i class="fa-solid fa-trash text-sm"></i></button>
                                     <div
                                         class="absolute -top-5 -left-5 bg-[#ff00ff] text-white border-4 border-black px-4 py-1.5 font-black transform rotate-2 text-lg shadow-[4px_4px_0px_rgba(0,0,0,1)] group-hover:rotate-0 transition-transform z-10 flex items-center gap-2">
                                         <span><i class="fa-solid fa-camera"></i></span> Frame #<?php echo $index + 1; ?>
@@ -535,11 +558,13 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
                             <?php endforeach; ?>
                         </div>
 
-                        <div class="fixed bottom-24 md:bottom-10 right-6 z-[90]"><button type="submit" class="bg-[#ff00ff] text-white font-black text-xl md:text-2xl px-8 py-4 uppercase tracking-widest border-[4px] border-black brutal-shadow-lg hover:bg-pink-600 hover:scale-105 active:scale-95 transition-all text-center shadow-[6px_6px_0px_#000]"><i class="fa-solid fa-floppy-disk"></i> Save Gallery</button></div>
+                        <div class="fixed bottom-24 md:bottom-10 right-6 z-[90]"><button type="submit"
+                                class="bg-[#ff00ff] text-white font-black text-xl md:text-2xl px-8 py-4 uppercase tracking-widest border-[4px] border-black brutal-shadow-lg hover:bg-pink-600 hover:scale-105 active:scale-95 transition-all text-center shadow-[6px_6px_0px_#000]"><i
+                                    class="fa-solid fa-floppy-disk"></i> Save Gallery</button></div>
                     <?php endif; ?>
                 </form>
 
-                
+
             <?php endif; ?>
 
         </div>
@@ -564,36 +589,45 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
             </form>
         <?php endforeach; ?>
     <?php endif; ?>
-    
+
     <!-- ADD ENTRY MODALS -->
     <!-- Music Modal -->
-    <div id="music-modal" class="hidden fixed inset-0 z-[100] bg-black bg-opacity-70 flex items-center justify-center p-4 backdrop-blur-sm transition-opacity">
-        <div class="bg-white border-[6px] border-black brutal-shadow-lg w-full max-w-lg overflow-hidden transform -rotate-1">
+    <div id="music-modal"
+        class="hidden fixed inset-0 z-[100] bg-black bg-opacity-70 flex items-center justify-center p-4 backdrop-blur-sm transition-opacity">
+        <div
+            class="bg-white border-[6px] border-black brutal-shadow-lg w-full max-w-lg overflow-hidden transform -rotate-1">
             <div class="bg-yellow-300 border-b-4 border-black p-4 flex justify-between items-center">
-                <h2 class="font-black text-2xl uppercase tracking-widest"><i class="fa-solid fa-music"></i> Add Track</h2>
-                <button type="button" onclick="document.getElementById('music-modal').classList.add('hidden')" class="text-3xl font-black hover:text-red-600 focus:outline-none">&times;</button>
+                <h2 class="font-black text-2xl uppercase tracking-widest"><i class="fa-solid fa-music"></i> Add Track
+                </h2>
+                <button type="button" onclick="document.getElementById('music-modal').classList.add('hidden')"
+                    class="text-3xl font-black hover:text-red-600 focus:outline-none">&times;</button>
             </div>
             <form action="../api/update.php" method="POST" enctype="multipart/form-data" class="p-6 space-y-6">
                 <input type="hidden" name="action" value="add_music_item_with_data">
-                
+
                 <div>
                     <label class="block font-bold mb-2 uppercase text-sm">Cover Image</label>
-                    <input type="file" name="music_img_new" class="w-full text-sm font-mono file:mr-3 file:py-2 file:px-4 file:border-4 file:border-black file:bg-[transparent] file:text-black file:hover:bg-yellow-300 file:transition-colors file:font-bold file:uppercase cursor-pointer focus:outline-none bg-gray-50 border-[3px] border-black p-2 h-14">
+                    <input type="file" name="music_img_new"
+                        class="w-full text-sm font-mono file:mr-3 file:py-2 file:px-4 file:border-4 file:border-black file:bg-[transparent] file:text-black file:hover:bg-yellow-300 file:transition-colors file:font-bold file:uppercase cursor-pointer focus:outline-none bg-gray-50 border-[3px] border-black p-2 h-14">
                 </div>
                 <div>
                     <label class="block font-bold mb-2 uppercase text-sm">Track Title</label>
-                    <input type="text" name="music_meta[title]" required placeholder="E.g. Summer Vibes" class="w-full border-[3px] border-black p-3 font-black text-xl focus:outline-none focus:ring-4 focus:ring-cyan-200 bg-white">
+                    <input type="text" name="music_meta[title]" required placeholder="E.g. Summer Vibes"
+                        class="w-full border-[3px] border-black p-3 font-black text-xl focus:outline-none focus:ring-4 focus:ring-cyan-200 bg-white">
                 </div>
                 <div>
                     <label class="block font-bold mb-2 uppercase text-sm">Description</label>
-                    <input type="text" name="music_meta[desc]" placeholder="Small description..." class="w-full border-[3px] border-black p-3 font-mono focus:outline-none focus:ring-4 focus:ring-cyan-200 bg-white">
+                    <input type="text" name="music_meta[desc]" placeholder="Small description..."
+                        class="w-full border-[3px] border-black p-3 font-mono focus:outline-none focus:ring-4 focus:ring-cyan-200 bg-white">
                 </div>
                 <div>
                     <label class="block font-bold mb-2 uppercase text-sm">Streaming Link</label>
-                    <input type="url" name="music_meta[link]" placeholder="https://open.spotify.com/..." class="w-full border-[3px] border-black p-3 font-mono focus:outline-none focus:ring-4 focus:ring-cyan-200 bg-white">
+                    <input type="url" name="music_meta[link]" placeholder="https://open.spotify.com/..."
+                        class="w-full border-[3px] border-black p-3 font-mono focus:outline-none focus:ring-4 focus:ring-cyan-200 bg-white">
                 </div>
-                
-                <button type="submit" class="w-full bg-black text-white font-black text-xl p-4 uppercase border-[4px] border-black brutal-shadow hover:bg-gray-800 hover:-translate-y-1 block text-center focus:outline-none">
+
+                <button type="submit"
+                    class="w-full bg-black text-white font-black text-xl p-4 uppercase border-[4px] border-black brutal-shadow hover:bg-gray-800 hover:-translate-y-1 block text-center focus:outline-none">
                     <i class="fa-solid fa-plus"></i> Create Release
                 </button>
             </form>
@@ -601,29 +635,37 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
     </div>
 
     <!-- Gallery Modal -->
-    <div id="gallery-modal" class="hidden fixed inset-0 z-[100] bg-black bg-opacity-70 flex items-center justify-center p-4 backdrop-blur-sm transition-opacity">
-        <div class="bg-white border-[6px] border-black brutal-shadow-lg w-full max-w-lg overflow-hidden transform rotate-1">
+    <div id="gallery-modal"
+        class="hidden fixed inset-0 z-[100] bg-black bg-opacity-70 flex items-center justify-center p-4 backdrop-blur-sm transition-opacity">
+        <div
+            class="bg-white border-[6px] border-black brutal-shadow-lg w-full max-w-lg overflow-hidden transform rotate-1">
             <div class="bg-[#ff00ff] text-white border-b-4 border-black p-4 flex justify-between items-center">
-                <h2 class="font-black text-2xl uppercase tracking-widest"><i class="fa-solid fa-camera"></i> Add Photo</h2>
-                <button type="button" onclick="document.getElementById('gallery-modal').classList.add('hidden')" class="text-3xl font-black hover:text-black focus:outline-none">&times;</button>
+                <h2 class="font-black text-2xl uppercase tracking-widest"><i class="fa-solid fa-camera"></i> Add Photo
+                </h2>
+                <button type="button" onclick="document.getElementById('gallery-modal').classList.add('hidden')"
+                    class="text-3xl font-black hover:text-black focus:outline-none">&times;</button>
             </div>
             <form action="../api/update.php" method="POST" enctype="multipart/form-data" class="p-6 space-y-6">
                 <input type="hidden" name="action" value="add_gallery_item_with_data">
-                
+
                 <div>
                     <label class="block font-bold mb-2 uppercase text-sm">Upload Image</label>
-                    <input type="file" name="gallery_img_new" class="w-full text-sm font-mono file:mr-3 file:py-2 file:px-4 file:border-4 file:border-black file:bg-[transparent] file:text-black file:hover:bg-[#ff00ff] file:hover:text-white file:transition-colors file:font-bold file:uppercase cursor-pointer focus:outline-none bg-gray-50 border-[3px] border-black p-2 h-14">
+                    <input type="file" name="gallery_img_new"
+                        class="w-full text-sm font-mono file:mr-3 file:py-2 file:px-4 file:border-4 file:border-black file:bg-[transparent] file:text-black file:hover:bg-[#ff00ff] file:hover:text-white file:transition-colors file:font-bold file:uppercase cursor-pointer focus:outline-none bg-gray-50 border-[3px] border-black p-2 h-14">
                 </div>
                 <div>
                     <label class="block font-bold mb-2 uppercase text-sm">Caption</label>
-                    <input type="text" name="gallery_meta[caption]" required placeholder="E.g. Great memories" class="w-full border-[3px] border-black p-3 font-black text-xl focus:outline-none focus:ring-4 focus:ring-pink-200 bg-white">
+                    <input type="text" name="gallery_meta[caption]" required placeholder="E.g. Great memories"
+                        class="w-full border-[3px] border-black p-3 font-black text-xl focus:outline-none focus:ring-4 focus:ring-pink-200 bg-white">
                 </div>
                 <div>
                     <label class="block font-bold mb-2 uppercase text-sm">CSS Classes</label>
-                    <input type="text" name="gallery_meta[classes]" placeholder="rotate-3 w-64 md:right-10" class="w-full border-[3px] border-black p-3 font-mono focus:outline-none focus:ring-4 focus:ring-pink-200 bg-white">
+                    <input type="text" name="gallery_meta[classes]" placeholder="rotate-3 w-64 md:right-10"
+                        class="w-full border-[3px] border-black p-3 font-mono focus:outline-none focus:ring-4 focus:ring-pink-200 bg-white">
                 </div>
-                
-                <button type="submit" class="w-full bg-black text-white font-black text-xl p-4 uppercase border-[4px] border-black brutal-shadow hover:bg-gray-800 hover:-translate-y-1 block text-center focus:outline-none">
+
+                <button type="submit"
+                    class="w-full bg-black text-white font-black text-xl p-4 uppercase border-[4px] border-black brutal-shadow hover:bg-gray-800 hover:-translate-y-1 block text-center focus:outline-none">
                     <i class="fa-solid fa-plus"></i> Upload Photo
                 </button>
             </form>
@@ -633,21 +675,29 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
 
 
     <!-- Custom Confirm Delete Modal -->
-    <div id="delete-modal" class="hidden fixed inset-0 z-[200] bg-black bg-opacity-70 flex items-center justify-center p-4 backdrop-blur-sm transition-opacity">
-        <div class="bg-white border-[6px] border-black brutal-shadow-lg w-full max-w-sm overflow-hidden transform -rotate-1 relative">
+    <div id="delete-modal"
+        class="hidden fixed inset-0 z-[200] bg-black bg-opacity-70 flex items-center justify-center p-4 backdrop-blur-sm transition-opacity">
+        <div
+            class="bg-white border-[6px] border-black brutal-shadow-lg w-full max-w-sm overflow-hidden transform -rotate-1 relative">
             <div class="absolute -top-4 -right-4 bg-red-500 w-12 h-12 rounded-full border-4 border-black z-0"></div>
-            <div class="bg-red-600 text-white border-b-4 border-black p-4 flex justify-between items-center relative z-10">
-                <h2 class="font-black text-2xl uppercase tracking-widest"><i class="fa-solid fa-triangle-exclamation"></i> Warning</h2>
+            <div
+                class="bg-red-600 text-white border-b-4 border-black p-4 flex justify-between items-center relative z-10">
+                <h2 class="font-black text-2xl uppercase tracking-widest"><i
+                        class="fa-solid fa-triangle-exclamation"></i> Warning</h2>
             </div>
             <div class="p-6 relative z-10">
                 <p class="font-bold text-lg mb-6 leading-tight border-b-2 border-red-200 pb-4">
-                    Are you incredibly sure you want to permanently delete <br/><span id="delete-target-name" class="font-black text-red-600 text-xl inline-block mt-2 bg-red-100 px-2 py-1 transform rotate-1 border-2 border-red-300"></span> ?
+                    Are you incredibly sure you want to permanently delete <br /><span id="delete-target-name"
+                        class="font-black text-red-600 text-xl inline-block mt-2 bg-red-100 px-2 py-1 transform rotate-1 border-2 border-red-300"></span>
+                    ?
                 </p>
                 <div class="flex gap-4">
-                    <button type="button" onclick="closeDeleteModal()" class="flex-1 bg-white text-black font-black p-3 border-[4px] border-black brutal-shadow hover:-translate-y-1 active:translate-y-0 transition-transform uppercase focus:outline-none">
+                    <button type="button" onclick="closeDeleteModal()"
+                        class="flex-1 bg-white text-black font-black p-3 border-[4px] border-black brutal-shadow hover:-translate-y-1 active:translate-y-0 transition-transform uppercase focus:outline-none">
                         Cancel
                     </button>
-                    <button type="button" id="confirm-delete-btn" class="flex-1 bg-red-600 text-white font-black p-3 border-[4px] border-black brutal-shadow hover:bg-red-700 hover:-translate-y-1 active:translate-y-0 transition-transform uppercase focus:outline-none">
+                    <button type="button" id="confirm-delete-btn"
+                        class="flex-1 bg-red-600 text-white font-black p-3 border-[4px] border-black brutal-shadow hover:bg-red-700 hover:-translate-y-1 active:translate-y-0 transition-transform uppercase focus:outline-none">
                         Delete It!
                     </button>
                 </div>
@@ -670,7 +720,7 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
             currentDeleteFormId = null;
         }
 
-        document.getElementById('confirm-delete-btn').addEventListener('click', function() {
+        document.getElementById('confirm-delete-btn').addEventListener('click', function () {
             if (currentDeleteFormId) {
                 document.getElementById(currentDeleteFormId).submit();
             }

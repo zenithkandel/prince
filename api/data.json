@@ -101,31 +101,6 @@
                 "img": "images\/prince-img-09.jpg",
                 "caption": "random memory",
                 "classes": "w-56 md:w-72 rotate-[7deg] md:-ml-12 mt-10 md:-mt-10"
-            },
-            {
-                "img": "images\/prince-img-10.jpg",
-                "caption": "The Journey \u2764\ufe0f\u200d\ud83d\udd25",
-                "classes": "w-64 md:w-96 border-[4px] border-accent-pink rotate-[-1deg] z-10 md:mt-16"
-            },
-            {
-                "img": "",
-                "caption": "New Photo",
-                "classes": "w-64 rotate-2"
-            },
-            {
-                "img": "",
-                "caption": "New Photo",
-                "classes": "w-64 rotate-2"
-            },
-            {
-                "img": "images\/1776559667_image-1765745759683.jpg",
-                "caption": "test",
-                "classes": "tt"
-            },
-            {
-                "img": "images\/1776560735_favicon.ico",
-                "caption": "new entry",
-                "classes": "w-48 md:w-64 -rotate-2"
             }
         ]
     },

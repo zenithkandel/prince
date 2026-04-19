@@ -197,7 +197,7 @@
 
         <!-- Notebook Paper Grid & Content -->
         <div
-          class="relative bg-white w-full border-[4px] border-ink shadow-brutal-lg p-8 md:p-16 flex flex-col md:flex-row gap-12 interactive-hover overflow-visible"
+          class="relative bg-white w-full border-[4px] border-ink shadow-brutal-lg p-6 sm:p-8 md:p-16 flex flex-col lg:flex-row gap-8 sm:gap-12 md:overflow-visible interactive-hover overflow-visible"
           style="
               background-image: linear-gradient(
                 180deg,
@@ -222,31 +222,35 @@
 
           <!-- Right: Text Content -->
           <div class="w-full md:w-2/3 relative z-20 flex flex-col justify-center">
-            <h2 class="font-marker text-5xl md:text-7xl mb-8 relative inline-block">
+            <h2
+              class="font-marker text-4xl sm:text-5xl md:text-7xl mb-6 md:mb-8 mt-6 md:mt-0 relative inline-block break-words">
               <?php echo htmlspecialchars($data['about']['title']); ?>
-              <i class="fa-solid fa-sparkle absolute -top-4 -right-8 text-3xl text-accent-pink animate-pulse"></i>
+              <i
+                class="fa-solid fa-sparkle absolute -top-4 -right-4 md:-right-8 text-2xl md:text-3xl text-accent-pink animate-pulse"></i>
             </h2>
 
-            <div class="font-marker text-2xl mb-4 leading-relaxed tracking-wide">
+            <div class="font-marker text-lg sm:text-xl md:text-2xl mb-4 leading-relaxed tracking-wide">
               <p class="mb-4">
                 Hey! I'm Prince. Born in the vibrant streets of Nepal, now
                 making noise in Toronto, Canada. 🍁
               </p>
-              <p class="mb-4 bg-accent-yellow inline px-2 rotate-[1deg] shadow-brutal-sm">
+              <p class="mb-4 bg-accent-yellow inline-block px-3 py-1 rotate-[1deg] shadow-brutal-sm">
                 Raised at Budhanilkantha School.
               </p>
               <br /><br />
               <p>
                 Making music has always been my journey. From early
                 experiences like a brief stint on
-                <span class="bg-accent-blue px-2 rotate-[-1deg] inline-block shadow-brutal-sm text-white">Voice of Nepal
+                <span
+                  class="bg-accent-blue px-3 py-1 rotate-[-1deg] inline-block shadow-brutal-sm text-white mt-1 mb-1 md:mt-0 md:mb-0">Voice
+                  of Nepal
                   Kids</span><?php echo htmlspecialchars(explode('</span>', $data['about']['content_p2'])[1] ?? ''); ?>
               </p>
             </div>
 
             <!-- Doodles/Pins -->
             <div
-              class="absolute -right-4 md:-right-12 bottom-10 w-24 h-24 bg-accent-pink rounded-full border-[3px] border-ink flex flex-col items-center justify-center text-white polaroid hover-wiggle shadow-brutal-sm">
+              class="hidden md:flex absolute -right-4 md:-right-12 bottom-10 w-20 h-20 md:w-24 md:h-24 bg-accent-pink rounded-full border-[3px] border-ink flex flex-col items-center justify-center text-white polaroid hover-wiggle shadow-brutal-sm">
               <i class="<?php echo htmlspecialchars($data['about']['badge_icon']); ?> text-3xl mb-1"></i>
               <span class="font-mono text-xs font-bold uppercase">100% Raw</span>
             </div>
@@ -395,7 +399,6 @@
           <p class="font-mono text-ink bg-white border-2 border-ink px-4 py-1 rotate-1 shadow-brutal-sm inline-block">
             <?php echo isset($data['contact']['footer']) ? htmlspecialchars($data['contact']['footer']) : '© 2026 Prince Neupane. All rights reserved.'; ?>
           </p>
-          <p class="font-handwriting text-xl mt-4 text-ink">Built with ❤️ from the 90s.</p>
           <a href="https://github.com/zenithkandel" target="_blank"
             class="font-mono text-sm mt-6 text-gray-800 hover:text-accent-pink transition-colors underline underline-offset-4 font-bold decoration-2 mb-10">Made
             by Zenith</a>
