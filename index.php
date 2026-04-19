@@ -308,7 +308,7 @@
         class="relative w-full max-w-6xl min-h-screen flex flex-wrap justify-center content-center gap-10 px-4 md:px-0 pb-32">
         <?php foreach ($data['gallery']['images'] as $photo): ?>
           <div
-            class="gallery-item polaroid bg-white p-3 md:p-4 pb-10 md:pb-12 border-[4px] border-ink cursor-grab hover:z-50 m-4 shadow-brutal-md transition-all duration-300 hover:scale-105 active:scale-95 <?php echo htmlspecialchars($photo['classes']); ?>"
+            class="gallery-item polaroid bg-white p-3 md:p-4 pb-10 md:pb-12 border-[4px] border-ink cursor-grab hover:z-50 m-4 shadow-brutal-md transition-all duration-300 hover:scale-105 active:scale-95 max-w-[85vw] md:max-w-[400px] <?php echo htmlspecialchars($photo['classes']); ?>"
             <?php echo !empty($photo['style']) ? 'style="' . htmlspecialchars($photo['style']) . '"' : ''; ?>>
             <div class="w-full aspect-[4/5] border-[3px] border-ink overflow-hidden bg-gray-200">
               <img src="<?php echo htmlspecialchars($photo['img']); ?>" alt="Gallery" class="w-full h-full object-cover">
