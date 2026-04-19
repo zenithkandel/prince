@@ -116,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 $new_images[] = $item;
             }
-            $data['gallery']['../images'] = $new_images;
+            $data['gallery']['images'] = $new_images;
             file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT));
         }
         header("Location: ../admin/index.php?tab=gallery&success=Gallery%20Images%20Updated");
@@ -136,6 +136,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
+        // Action handler: Add new item to Music array with Modal data
+    if (isset($_POST['action']) && $_POST['action'] === 'add_music_item_with_data') {
+        $new_item = [
+            "title" => $_POST['music_meta']['title'] ?? "New Track",
+            "desc" => $_POST['music_meta']['desc'] ?? "",
+            "link" => $_POST['music_meta']['link'] ?? "",
+            "img" => ""
+        ];
+        
+        $uploaded_img = handle_upload('music_img_new');
+        if ($uploaded_img) {
+            $new_item['img'] = $uploaded_img;
+        }
+
+        $data['music']['releases'][] = $new_item;
+        file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT));
+        header("Location: ../admin/index.php?tab=music&success=Added%20new%20entry!");
+        exit;
+    }
+
     // Action handler: Delete Music Item
     if (isset($_POST['action']) && $_POST['action'] === 'delete_music_item') {
         $idx = intval($_POST['delete_index']);
@@ -149,7 +169,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Action handler: Add new blank item to Gallery array
     if (isset($_POST['action']) && $_POST['action'] === 'add_gallery_item') {
-        $data['gallery']['../images'][] = [
+        $data['gallery']['images'][] = [
             "img" => "",
             "caption" => "New Photo",
             "classes" => "w-64 rotate-2"
@@ -159,11 +179,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
+        // Action handler: Add new item to Gallery array with Modal data
+    if (isset($_POST['action']) && $_POST['action'] === 'add_gallery_item_with_data') {
+        $new_item = [
+            "img" => "",
+            "caption" => $_POST['gallery_meta']['caption'] ?? "New Photo",
+            "classes" => $_POST['gallery_meta']['classes'] ?? "w-64 rotate-2"
+        ];
+        
+        $uploaded_img = handle_upload('gallery_img_new');
+        if ($uploaded_img) {
+            $new_item['img'] = $uploaded_img;
+        }
+
+        if (!isset($data['gallery']['images']) || !is_array($data['gallery']['images'])) {
+            $data['gallery']['images'] = [];
+        }
+        $data['gallery']['images'][] = $new_item;
+        file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT));
+        header("Location: ../admin/index.php?tab=gallery&success=Added%20new%20photo!");
+        exit;
+    }
+
     // Action handler: Delete Gallery Item
     if (isset($_POST['action']) && $_POST['action'] === 'delete_gallery_item') {
         $idx = intval($_POST['delete_index']);
-        if (isset($data['gallery']['../images'][$idx])) {
-            array_splice($data['gallery']['../images'], $idx, 1);
+        if (isset($data['gallery']['images'][$idx])) {
+            array_splice($data['gallery']['images'], $idx, 1);
             file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT));
         }
         header("Location: ../admin/index.php?tab=gallery&success=Deleted%20photo");
