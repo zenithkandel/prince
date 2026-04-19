@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Neo-brutalist custom variables */
+:root {
+    --bg-primary: #ffffee;
+    --color-accent-blue: #00e5ff;
+    --color-accent-pink: #ff00ff;
+    --color-accent-yellow: #ffff00;
+    --color-text-dark: #111111;
+    --shadow-solid-sm: 4px 4px 0px #000;
+    --shadow-solid-md: 8px 8px 0px #000;
+    --shadow-solid-lg: 12px 12px 0px #000;
+}
+
+body {
+    background-image:
+        radial-gradient(var(--color-text-dark) 1px, transparent 1px),
+        radial-gradient(var(--color-text-dark) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: 0 0, 20px 20px;
+    background-color: var(--bg-primary);
+}
+
+.brutal-shadow {
+    box-shadow: var(--shadow-solid-sm);
+}
+
+.brutal-shadow-md {
+    box-shadow: var(--shadow-solid-md);
+}
+
+.brutal-shadow-lg {
+    box-shadow: var(--shadow-solid-lg);
+}
+
+/* Remove scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: white;
+    border-left: 3px solid black;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-accent-blue);
+    border: 2px solid black;
+}

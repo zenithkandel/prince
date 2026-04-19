@@ -1,4 +1,41 @@
-<?php $data = json_decode(file_get_contents('api/data.json'), true); ?><!doctype html>
+<?php
+// Load and decode data
+$data = json_decode(file_get_contents('api/data.json'), true);
+if (!$data) {
+  die("Failed to load portfolio data. Please check api/data.json");
+}
+
+// Function to handle responsive webp fallbacks and lazy loading
+function renderImage($src, $alt, $classes = "", $loading = "lazy")
+{
+  // If the file doesn't exist locally, we can't reliably get mime type, fallback gracefully
+  $fallbackSrc = htmlspecialchars($src);
+  $webpSrc = preg_replace('/\.(jpg|jpeg|png)$/i', '.webp', $src);
+
+  // In shared hosting, if webp isn't actually generated yet, standard image will load as fallback.
+  $output = '<picture>';
+  if (file_exists($webpSrc)) {
+    $output .= '<source srcset="' . htmlspecialchars($webpSrc) . '" type="image/webp">';
+  }
+  $output .= '<img src="' . $fallbackSrc . '" alt="' . htmlspecialchars($alt) . '" class="' . htmlspecialchars($classes) . '" loading="' . htmlspecialchars($loading) . '" decoding="async" />';
+  $output .= '</picture>';
+  return $output;
+}
+?>
+<?php require_once 'components/header.php'; ?>
+<?php require_once 'components/nav.php'; ?>
+
+<!-- MAIN CANVAS CONTAINER -->
+<main class="relative w-full overflow-hidden flex flex-col items-center">
+
+  <?php require_once 'components/hero.php'; ?>
+  <?php require_once 'components/about.php'; ?>
+  <?php require_once 'components/music.php'; ?>
+  <?php require_once 'components/gallery.php'; ?>
+  <?php require_once 'components/contact.php'; ?>
+
+</main>
+<?php require_once 'components/footer.php'; ?><?php $data = json_decode(file_get_contents('api/data.json'), true); ?><!doctype html>
 <html lang="en" class="scroll-smooth">
 
 <head>
@@ -314,7 +351,8 @@
               <img src="<?php echo htmlspecialchars($photo['img']); ?>" alt="Gallery" class="w-full h-full object-cover">
             </div>
             <p class="font-handwriting text-2xl text-center text-ink mt-2">
-              <?php echo htmlspecialchars($photo['caption']); ?></p>
+              <?php echo htmlspecialchars($photo['caption']); ?>
+            </p>
           </div>
         <?php endforeach; ?>
       </div>

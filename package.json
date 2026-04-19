@@ -20,4 +20,7 @@
   "homepage": "https://github.com/zenithkandel/prince#readme",
   "devDependencies": {
     "autoprefixer": "^10.5.0",
-   
+    "postcss": "^8.5.10",
+    "tailwindcss": "^4.2.2"
+  }
+}
