@@ -70,32 +70,39 @@
     <div class="max-w-7xl mx-auto flex justify-center md:justify-end">
       <!-- Navigation Sticker -->
       <ul
-        class="flex items-center gap-3 md:gap-6 bg-accent-yellow px-6 py-3 border-[3px] border-ink shadow-brutal-md rotate-1 hover:rotate-0 transition-transform duration-300">
+        class="flex items-center gap-2 sm:gap-3 md:gap-6 bg-accent-yellow px-6 py-3 border-[3px] border-ink shadow-brutal-md rotate-1 hover:rotate-0 transition-transform duration-300">
         <li class="text-center">
           <a href="#hero"
-            class="font-mono font-bold text-sm md:text-base hover:text-accent-pink transition-colors group">
+            class="font-mono font-bold text-xs sm:text-sm md:text-base hover:text-accent-pink transition-colors group">
             <i class="fa-solid fa-home mr-1 group-hover:fa-bounce"></i> Home
           </a>
         </li>
         <li class="text-center">
           <a href="#about"
-            class="font-mono font-bold text-sm md:text-base hover:text-accent-blue transition-colors group">
+            class="font-mono font-bold text-xs sm:text-sm md:text-base hover:text-accent-blue transition-colors group">
             <i class="fa-solid fa-user-music mr-1 group-hover:fa-bounce"></i>
             About
           </a>
         </li>
         <li class="text-center">
           <a href="#music"
-            class="font-mono font-bold text-sm md:text-base hover:text-accent-pink transition-colors group">
+            class="font-mono font-bold text-xs sm:text-sm md:text-base hover:text-accent-pink transition-colors group">
             <i class="fa-solid fa-cassette-tape mr-1 group-hover:fa-bounce"></i>
             Music
           </a>
         </li>
         <li class="text-center">
           <a href="#gallery"
-            class="font-mono font-bold text-sm md:text-base hover:text-accent-blue transition-colors group">
+            class="font-mono font-bold text-xs sm:text-sm md:text-base hover:text-accent-blue transition-colors group">
             <i class="fa-solid fa-camera-retro mr-1 group-hover:fa-bounce"></i>
             Gallery
+          </a>
+        </li>
+        <li class="text-center hidden sm:block">
+          <a href="#contact"
+            class="font-mono font-bold text-xs sm:text-sm md:text-base hover:text-accent-pink transition-colors group">
+            <i class="fa-solid fa-paper-plane mr-1 group-hover:fa-bounce"></i>
+            Contact
           </a>
         </li>
       </ul>
