@@ -5,14 +5,14 @@ require_login();
 $json_file = 'data.json';
 $data = json_decode(file_get_contents($json_file), true);
 
-if (!is_dir('images')) {
-    mkdir('images', 0777, true);
+if (!is_dir('../images')) {
+    mkdir('../images', 0777, true);
 }
 
 function handle_upload($input_name)
 {
     if (isset($_FILES[$input_name]) && $_FILES[$input_name]['error'] === UPLOAD_ERR_OK) {
-        $target_dir = "images/";
+        $target_dir = "../images/";
         $filename = time() . '_' . basename($_FILES[$input_name]["name"]);
         $target_file = $target_dir . $filename;
         if (move_uploaded_file($_FILES[$input_name]["tmp_name"], $target_file)) {
@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data['gallery']['badge'] = $_POST['gallery_meta']['badge'];
 
         file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT));
-        header("Location: admin.php?success=Settings%20Updated");
+        header("Location: ../admin/index.php?success=Settings%20Updated");
         exit;
     }
 
@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data['music']['releases'] = $new_releases;
             file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT));
         }
-        header("Location: admin.php?tab=music&success=Music%20Releases%20Updated");
+        header("Location: ../admin/index.php?tab=music&success=Music%20Releases%20Updated");
         exit;
     }
 
@@ -116,10 +116,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 $new_images[] = $item;
             }
-            $data['gallery']['images'] = $new_images;
+            $data['gallery']['../images'] = $new_images;
             file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT));
         }
-        header("Location: admin.php?tab=gallery&success=Gallery%20Images%20Updated");
+        header("Location: ../admin/index.php?tab=gallery&success=Gallery%20Images%20Updated");
         exit;
     }
 
@@ -132,7 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             "img" => ""
         ];
         file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT));
-        header("Location: admin.php?tab=music&success=Added%20new%20entry!");
+        header("Location: ../admin/index.php?tab=music&success=Added%20new%20entry!");
         exit;
     }
 
@@ -143,30 +143,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             array_splice($data['music']['releases'], $idx, 1);
             file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT));
         }
-        header("Location: admin.php?tab=music&success=Deleted%20item");
+        header("Location: ../admin/index.php?tab=music&success=Deleted%20item");
         exit;
     }
 
     // Action handler: Add new blank item to Gallery array
     if (isset($_POST['action']) && $_POST['action'] === 'add_gallery_item') {
-        $data['gallery']['images'][] = [
+        $data['gallery']['../images'][] = [
             "img" => "",
             "caption" => "New Photo",
             "classes" => "w-64 rotate-2"
         ];
         file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT));
-        header("Location: admin.php?tab=gallery&success=Added%20new%20photo!");
+        header("Location: ../admin/index.php?tab=gallery&success=Added%20new%20photo!");
         exit;
     }
 
     // Action handler: Delete Gallery Item
     if (isset($_POST['action']) && $_POST['action'] === 'delete_gallery_item') {
         $idx = intval($_POST['delete_index']);
-        if (isset($data['gallery']['images'][$idx])) {
-            array_splice($data['gallery']['images'], $idx, 1);
+        if (isset($data['gallery']['../images'][$idx])) {
+            array_splice($data['gallery']['../images'], $idx, 1);
             file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT));
         }
-        header("Location: admin.php?tab=gallery&success=Deleted%20photo");
+        header("Location: ../admin/index.php?tab=gallery&success=Deleted%20photo");
         exit;
     }
 }

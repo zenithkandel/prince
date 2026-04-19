@@ -1,8 +1,8 @@
 <?php
-require_once 'auth.php'; // Ensure user logged in
+require_once '../api/auth.php'; // Ensure user logged in
 require_login();
 
-$json_file = 'data.json';
+$json_file = '../api/data.json';
 $data = json_decode(file_get_contents($json_file), true);
 
 $tab = isset($_GET['tab']) ? $_GET['tab'] : 'general';
@@ -105,7 +105,7 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
                         Manage the static information displayed on your homepage.</p>
                 </div>
 
-                <form action="handler.php" method="POST" enctype="multipart/form-data" class="space-y-16">
+                <form action="../api/update.php" method="POST" enctype="multipart/form-data" class="space-y-16">
                     <input type="hidden" name="action" value="save_general">
 
                     <!-- Hero Section -->
@@ -272,7 +272,7 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
                             Manage your releases. Edit inline & save instantly.</p>
                     </div>
 
-                    <form method="POST" action="handler.php" class="inline-block mt-2 md:mt-0 flex-shrink-0">
+                    <form method="POST" action="../api/update.php" class="inline-block mt-2 md:mt-0 flex-shrink-0">
                         <input type="hidden" name="action" value="add_music_item">
                         <button type="submit"
                             class="bg-yellow-300 font-black flex items-center justify-center gap-3 border-[4px] border-black px-8 py-5 brutal-shadow hover:bg-yellow-400 hover:-translate-y-1 uppercase transition-all w-full text-xl md:text-2xl hover:scale-105 active:scale-95">
@@ -281,7 +281,7 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
                     </form>
                 </div>
 
-                <form action="handler.php" method="POST" enctype="multipart/form-data" class="space-y-10">
+                <form action="../api/update.php" method="POST" enctype="multipart/form-data" class="space-y-10">
                     <input type="hidden" name="action" value="save_music">
 
                     <?php if (empty($data['music']['releases'])): ?>
@@ -395,7 +395,7 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
 
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                             <?php foreach ($data['music']['releases'] as $index => $item): ?>
-                                <form method="POST" action="handler.php"
+                                <form method="POST" action="../api/update.php"
                                     onsubmit="return confirm('WARNING: Are you sure you want to permanently delete \'<?php echo htmlspecialchars(addslashes($item['title'] ?: 'Item #' . ($index + 1))); ?>\'?');"
                                     class="h-full">
                                     <input type="hidden" name="action" value="delete_music_item">
@@ -435,7 +435,7 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
                             Manage your digital scrapbook. Layout classes use Tailwind.</p>
                     </div>
 
-                    <form method="POST" action="handler.php" class="inline-block mt-2 md:mt-0 flex-shrink-0">
+                    <form method="POST" action="../api/update.php" class="inline-block mt-2 md:mt-0 flex-shrink-0">
                         <input type="hidden" name="action" value="add_gallery_item">
                         <button type="submit"
                             class="bg-[#ff00ff] text-white font-black flex items-center justify-center gap-3 border-[4px] border-black px-8 py-5 brutal-shadow hover:bg-pink-600 hover:-translate-y-1 uppercase transition-all w-full text-xl md:text-2xl hover:scale-105 active:scale-95 shadow-[8px_8px_0px_#000]">
@@ -444,7 +444,7 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
                     </form>
                 </div>
 
-                <form action="handler.php" method="POST" enctype="multipart/form-data" class="space-y-10">
+                <form action="../api/update.php" method="POST" enctype="multipart/form-data" class="space-y-10">
                     <input type="hidden" name="action" value="save_gallery">
 
                     <?php if (empty($data['gallery']['images'])): ?>
@@ -576,7 +576,7 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
 
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                             <?php foreach ($data['gallery']['images'] as $index => $item): ?>
-                                <form method="POST" action="handler.php"
+                                <form method="POST" action="../api/update.php"
                                     onsubmit="return confirm('WARNING: Are you sure you want to permanently delete Frame #<?php echo $index + 1; ?>?');"
                                     class="h-full">
                                     <input type="hidden" name="action" value="delete_gallery_item">

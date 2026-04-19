@@ -1,4 +1,4 @@
-<?php $data = json_decode(file_get_contents('data.json'), true); ?><!doctype html>
+<?php $data = json_decode(file_get_contents('api/data.json'), true); ?><!doctype html>
 <html lang="en" class="scroll-smooth">
 
 <head>
@@ -43,7 +43,7 @@
   <script src="https://zenithkandel.com.np/fontawesome/zenith-icons.js"></script>
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="assets/styles.css" />
 
   <!-- Phosphor icons or other additions -->
 </head>
@@ -489,7 +489,7 @@
   </main>
 
   <!-- Custom JavaScript -->
-  <script src="script.js"></script>
+  <script src="assets/script.js"></script>
 </body>
 
 </html>
