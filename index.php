@@ -374,31 +374,25 @@
               class="fa-solid fa-guitar"></i>
           </p>
           <div class="flex flex-col gap-4 max-w-md mx-auto">
-            <a href="mailto:69.prince.0112@gmail.com"
+            <a href="mailto:<?php echo htmlspecialchars($data['contact']['email'] ?? '69.prince.0112@gmail.com'); ?>"
               class="bg-white border-[3px] border-ink p-4 flex items-center gap-4 hover-wiggle group cursor-pointer transition-colors hover:bg-accent-pink shadow-brutal-sm">
               <i class="fa-solid fa-envelope-open-text text-3xl group-hover:text-white transition-colors"></i>
               <div>
                 <h3 class="font-mono font-bold text-lg leading-none group-hover:text-white">Email</h3>
-                <span class="font-sans text-sm text-gray-600 group-hover:text-gray-200">69.prince.0112@gmail.com</span>
+                <span class="font-sans text-sm text-gray-600 group-hover:text-gray-200"><?php echo htmlspecialchars($data['contact']['email'] ?? '69.prince.0112@gmail.com'); ?></span>
               </div>
             </a>
             <div class="grid grid-cols-2 gap-4 mt-2">
-              <a href="https://instagram.com/prince_on_guitar" target="_blank"
+              <a href="<?php echo htmlspecialchars($data['contact']['instagram'] ?? 'https://instagram.com/prince_on_guitar'); ?>" target="_blank"
                 class="bg-ink text-white border-[3px] border-ink p-4 flex justify-center items-center gap-2 hover:-translate-y-1 hover:shadow-brutal-sm transition-all rotate-[-1deg] hover:bg-accent-blue hover:text-ink">
                 <i class="fa-brands fa-instagram text-2xl"></i><span class="font-mono font-bold">Instagram</span>
               </a>
-              <a href="https://www.youtube.com/@Prince_on_guitar" target="_blank"
+              <a href="<?php echo htmlspecialchars($data['contact']['youtube'] ?? 'https://www.youtube.com/@Prince_on_guitar'); ?>" target="_blank"
                 class="bg-ink text-white border-[3px] border-ink p-4 flex justify-center items-center gap-2 hover:-translate-y-1 hover:shadow-brutal-sm transition-all rotate-[1deg] hover:bg-red-500 hover:text-white">
                 <i class="fa-brands fa-youtube text-2xl"></i><span class="font-mono font-bold">YouTube</span>
               </a>
-              <a href="#"
-                class="bg-ink text-white border-[3px] border-ink p-4 flex justify-center items-center gap-2 hover:-translate-y-1 hover:shadow-brutal-sm transition-all rotate-[2deg] hover:bg-black hover:text-white">
-                <i class="fa-brands fa-tiktok text-2xl"></i><span class="font-mono font-bold">TikTok</span>
-              </a>
-              <a href="#"
-                class="bg-ink text-white border-[3px] border-ink p-4 flex justify-center items-center gap-2 hover:-translate-y-1 hover:shadow-brutal-sm transition-all rotate-[-2deg] hover:bg-[#1DB954] hover:text-ink">
-                <i class="fa-brands fa-spotify text-2xl"></i><span class="font-mono font-bold">Spotify</span>
-              </a>
+              <a href="<?php echo htmlspecialchars($data['contact']['tiktok'] ?? '#'); ?>" target="_blank" class="bg-ink text-white border-[3px] border-ink p-4 flex justify-center items-center gap-2 hover:-translate-y-1 hover:shadow-brutal-sm transition-all rotate-[2deg] hover:bg-black hover:text-white"><i class="fa-brands fa-tiktok text-2xl"></i><span class="font-mono font-bold">TikTok</span></a>
+              <a href="<?php echo htmlspecialchars($data['contact']['spotify'] ?? '#'); ?>" target="_blank" class="bg-ink text-white border-[3px] border-ink p-4 flex justify-center items-center gap-2 hover:-translate-y-1 hover:shadow-brutal-sm transition-all rotate-[-2deg] hover:bg-[#1DB954] hover:text-ink"><i class="fa-brands fa-spotify text-2xl"></i><span class="font-mono font-bold">Spotify</span></a>
             </div>
           </div>
           <div class="absolute bottom-6 right-6 font-marker text-4xl text-ink transform rotate-[-10deg] opacity-70">-

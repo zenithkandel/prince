@@ -47,8 +47,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data['about']['img'] = $about_img;
 
         // Contact
-        if (isset($_POST['contact']['footer'])) {
-            $data['contact']['footer'] = $_POST['contact']['footer'];
+        $contact_keys = ['email', 'youtube', 'instagram', 'tiktok', 'spotify', 'footer'];
+        foreach ($contact_keys as $key) {
+            if (isset($_POST['contact'][$key])) {
+                $data['contact'][$key] = $_POST['contact'][$key];
+            }
         }
 
         // Music Meta

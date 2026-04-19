@@ -298,6 +298,60 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
                         </div>
                     </section>
 
+
+                    <!-- Contact Section -->
+                    <section
+                        class="bg-white border-4 border-black p-6 md:p-10 brutal-shadow-lg relative group hover:border-[#1DB954] transition-colors focus-within:border-[#1DB954] mt-20">
+                        <div
+                            class="absolute -top-5 -left-5 bg-[#1DB954] border-4 border-black px-4 py-2 font-black transform -rotate-2 uppercase text-xl group-hover:rotate-0 transition-transform shadow-[4px_4px_0px_rgba(0,0,0,1)] z-10 text-white">
+                            Contact & Links <i class="fa-solid fa-address-book"></i></div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8 mt-8 relative z-0">
+                            <!-- Input Block -->
+                            <div class="flex flex-col gap-2">
+                                <label class="font-bold uppercase text-sm flex items-center gap-2"><i class="fa-solid fa-envelope text-lg"></i> Public Email</label>
+                                <input type="email" name="contact[email]"
+                                    value="<?php echo htmlspecialchars($data['contact']['email'] ?? ''); ?>"
+                                    class="border-[3px] border-black p-4 font-mono focus:outline-none focus:ring-[4px] focus:ring-[#1DB954] transition-all bg-transparent focus:bg-white border-b-8">
+                            </div>
+                            <!-- Input Block -->
+                            <div class="flex flex-col gap-2">
+                                <label class="font-bold uppercase text-sm flex items-center gap-2"><i class="fa-brands fa-youtube text-red-500 text-lg"></i> YouTube Link</label>
+                                <input type="url" name="contact[youtube]" placeholder="https://youtube.com/..." 
+                                    value="<?php echo htmlspecialchars($data['contact']['youtube'] ?? ''); ?>"
+                                    class="border-[3px] border-black p-4 font-mono focus:outline-none focus:ring-[4px] focus:ring-red-400 transition-all bg-transparent focus:bg-white border-b-8">
+                            </div>
+                            <!-- Input Block -->
+                            <div class="flex flex-col gap-2">
+                                <label class="font-bold uppercase text-sm flex items-center gap-2"><i class="fa-brands fa-instagram text-pink-500 text-lg"></i> Instagram Link</label>
+                                <input type="url" name="contact[instagram]" placeholder="https://instagram.com/..." 
+                                    value="<?php echo htmlspecialchars($data['contact']['instagram'] ?? ''); ?>"
+                                    class="border-[3px] border-black p-4 font-mono focus:outline-none focus:ring-[4px] focus:ring-[#ff00ff] transition-all bg-transparent focus:bg-white border-b-8">
+                            </div>
+                            <!-- Input Block -->
+                            <div class="flex flex-col gap-2">
+                                <label class="font-bold uppercase text-sm flex items-center gap-2"><i class="fa-brands fa-tiktok text-gray-800 text-lg"></i> TikTok Link</label>
+                                <input type="url" name="contact[tiktok]" placeholder="https://tiktok.com/..." 
+                                    value="<?php echo htmlspecialchars($data['contact']['tiktok'] ?? ''); ?>"
+                                    class="border-[3px] border-black p-4 font-mono focus:outline-none focus:ring-[4px] focus:ring-gray-400 transition-all bg-transparent focus:bg-white border-b-8">
+                            </div>
+                            <!-- Input Block -->
+                            <div class="flex flex-col gap-2">
+                                <label class="font-bold uppercase text-sm flex items-center gap-2"><i class="fa-brands fa-spotify text-green-500 text-lg"></i> Spotify Link</label>
+                                <input type="url" name="contact[spotify]" placeholder="https://spotify.com/..." 
+                                    value="<?php echo htmlspecialchars($data['contact']['spotify'] ?? ''); ?>"
+                                    class="border-[3px] border-black p-4 font-mono focus:outline-none focus:ring-[4px] focus:ring-[#1DB954] transition-all bg-transparent focus:bg-white border-b-8">
+                            </div>
+                            <!-- Input Block -->
+                            <div class="flex flex-col gap-2 md:col-span-2">
+                                <label class="font-bold uppercase text-sm flex items-center gap-2"><i class="fa-regular fa-copyright text-gray-600 text-lg"></i> Footer Text</label>
+                                <input type="text" name="contact[footer]"
+                                    value="<?php echo htmlspecialchars($data['contact']['footer'] ?? ''); ?>"
+                                    class="border-[3px] border-black p-4 font-mono focus:outline-none focus:ring-[4px] focus:ring-yellow-300 transition-all bg-gray-50 focus:bg-white">
+                            </div>
+                        </div>
+                    </section>
+
                     <!-- Sticky Save Action Footer -->
                     <div class="fixed bottom-24 md:bottom-10 right-6 z-[90]"><button type="submit"
                             class="bg-black text-white font-black text-xl md:text-2xl px-8 py-4 uppercase tracking-widest border-[4px] border-black brutal-shadow-lg hover:bg-gray-800 hover:scale-105 active:scale-95 transition-all text-center"><i
