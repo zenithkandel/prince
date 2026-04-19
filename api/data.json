@@ -121,6 +121,11 @@
                 "img": "images\/1776559667_image-1765745759683.jpg",
                 "caption": "test",
                 "classes": "tt"
+            },
+            {
+                "img": "images\/1776560735_favicon.ico",
+                "caption": "new entry",
+                "classes": "w-48 md:w-64 -rotate-2"
             }
         ]
     },
