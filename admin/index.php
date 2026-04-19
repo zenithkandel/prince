@@ -42,19 +42,28 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
     </style>
 </head>
 
-<body class="bg-[#f0f0f0] font-sans flex flex-col md:flex-row min-h-screen selection:bg-yellow-300">
+<body class="bg-[#f0f0f0] font-sans flex flex-col md:flex-row min-h-screen selection:bg-yellow-300 pb-24 md:pb-0">
 
-    <!-- Sidebar Navigation (Sticky on Desktop) -->
-    <aside
-        class="w-full md:w-64 bg-white border-r-4 border-b-4 md:border-b-0 border-black flex flex-col pt-8 brutal-shadow relative z-20 md:sticky md:top-0 md:h-screen overflow-y-auto no-scrollbar flex-shrink-0">
+    <!-- Mobile Header (Visible only on mobile) -->
+    <header class="md:hidden bg-white border-b-4 border-black p-4 flex justify-between items-center z-30 sticky top-0">
+        <div>
+            <h1 class="text-2xl font-black uppercase tracking-tighter block leading-none">Control Center</h1>
+            <p class="text-[10px] font-mono font-bold mt-1 text-gray-500 uppercase tracking-widest inline-block bg-gray-100 px-1 border-2 border-dashed border-gray-300">v2.1 Brutal UX</p>
+        </div>
+        <div class="flex gap-3">
+            <a href="../index.php" target="_blank" class="bg-black text-white w-10 h-10 flex items-center justify-center border-2 border-black brutal-shadow"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="?logout=1" class="bg-white text-black w-10 h-10 flex items-center justify-center border-2 border-black brutal-shadow hover:bg-red-600 hover:text-white"><i class="fa-solid fa-right-from-bracket"></i></a>
+        </div>
+    </header>
+
+    <!-- Desktop Sidebar Navigation -->
+    <aside class="hidden md:flex w-64 bg-white border-r-4 border-black flex-col pt-8 brutal-shadow relative z-20 sticky top-0 h-screen overflow-y-auto no-scrollbar flex-shrink-0">
         <div class="px-6 mb-10">
             <a href="?tab=general" class="block hover:-translate-y-1 transition-transform">
                 <h1 class="text-3xl font-black uppercase tracking-tighter block break-words leading-none">
                     Control<br>Center</h1>
             </a>
-            <p
-                class="text-xs font-mono font-bold mt-3 text-gray-500 uppercase tracking-widest block bg-gray-100 inline-block px-2 py-1 border-2 border-dashed border-gray-300">
-                v2.1 Brutal UX</p>
+            <p class="text-xs font-mono font-bold mt-3 text-gray-500 uppercase tracking-widest block bg-gray-100 inline-block px-2 py-1 border-2 border-dashed border-gray-300">v2.1 Brutal UX</p>
         </div>
 
         <nav class="flex-grow flex flex-col px-4 gap-4 pb-4">
@@ -73,7 +82,7 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
         </nav>
 
         <div class="p-6 mt-8 flex flex-col gap-3 pt-6 border-t-4 border-black border-dashed">
-            <a href="index.php" target="_blank"
+            <a href="../index.php" target="_blank"
                 class="block w-full text-center bg-black text-white font-black p-3 uppercase border-4 border-black brutal-shadow hover:bg-gray-800 hover:-translate-y-1 transition-transform flex justify-center items-center gap-2">
                 <span>Visit Site</span> <span><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
             </a>
@@ -83,6 +92,25 @@ $success = isset($_GET['success']) ? htmlspecialchars($_GET['success']) : null;
             </a>
         </div>
     </aside>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="md:hidden fixed bottom-0 left-0 w-full bg-white border-t-4 border-black flex justify-around p-2 z-50">
+        <a href="?tab=general" class="flex-1 flex flex-col items-center justify-center py-2 relative <?php echo $tab === 'general' ? 'text-black' : 'text-gray-400 hover:text-black'; ?>">
+            <?php if($tab === 'general'): ?><div class="absolute inset-0 bg-yellow-300 border-2 border-black brutal-shadow rounded -z-10 w-11/12 mx-auto"></div><?php endif; ?>
+            <i class="fa-solid fa-house mb-1 text-xl"></i>
+            <span class="text-[10px] font-black uppercase tracking-wider">Stats</span>
+        </a>
+        <a href="?tab=music" class="flex-1 flex flex-col items-center justify-center py-2 relative <?php echo $tab === 'music' ? 'text-black' : 'text-gray-400 hover:text-black'; ?>">
+            <?php if($tab === 'music'): ?><div class="absolute inset-0 bg-[#00e5ff] border-2 border-black brutal-shadow rounded -z-10 w-11/12 mx-auto"></div><?php endif; ?>
+            <i class="fa-solid fa-music mb-1 text-xl"></i>
+            <span class="text-[10px] font-black uppercase tracking-wider">Music</span>
+        </a>
+        <a href="?tab=gallery" class="flex-1 flex flex-col items-center justify-center py-2 relative <?php echo $tab === 'gallery' ? 'text-black' : 'text-gray-400 hover:text-black'; ?>">
+            <?php if($tab === 'gallery'): ?><div class="absolute inset-0 bg-[#ff00ff] text-white border-2 border-black brutal-shadow rounded -z-10 w-11/12 mx-auto"></div><?php endif; ?>
+            <i class="fa-solid fa-camera mb-1 text-xl <?php echo $tab === 'gallery' ? 'text-white' : ''; ?>"></i>
+            <span class="text-[10px] font-black uppercase tracking-wider <?php echo $tab === 'gallery' ? 'text-white' : ''; ?>">Gallery</span>
+        </a>
+    </nav>
 
     <!-- Main Content Area -->
     <main class="flex-grow p-6 md:p-10 lg:p-14 overflow-y-auto relative z-10 w-full">
