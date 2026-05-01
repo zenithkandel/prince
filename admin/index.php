@@ -411,7 +411,8 @@ $icon_options = [
                                         </div>
                                         <div class="flex flex-col gap-1.5">
                                             <label class="font-bold uppercase text-[10px] text-gray-400 tracking-widest">Content URL</label>
-                                            <input type="url" name="viral_items[<?php echo $index; ?>][url]" value="<?php echo htmlspecialchars($item['url'] ?? ''); ?>" class="border-[3px] border-black p-3 font-mono text-sm focus:outline-none focus:ring-[4px] focus:ring-pink-200 bg-white">
+                                            <input type="url" name="viral_items[<?php echo $index; ?>][url]" value="<?php echo htmlspecialchars($item['url'] ?? ''); ?>" class="border-[3px] border-black p-3 font-mono text-sm focus:outline-none focus:ring-[4px] focus:ring-pink-200 bg-white" oninput="validateViralUrl(this)">
+                                            <div class="url-validation-error text-red-600 text-xs font-bold hidden"><i class="fa-solid fa-exclamation-circle"></i> Unsupported platform</div>
                                         </div>
                                         <div class="grid grid-cols-2 gap-4">
                                             <div class="flex flex-col gap-1.5">
@@ -561,7 +562,7 @@ $icon_options = [
             </div>
             <form action="../api/update.php" method="POST" enctype="multipart/form-data" class="p-6 space-y-6">
                 <input type="hidden" name="action" value="add_viral_item">
-                <div><label class="block font-bold mb-2 uppercase text-sm">Content URL</label><input type="url" name="viral_meta[url]" required placeholder="https://tiktok.com/..." id="viral-url-input" class="w-full border-[3px] border-black p-3 font-mono focus:outline-none focus:ring-4 focus:ring-pink-200 bg-white" oninput="detectPlatform(this.value)"></div>
+                <div><label class="block font-bold mb-2 uppercase text-sm">Content URL</label><input type="url" name="viral_meta[url]" required placeholder="https://tiktok.com/..." id="viral-url-input" class="w-full border-[3px] border-black p-3 font-mono focus:outline-none focus:ring-4 focus:ring-pink-200 bg-white" oninput="validateAndDetectPlatform(this.value)"><div id="url-error" class="text-red-600 text-xs font-bold mt-1 hidden"><i class="fa-solid fa-exclamation-circle"></i> Unsupported platform. Try TikTok, YouTube, Instagram, Facebook, or Twitter.</div></div>
                 <div><label class="block font-bold mb-2 uppercase text-sm">Platform <span id="detected-platform" class="text-[10px] bg-pink-100 px-2 border border-black ml-2"></span></label>
                     <select name="viral_meta[platform]" id="viral-platform-select" class="w-full border-[3px] border-black p-3 font-mono focus:outline-none focus:ring-4 focus:ring-pink-200 bg-white cursor-pointer">
                         <option value="auto">Auto-detect from URL</option><option value="tiktok">TikTok</option><option value="instagram">Instagram</option><option value="youtube">YouTube</option><option value="facebook">Facebook</option><option value="twitter">X/Twitter</option><option value="other">Other</option>
@@ -569,7 +570,7 @@ $icon_options = [
                 </div>
                 <div><label class="block font-bold mb-2 uppercase text-sm">Title</label><input type="text" name="viral_meta[title]" required placeholder="E.g. Guitar solo that broke the internet" class="w-full border-[3px] border-black p-3 font-black text-xl focus:outline-none focus:ring-4 focus:ring-pink-200 bg-white"></div>
                 <div><label class="block font-bold mb-2 uppercase text-sm">View Count</label><input type="text" name="viral_meta[views]" placeholder="E.g. 2.5M or 500K" class="w-full border-[3px] border-black p-3 font-mono focus:outline-none focus:ring-4 focus:ring-pink-200 bg-white"></div>
-                <div><label class="block font-bold mb-2 uppercase text-sm">Thumbnail <span class="text-[10px] text-gray-500">Optional - upload image or leave for platform logo</span></label><input type="file" name="viral_thumb_new" class="w-full text-sm font-mono file:mr-3 file:py-2 file:px-4 file:border-4 file:border-black file:bg-[transparent] file:text-black file:hover:bg-[#ff00ff] file:hover:text-white file:transition-colors file:font-bold file:uppercase cursor-pointer focus:outline-none bg-gray-50 border-[3px] border-black p-2 h-14"></div>
+                <div><label class="block font-bold mb-2 uppercase text-sm">Thumbnail <span class="text-[10px] text-gray-500">Optional - auto-fetches from URL or upload image</span></label><div id="thumbnail-preview" class="hidden mb-3 border-[3px] border-black bg-gray-100 h-32 flex items-center justify-center overflow-hidden"><img id="preview-img" class="w-full h-full object-cover"></div><input type="file" name="viral_thumb_new" id="viral-thumb-input" class="w-full text-sm font-mono file:mr-3 file:py-2 file:px-4 file:border-4 file:border-black file:bg-[transparent] file:text-black file:hover:bg-[#ff00ff] file:hover:text-white file:transition-colors file:font-bold file:uppercase cursor-pointer focus:outline-none bg-gray-50 border-[3px] border-black p-2 h-14"></div>
                 <button type="submit" class="w-full bg-black text-white font-black text-xl p-4 uppercase border-[4px] border-black brutal-shadow hover:bg-gray-800 hover:-translate-y-1"><i class="fa-solid fa-plus"></i> Add Viral Content</button>
             </form>
         </div>
@@ -607,24 +608,130 @@ $icon_options = [
             if (currentDeleteFormId) { document.getElementById(currentDeleteFormId).submit(); }
         });
 
-        // Platform auto-detection for viral modal
-        function detectPlatform(url) {
+        // Platform auto-detection and URL validation for viral modal
+        function validateAndDetectPlatform(url) {
             const el = document.getElementById('detected-platform');
             const sel = document.getElementById('viral-platform-select');
+            const errorEl = document.getElementById('url-error');
             url = url.toLowerCase();
             let platform = '';
-            if (url.includes('tiktok.com')) platform = 'tiktok';
-            else if (url.includes('instagram.com')) platform = 'instagram';
-            else if (url.includes('youtube.com') || url.includes('youtu.be')) platform = 'youtube';
-            else if (url.includes('facebook.com') || url.includes('fb.watch')) platform = 'facebook';
-            else if (url.includes('twitter.com') || url.includes('x.com')) platform = 'twitter';
+            let isSupported = false;
+            
+            if (url.includes('tiktok.com')) { platform = 'tiktok'; isSupported = true; }
+            else if (url.includes('instagram.com')) { platform = 'instagram'; isSupported = true; }
+            else if (url.includes('youtube.com') || url.includes('youtu.be')) { platform = 'youtube'; isSupported = true; }
+            else if (url.includes('facebook.com') || url.includes('fb.watch')) { platform = 'facebook'; isSupported = true; }
+            else if (url.includes('twitter.com') || url.includes('x.com')) { platform = 'twitter'; isSupported = true; }
+            
             if (platform) {
                 el.textContent = 'Detected: ' + platform.charAt(0).toUpperCase() + platform.slice(1);
                 sel.value = platform;
+                errorEl.classList.add('hidden');
+                // Auto-fetch thumbnail preview
+                fetchThumbnailPreview(platform, url);
+            } else if (url.length > 0) {
+                el.textContent = '';
+                sel.value = 'auto';
+                errorEl.classList.remove('hidden');
             } else {
                 el.textContent = '';
+                sel.value = 'auto';
+                errorEl.classList.add('hidden');
             }
         }
+        
+        function detectPlatform(url) {
+            validateAndDetectPlatform(url);
+        }
+        
+        // Fetch thumbnail preview from social media
+        function fetchThumbnailPreview(platform, url) {
+            const previewEl = document.getElementById('thumbnail-preview');
+            const imgEl = document.getElementById('preview-img');
+            
+            let thumbnailUrl = '';
+            
+            if (platform === 'youtube') {
+                const match = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i);
+                if (match && match[1]) {
+                    thumbnailUrl = `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg`;
+                }
+            } else if (platform === 'tiktok') {
+                // Note: TikTok oEmbed requires async fetch, showing loading state
+                fetchTikTokThumbnail(url, imgEl, previewEl);
+                return;
+            } else if (platform === 'instagram') {
+                // Instagram oEmbed requires async fetch
+                fetchInstagramThumbnail(url, imgEl, previewEl);
+                return;
+            }
+            
+            if (thumbnailUrl) {
+                imgEl.src = thumbnailUrl;
+                previewEl.classList.remove('hidden');
+            } else {
+                previewEl.classList.add('hidden');
+            }
+        }
+        
+        function fetchTikTokThumbnail(url, imgEl, previewEl) {
+            // TikTok oEmbed endpoint
+            fetch(`https://www.tiktok.com/oembed?url=${encodeURIComponent(url)}`)
+                .then(r => r.json())
+                .catch(e => console.log('TikTok thumbnail fetch failed'))
+                .then(data => {
+                    if (data && data.thumbnail_url) {
+                        imgEl.src = data.thumbnail_url;
+                        previewEl.classList.remove('hidden');
+                    }
+                });
+        }
+        
+        function fetchInstagramThumbnail(url, imgEl, previewEl) {
+            // Instagram oEmbed endpoint
+            fetch(`https://graph.facebook.com/v18.0/instagram_oembed?url=${encodeURIComponent(url)}`)
+                .then(r => r.json())
+                .catch(e => console.log('Instagram thumbnail fetch failed'))
+                .then(data => {
+                    if (data && data.thumbnail_url) {
+                        imgEl.src = data.thumbnail_url;
+                        previewEl.classList.remove('hidden');
+                    }
+                });
+        }
+        
+        // Validate viral URL on existing items
+        function validateViralUrl(inputEl) {
+            const url = inputEl.value.toLowerCase();
+            const errorEl = inputEl.parentElement.querySelector('.url-validation-error');
+            
+            let isSupported = false;
+            if (url.includes('tiktok.com') || url.includes('instagram.com') || 
+                url.includes('youtube.com') || url.includes('youtu.be') ||
+                url.includes('facebook.com') || url.includes('fb.watch') ||
+                url.includes('twitter.com') || url.includes('x.com')) {
+                isSupported = true;
+            }
+            
+            if (url.length > 0 && !isSupported) {
+                errorEl.classList.remove('hidden');
+            } else {
+                errorEl.classList.add('hidden');
+            }
+        }
+        
+        // Handle thumbnail file upload preview
+        document.getElementById('viral-thumb-input')?.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    document.getElementById('preview-img').src = event.target.result;
+                    document.getElementById('thumbnail-preview').classList.remove('hidden');
+                };
+                reader.readAsDataURL(file);
+            }
+        });
     </script>
 </body>
 </html>
