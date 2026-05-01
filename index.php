@@ -136,7 +136,7 @@
 
         <!-- Main Name -->
         <h1 class="font-marker text-6xl md:text-8xl lg:text-9xl text-ink leading-none uppercase relative">
-          <span class="block relative z-10 transition-transform hover:-translate-y-2 duration-300">Prince</span>
+           <span class="block relative z-10 transition-transform hover:-translate-y-2 duration-300"><?php echo htmlspecialchars($data['hero']['title_first']); ?></span>
           <span class="block relative z-10 transition-transform hover:-translate-y-2 duration-300 text-accent-blue"
             style="
                 -webkit-text-stroke: 1px var(--color-text-dark);
@@ -184,7 +184,7 @@
           <!-- Accents -->
           <div
             class="absolute -bottom-10 -right-8 w-24 h-24 bg-accent-blue rounded-full border-[3px] border-ink shadow-brutal-sm flex items-center justify-center -rotate-12 hover-wiggle">
-            <span class="font-marker text-white text-xl text-center leading-none">Vibes<br />Only</span>
+            <span class="font-marker text-white text-xl text-center leading-none"><?php echo nl2br(htmlspecialchars($data['hero']['img_badge'] ?? 'Vibes\nOnly')); ?></span>
           </div>
         </div>
       </div>
@@ -236,30 +236,52 @@
                 class="fa-solid fa-sparkle absolute -top-4 -right-4 md:-right-8 text-2xl md:text-3xl text-accent-pink animate-pulse"></i>
             </h2>
 
+            <?php
+              // Map simple icon names to FontAwesome classes
+              $icon_map = [
+                'guitar' => 'fa-solid fa-guitar',
+                'microphone' => 'fa-solid fa-microphone',
+                'music' => 'fa-solid fa-music',
+                'star' => 'fa-solid fa-star',
+                'heart' => 'fa-solid fa-heart',
+                'fire' => 'fa-solid fa-fire',
+                'bolt' => 'fa-solid fa-bolt',
+                'headphones' => 'fa-solid fa-headphones',
+              ];
+              $badge_icon_key = $data['about']['badge_icon'] ?? 'guitar';
+              $badge_icon_class = $icon_map[$badge_icon_key] ?? 'fa-solid fa-guitar';
+
+              // Auto-highlight keyword in content_p2
+              $p2_text = htmlspecialchars($data['about']['content_p2'] ?? '');
+              $p2_highlight = htmlspecialchars($data['about']['content_p2_highlight'] ?? '');
+              if (!empty($p2_highlight) && strpos($p2_text, $p2_highlight) !== false) {
+                $p2_rendered = str_replace(
+                  $p2_highlight,
+                  '<span class="bg-accent-blue px-3 py-1 rotate-[-1deg] inline-block shadow-brutal-sm text-white mt-1 mb-1 md:mt-0 md:mb-0">' . $p2_highlight . '</span>',
+                  $p2_text
+                );
+              } else {
+                $p2_rendered = $p2_text;
+              }
+            ?>
             <div class="font-marker text-lg sm:text-xl md:text-2xl mb-4 leading-relaxed tracking-wide">
               <p class="mb-4">
-                Hey! I'm Prince. Born in the vibrant streets of Nepal, now
-                making noise in Toronto, Canada. 🍁
+                <?php echo htmlspecialchars($data['about']['content_p1'] ?? ''); ?>
               </p>
               <p class="mb-4 bg-accent-yellow inline-block px-3 py-1 rotate-[1deg] shadow-brutal-sm">
-                Raised at Budhanilkantha School.
+                <?php echo htmlspecialchars($data['about']['content_highlight'] ?? ''); ?>
               </p>
               <br /><br />
               <p>
-                Making music has always been my journey. From early
-                experiences like a brief stint on
-                <span
-                  class="bg-accent-blue px-3 py-1 rotate-[-1deg] inline-block shadow-brutal-sm text-white mt-1 mb-1 md:mt-0 md:mb-0">Voice
-                  of Nepal
-                  Kids</span><?php echo htmlspecialchars(explode('</span>', $data['about']['content_p2'])[1] ?? ''); ?>
+                <?php echo $p2_rendered; ?>
               </p>
             </div>
 
             <!-- Doodles/Pins -->
             <div
               class="hidden md:flex absolute -right-4 md:-right-12 bottom-10 w-20 h-20 md:w-24 md:h-24 bg-accent-pink rounded-full border-[3px] border-ink flex flex-col items-center justify-center text-white polaroid hover-wiggle shadow-brutal-sm">
-              <i class="<?php echo htmlspecialchars($data['about']['badge_icon']); ?> text-3xl mb-1"></i>
-              <span class="font-mono text-xs font-bold uppercase">100% Raw</span>
+              <i class="<?php echo htmlspecialchars($badge_icon_class); ?> text-3xl mb-1"></i>
+              <span class="font-mono text-xs font-bold uppercase"><?php echo htmlspecialchars($data['about']['badge_text'] ?? '100% Raw'); ?></span>
             </div>
           </div>
         </div>
