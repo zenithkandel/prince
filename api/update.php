@@ -28,19 +28,32 @@ function handle_upload($input_name)
 function generate_gallery_classes($size = 'medium')
 {
     $size_map = [
-        'small'  => ['w-48 md:w-64', 'w-52 md:w-68', 'w-48 md:w-60'],
+        'small' => ['w-48 md:w-64', 'w-52 md:w-68', 'w-48 md:w-60'],
         'medium' => ['w-56 md:w-72', 'w-60 md:w-80', 'w-64 md:w-80'],
-        'large'  => ['w-72 md:w-96', 'w-80 md:w-[28rem]', 'w-72 md:w-[26rem]']
+        'large' => ['w-72 md:w-96', 'w-80 md:w-[28rem]', 'w-72 md:w-[26rem]']
     ];
 
     $rotations = [
-        '-rotate-12', '-rotate-[8deg]', '-rotate-6', '-rotate-3', '-rotate-2',
-        'rotate-2', 'rotate-3', 'rotate-6', 'rotate-[7deg]', 'rotate-[15deg]'
+        '-rotate-12',
+        '-rotate-[8deg]',
+        '-rotate-6',
+        '-rotate-3',
+        '-rotate-2',
+        'rotate-2',
+        'rotate-3',
+        'rotate-6',
+        'rotate-[7deg]',
+        'rotate-[15deg]'
     ];
 
     $margins = [
-        '', 'mt-12 md:mt-24', 'md:ml-12', 'md:-ml-20', 'mt-10 md:-mt-10',
-        'md:mt-20', 'md:-ml-12 mt-10 md:-mt-10'
+        '',
+        'mt-12 md:mt-24',
+        'md:ml-12',
+        'md:-ml-20',
+        'mt-10 md:-mt-10',
+        'md:mt-20',
+        'md:-ml-12 mt-10 md:-mt-10'
     ];
 
     $widths = $size_map[$size] ?? $size_map['medium'];
@@ -57,15 +70,56 @@ function generate_gallery_classes($size = 'medium')
 function detect_platform($url)
 {
     $url = strtolower($url);
-    if (strpos($url, 'tiktok.com') !== false) return 'tiktok';
-    if (strpos($url, 'instagram.com') !== false) return 'instagram';
-    if (strpos($url, 'youtube.com/shorts') !== false) return 'youtube';
-    if (strpos($url, 'youtu.be') !== false) return 'youtube';
-    if (strpos($url, 'youtube.com') !== false) return 'youtube';
-    if (strpos($url, 'facebook.com') !== false) return 'facebook';
-    if (strpos($url, 'fb.watch') !== false) return 'facebook';
-    if (strpos($url, 'twitter.com') !== false || strpos($url, 'x.com') !== false) return 'twitter';
+    if (strpos($url, 'tiktok.com') !== false)
+        return 'tiktok';
+    if (strpos($url, 'instagram.com') !== false)
+        return 'instagram';
+    if (strpos($url, 'youtube.com/shorts') !== false)
+        return 'youtube';
+    if (strpos($url, 'youtu.be') !== false)
+        return 'youtube';
+    if (strpos($url, 'youtube.com') !== false)
+        return 'youtube';
+    if (strpos($url, 'facebook.com') !== false)
+        return 'facebook';
+    if (strpos($url, 'fb.watch') !== false)
+        return 'facebook';
+    if (strpos($url, 'twitter.com') !== false || strpos($url, 'x.com') !== false)
+        return 'twitter';
     return 'other';
+}
+
+/**
+ * Fetch thumbnail URL dynamically from API or oEmbed
+ */
+function fetch_thumbnail_url($platform, $url)
+{
+    if (empty($url)) return '';
+    
+    if ($platform === 'youtube') {
+        preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i', $url, $matches);
+        if (isset($matches[1])) {
+            return "https://img.youtube.com/vi/{$matches[1]}/hqdefault.jpg";
+        }
+    } elseif ($platform === 'tiktok') {
+        $oembed_json = @file_get_contents("https://www.tiktok.com/oembed?url=" . urlencode($url));
+        if ($oembed_json) {
+            $oembed_data = json_decode($oembed_json, true);
+            if (!empty($oembed_data['thumbnail_url'])) {
+                return $oembed_data['thumbnail_url'];
+            }
+        }
+    } elseif ($platform === 'instagram') {
+        $oembed_json = @file_get_contents("https://graph.facebook.com/v18.0/instagram_oembed?url=" . urlencode($url));
+        if ($oembed_json) {
+            $oembed_data = json_decode($oembed_json, true);
+            if (!empty($oembed_data['thumbnail_url'])) {
+                return $oembed_data['thumbnail_url'];
+            }
+        }
+    }
+    
+    return '';
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -170,7 +224,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             "link" => $_POST['music_meta']['link'] ?? "",
             "img" => ""
         ];
-        
+
         $uploaded_img = handle_upload('music_img_new');
         if ($uploaded_img) {
             $new_item['img'] = $uploaded_img;
@@ -235,7 +289,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             "caption" => $_POST['gallery_meta']['caption'] ?? "New Photo",
             "size" => $size
         ];
-        
+
         $uploaded_img = handle_upload('gallery_img_new');
         if ($uploaded_img) {
             $new_item['img'] = $uploaded_img;
@@ -272,7 +326,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             foreach ($_POST['viral_items'] as $index => $item_data) {
                 $url = $item_data['url'] ?? '';
                 $platform = $item_data['platform'] ?? detect_platform($url);
-                
+
                 $item = [
                     'url' => $url,
                     'platform' => $platform,
@@ -328,7 +382,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['action']) && $_POST['action'] === 'add_viral_item') {
         $url = $_POST['viral_meta']['url'] ?? '';
         $platform = $_POST['viral_meta']['platform'] ?? '';
-        
+
         // Auto-detect platform if not manually set or set to 'auto'
         if (empty($platform) || $platform === 'auto') {
             $platform = detect_platform($url);
