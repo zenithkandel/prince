@@ -440,3 +440,191 @@ $icon_options = [
                     <?php endif; ?>
                 </form>
             <?php endif; ?>
+
+            <!-- TAB: GALLERY -->
+            <?php if ($tab === 'gallery'): ?>
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6 border-b-8 border-black border-dashed pb-8">
+                    <div>
+                        <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tight text-[#d900d9]">Gallery Config</h2>
+                        <p class="text-gray-600 font-mono mt-3 text-sm bg-pink-100 inline-block px-2 border-2 border-black border-dashed">Manage your digital scrapbook.</p>
+                    </div>
+                    <button type="button" onclick="document.getElementById('gallery-modal').classList.remove('hidden')" class="bg-[#ff00ff] text-white font-black flex items-center justify-center gap-3 border-[4px] border-black px-8 py-5 brutal-shadow hover:bg-pink-600 hover:-translate-y-1 uppercase transition-all w-full text-xl md:text-2xl hover:scale-105 active:scale-95">
+                        <span class="text-3xl leading-none block align-middle mt-[-4px]">+</span> Add Photo
+                    </button>
+                </div>
+                <form action="../api/update.php" method="POST" enctype="multipart/form-data" class="space-y-10">
+                    <input type="hidden" name="action" value="save_gallery">
+                    <?php if (empty($data['gallery']['images'])): ?>
+                        <div class="bg-white border-[6px] border-dashed border-black p-16 flex flex-col items-center justify-center gap-6 brutal-shadow">
+                            <span class="text-7xl"><i class="fa-solid fa-camera"></i></span>
+                            <p class="font-black uppercase text-3xl text-center">Your scrapbook is empty.</p>
+                        </div>
+                    <?php else: ?>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 gap-y-14">
+                            <?php foreach ($data['gallery']['images'] as $index => $item): ?>
+                                <div class="bg-white border-[6px] border-black p-6 md:p-8 pt-8 brutal-shadow flex flex-col gap-6 relative mt-4 group">
+                                    <button type="button" onclick="confirmDelete('del-gallery-<?php echo $index; ?>', 'Photo #<?php echo $index + 1; ?>')" class="absolute -top-4 -right-4 bg-red-500 text-white w-10 h-10 rounded-full border-4 border-black brutal-shadow flex items-center justify-center hover:bg-red-700 hover:scale-110 active:scale-95 transition-all z-50"><i class="fa-solid fa-trash text-sm"></i></button>
+                                    <div class="absolute -top-5 -left-5 bg-[#ff00ff] text-white border-4 border-black px-4 py-1.5 font-black transform rotate-2 text-lg shadow-[4px_4px_0px_rgba(0,0,0,1)] group-hover:rotate-0 transition-transform z-10 flex items-center gap-2"><i class="fa-solid fa-camera"></i> Frame #<?php echo $index + 1; ?></div>
+                                    <div class="flex flex-col xl:flex-row xl:items-center gap-5 mt-4 bg-white border-[3px] border-black p-4">
+                                        <div class="w-full xl:w-28 h-48 xl:h-28 flex-shrink-0 overflow-hidden border-2 border-gray-300 bg-gray-100">
+                                            <?php if (!empty($item['img'])): ?>
+                                                <img src="../<?php echo htmlspecialchars($item['img']); ?>" class="w-full h-full object-cover">
+                                            <?php else: ?><div class="w-full h-full flex items-center justify-center"><span class="text-[10px] font-black text-gray-400 uppercase">No Image</span></div><?php endif; ?>
+                                        </div>
+                                        <div class="flex-grow w-full overflow-hidden">
+                                            <label class="font-bold uppercase text-xs mb-2 block text-gray-600 bg-gray-100 pl-2 border-l-4 border-[#ff00ff]">Image</label>
+                                            <input type="hidden" name="gallery_images[<?php echo $index; ?>][existing_img]" value="<?php echo htmlspecialchars($item['img'] ?? ''); ?>">
+                                            <input type="file" name="gallery_img_<?php echo $index; ?>" class="w-full text-xs font-mono file:mr-3 file:py-1.5 file:px-3 file:border-2 file:border-black file:bg-[transparent] file:text-black file:hover:bg-black file:hover:text-white file:transition-colors file:font-bold file:uppercase cursor-pointer focus:outline-none truncate bg-white border-2 border-dashed border-gray-300 hover:border-black p-1">
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col gap-5 mt-2">
+                                        <div class="flex flex-col gap-1.5">
+                                            <label class="font-bold uppercase text-[10px] text-gray-400 tracking-widest">Caption</label>
+                                            <input type="text" name="gallery_images[<?php echo $index; ?>][caption]" value="<?php echo htmlspecialchars($item['caption'] ?? ''); ?>" class="border-b-[4px] border-black pb-2 font-black text-2xl focus:outline-none focus:border-[#ff00ff] bg-transparent placeholder-gray-200">
+                                        </div>
+                                        <div class="flex flex-col gap-1.5">
+                                            <label class="font-bold uppercase text-[10px] text-gray-400 tracking-widest">Photo Size</label>
+                                            <select name="gallery_images[<?php echo $index; ?>][size]" class="border-[3px] border-black p-3 font-mono text-sm focus:outline-none focus:ring-[4px] focus:ring-pink-200 bg-white cursor-pointer">
+                                                <option value="small" <?php echo ($item['size'] ?? 'medium') === 'small' ? 'selected' : ''; ?>>Small</option>
+                                                <option value="medium" <?php echo ($item['size'] ?? 'medium') === 'medium' ? 'selected' : ''; ?>>Medium</option>
+                                                <option value="large" <?php echo ($item['size'] ?? 'medium') === 'large' ? 'selected' : ''; ?>>Large</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                        <div class="fixed bottom-24 md:bottom-10 right-6 z-[90]"><button type="submit" class="bg-[#ff00ff] text-white font-black text-xl md:text-2xl px-8 py-4 uppercase tracking-widest border-[4px] border-black brutal-shadow-lg hover:bg-pink-600 hover:scale-105 active:scale-95 transition-all"><i class="fa-solid fa-floppy-disk"></i> Save Gallery</button></div>
+                    <?php endif; ?>
+                </form>
+            <?php endif; ?>
+
+        </div>
+    </main>
+
+    <!-- Hidden Delete Forms -->
+    <?php if (!empty($data['music']['releases'])): foreach ($data['music']['releases'] as $index => $item): ?>
+        <form id="del-music-<?php echo $index; ?>" method="POST" action="../api/update.php" class="hidden"><input type="hidden" name="action" value="delete_music_item"><input type="hidden" name="delete_index" value="<?php echo $index; ?>"></form>
+    <?php endforeach; endif; ?>
+    <?php if (!empty($data['gallery']['images'])): foreach ($data['gallery']['images'] as $index => $item): ?>
+        <form id="del-gallery-<?php echo $index; ?>" method="POST" action="../api/update.php" class="hidden"><input type="hidden" name="action" value="delete_gallery_item"><input type="hidden" name="delete_index" value="<?php echo $index; ?>"></form>
+    <?php endforeach; endif; ?>
+    <?php if (!empty($data['viral']['items'])): foreach ($data['viral']['items'] as $index => $item): ?>
+        <form id="del-viral-<?php echo $index; ?>" method="POST" action="../api/update.php" class="hidden"><input type="hidden" name="action" value="delete_viral_item"><input type="hidden" name="delete_index" value="<?php echo $index; ?>"></form>
+    <?php endforeach; endif; ?>
+
+    <!-- Music Modal -->
+    <div id="music-modal" class="hidden fixed inset-0 z-[100] bg-black bg-opacity-70 flex items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-white border-[6px] border-black brutal-shadow-lg w-full max-w-lg overflow-hidden transform -rotate-1">
+            <div class="bg-yellow-300 border-b-4 border-black p-4 flex justify-between items-center">
+                <h2 class="font-black text-2xl uppercase tracking-widest"><i class="fa-solid fa-music"></i> Add Track</h2>
+                <button type="button" onclick="document.getElementById('music-modal').classList.add('hidden')" class="text-3xl font-black hover:text-red-600">&times;</button>
+            </div>
+            <form action="../api/update.php" method="POST" enctype="multipart/form-data" class="p-6 space-y-6">
+                <input type="hidden" name="action" value="add_music_item_with_data">
+                <div><label class="block font-bold mb-2 uppercase text-sm">Cover Image</label><input type="file" name="music_img_new" class="w-full text-sm font-mono file:mr-3 file:py-2 file:px-4 file:border-4 file:border-black file:bg-[transparent] file:text-black file:hover:bg-yellow-300 file:transition-colors file:font-bold file:uppercase cursor-pointer focus:outline-none bg-gray-50 border-[3px] border-black p-2 h-14"></div>
+                <div><label class="block font-bold mb-2 uppercase text-sm">Track Title</label><input type="text" name="music_meta[title]" required placeholder="E.g. Summer Vibes" class="w-full border-[3px] border-black p-3 font-black text-xl focus:outline-none focus:ring-4 focus:ring-cyan-200 bg-white"></div>
+                <div><label class="block font-bold mb-2 uppercase text-sm">Description</label><input type="text" name="music_meta[desc]" placeholder="Small description..." class="w-full border-[3px] border-black p-3 font-mono focus:outline-none focus:ring-4 focus:ring-cyan-200 bg-white"></div>
+                <div><label class="block font-bold mb-2 uppercase text-sm">Link</label><input type="url" name="music_meta[link]" placeholder="https://..." class="w-full border-[3px] border-black p-3 font-mono focus:outline-none focus:ring-4 focus:ring-cyan-200 bg-white"></div>
+                <button type="submit" class="w-full bg-black text-white font-black text-xl p-4 uppercase border-[4px] border-black brutal-shadow hover:bg-gray-800 hover:-translate-y-1"><i class="fa-solid fa-plus"></i> Create Release</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Gallery Modal -->
+    <div id="gallery-modal" class="hidden fixed inset-0 z-[100] bg-black bg-opacity-70 flex items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-white border-[6px] border-black brutal-shadow-lg w-full max-w-lg overflow-hidden transform rotate-1">
+            <div class="bg-[#ff00ff] text-white border-b-4 border-black p-4 flex justify-between items-center">
+                <h2 class="font-black text-2xl uppercase tracking-widest"><i class="fa-solid fa-camera"></i> Add Photo</h2>
+                <button type="button" onclick="document.getElementById('gallery-modal').classList.add('hidden')" class="text-3xl font-black hover:text-black">&times;</button>
+            </div>
+            <form action="../api/update.php" method="POST" enctype="multipart/form-data" class="p-6 space-y-6">
+                <input type="hidden" name="action" value="add_gallery_item_with_data">
+                <div><label class="block font-bold mb-2 uppercase text-sm">Upload Image</label><input type="file" name="gallery_img_new" class="w-full text-sm font-mono file:mr-3 file:py-2 file:px-4 file:border-4 file:border-black file:bg-[transparent] file:text-black file:hover:bg-[#ff00ff] file:hover:text-white file:transition-colors file:font-bold file:uppercase cursor-pointer focus:outline-none bg-gray-50 border-[3px] border-black p-2 h-14"></div>
+                <div><label class="block font-bold mb-2 uppercase text-sm">Caption</label><input type="text" name="gallery_meta[caption]" required placeholder="E.g. Great memories" class="w-full border-[3px] border-black p-3 font-black text-xl focus:outline-none focus:ring-4 focus:ring-pink-200 bg-white"></div>
+                <div><label class="block font-bold mb-2 uppercase text-sm">Photo Size</label>
+                    <select name="gallery_meta[size]" class="w-full border-[3px] border-black p-3 font-mono focus:outline-none focus:ring-4 focus:ring-pink-200 bg-white cursor-pointer">
+                        <option value="small">Small</option><option value="medium" selected>Medium</option><option value="large">Large</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-black text-white font-black text-xl p-4 uppercase border-[4px] border-black brutal-shadow hover:bg-gray-800 hover:-translate-y-1"><i class="fa-solid fa-plus"></i> Upload Photo</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Viral Modal -->
+    <div id="viral-modal" class="hidden fixed inset-0 z-[100] bg-black bg-opacity-70 flex items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-white border-[6px] border-black brutal-shadow-lg w-full max-w-lg overflow-hidden transform -rotate-1">
+            <div class="bg-[#ff00ff] text-white border-b-4 border-black p-4 flex justify-between items-center">
+                <h2 class="font-black text-2xl uppercase tracking-widest"><i class="fa-solid fa-fire"></i> Add Viral</h2>
+                <button type="button" onclick="document.getElementById('viral-modal').classList.add('hidden')" class="text-3xl font-black hover:text-black">&times;</button>
+            </div>
+            <form action="../api/update.php" method="POST" enctype="multipart/form-data" class="p-6 space-y-6">
+                <input type="hidden" name="action" value="add_viral_item">
+                <div><label class="block font-bold mb-2 uppercase text-sm">Content URL</label><input type="url" name="viral_meta[url]" required placeholder="https://tiktok.com/..." id="viral-url-input" class="w-full border-[3px] border-black p-3 font-mono focus:outline-none focus:ring-4 focus:ring-pink-200 bg-white" oninput="detectPlatform(this.value)"></div>
+                <div><label class="block font-bold mb-2 uppercase text-sm">Platform <span id="detected-platform" class="text-[10px] bg-pink-100 px-2 border border-black ml-2"></span></label>
+                    <select name="viral_meta[platform]" id="viral-platform-select" class="w-full border-[3px] border-black p-3 font-mono focus:outline-none focus:ring-4 focus:ring-pink-200 bg-white cursor-pointer">
+                        <option value="auto">Auto-detect from URL</option><option value="tiktok">TikTok</option><option value="instagram">Instagram</option><option value="youtube">YouTube</option><option value="facebook">Facebook</option><option value="twitter">X/Twitter</option><option value="other">Other</option>
+                    </select>
+                </div>
+                <div><label class="block font-bold mb-2 uppercase text-sm">Title</label><input type="text" name="viral_meta[title]" required placeholder="E.g. Guitar solo that broke the internet" class="w-full border-[3px] border-black p-3 font-black text-xl focus:outline-none focus:ring-4 focus:ring-pink-200 bg-white"></div>
+                <div><label class="block font-bold mb-2 uppercase text-sm">View Count</label><input type="text" name="viral_meta[views]" placeholder="E.g. 2.5M or 500K" class="w-full border-[3px] border-black p-3 font-mono focus:outline-none focus:ring-4 focus:ring-pink-200 bg-white"></div>
+                <div><label class="block font-bold mb-2 uppercase text-sm">Thumbnail <span class="text-[10px] text-gray-500">Optional - upload image or leave for platform logo</span></label><input type="file" name="viral_thumb_new" class="w-full text-sm font-mono file:mr-3 file:py-2 file:px-4 file:border-4 file:border-black file:bg-[transparent] file:text-black file:hover:bg-[#ff00ff] file:hover:text-white file:transition-colors file:font-bold file:uppercase cursor-pointer focus:outline-none bg-gray-50 border-[3px] border-black p-2 h-14"></div>
+                <button type="submit" class="w-full bg-black text-white font-black text-xl p-4 uppercase border-[4px] border-black brutal-shadow hover:bg-gray-800 hover:-translate-y-1"><i class="fa-solid fa-plus"></i> Add Viral Content</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Modal -->
+    <div id="delete-modal" class="hidden fixed inset-0 z-[200] bg-black bg-opacity-70 flex items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-white border-[6px] border-black brutal-shadow-lg w-full max-w-sm overflow-hidden transform -rotate-1 relative">
+            <div class="absolute -top-4 -right-4 bg-red-500 w-12 h-12 rounded-full border-4 border-black z-0"></div>
+            <div class="bg-red-600 text-white border-b-4 border-black p-4 flex justify-between items-center relative z-10">
+                <h2 class="font-black text-2xl uppercase tracking-widest"><i class="fa-solid fa-triangle-exclamation"></i> Warning</h2>
+            </div>
+            <div class="p-6 relative z-10">
+                <p class="font-bold text-lg mb-6 leading-tight border-b-2 border-red-200 pb-4">Are you sure you want to delete <br /><span id="delete-target-name" class="font-black text-red-600 text-xl inline-block mt-2 bg-red-100 px-2 py-1 transform rotate-1 border-2 border-red-300"></span>?</p>
+                <div class="flex gap-4">
+                    <button type="button" onclick="closeDeleteModal()" class="flex-1 bg-white text-black font-black p-3 border-[4px] border-black brutal-shadow hover:-translate-y-1 active:translate-y-0 transition-transform uppercase">Cancel</button>
+                    <button type="button" id="confirm-delete-btn" class="flex-1 bg-red-600 text-white font-black p-3 border-[4px] border-black brutal-shadow hover:bg-red-700 hover:-translate-y-1 active:translate-y-0 transition-transform uppercase">Delete It!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentDeleteFormId = null;
+        function confirmDelete(formId, targetName) {
+            currentDeleteFormId = formId;
+            document.getElementById('delete-target-name').innerText = targetName;
+            document.getElementById('delete-modal').classList.remove('hidden');
+        }
+        function closeDeleteModal() {
+            document.getElementById('delete-modal').classList.add('hidden');
+            currentDeleteFormId = null;
+        }
+        document.getElementById('confirm-delete-btn').addEventListener('click', function () {
+            if (currentDeleteFormId) { document.getElementById(currentDeleteFormId).submit(); }
+        });
+
+        // Platform auto-detection for viral modal
+        function detectPlatform(url) {
+            const el = document.getElementById('detected-platform');
+            const sel = document.getElementById('viral-platform-select');
+            url = url.toLowerCase();
+            let platform = '';
+            if (url.includes('tiktok.com')) platform = 'tiktok';
+            else if (url.includes('instagram.com')) platform = 'instagram';
+            else if (url.includes('youtube.com') || url.includes('youtu.be')) platform = 'youtube';
+            else if (url.includes('facebook.com') || url.includes('fb.watch')) platform = 'facebook';
+            else if (url.includes('twitter.com') || url.includes('x.com')) platform = 'twitter';
+            if (platform) {
+                el.textContent = 'Detected: ' + platform.charAt(0).toUpperCase() + platform.slice(1);
+                sel.value = platform;
+            } else {
+                el.textContent = '';
+            }
+        }
+    </script>
+</body>
+</html>
