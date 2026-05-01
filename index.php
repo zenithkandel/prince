@@ -154,8 +154,7 @@
         <p class="font-handwriting text-2xl md:text-4xl text-ink mt-8 max-w-lg leading-relaxed relative rotation-1">
           <?php echo htmlspecialchars($data['hero']['subtitle']); ?>
           <br />
-          <span class="text-xl md:text-2xl font-mono opacity-80 mt-2 block tracking-tight">🇳🇵 Nepal &rarr; 🇨🇦
-            Toronto</span>
+          <span class="text-xl md:text-2xl font-mono opacity-80 mt-2 block tracking-tight"><?php echo htmlspecialchars($data['hero']['location']); ?></span>
         </p>
 
         <!-- CTA Button -->

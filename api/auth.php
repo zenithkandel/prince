@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$password = 'admin'; // Hardcoded simple auth
+$password = 'meropassword'; // Hardcoded simple auth
 
 if (isset($_POST['login'])) {
     if ($_POST['password'] === $password) {
