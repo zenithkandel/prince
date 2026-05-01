@@ -281,6 +281,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     'thumbnail' => $item_data['existing_thumbnail'] ?? ''
                 ];
 
+                // Auto-fetch thumbnail if it's empty
+                if (empty($item['thumbnail']) && !empty($url)) {
+                    if ($platform === 'youtube') {
+                        preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i', $url, $matches);
+                        if (isset($matches[1])) {
+                            $item['thumbnail'] = "https://img.youtube.com/vi/{$matches[1]}/hqdefault.jpg";
+                        }
+                    } elseif ($platform === 'tiktok') {
+                        $oembed_json = @file_get_contents("https://www.tiktok.com/oembed?url=" . urlencode($url));
+                        if ($oembed_json) {
+                            $oembed_data = json_decode($oembed_json, true);
+                            if (!empty($oembed_data['thumbnail_url'])) {
+                                $item['thumbnail'] = $oembed_data['thumbnail_url'];
+                            }
+                        }
+                    } elseif ($platform === 'instagram') {
+                        $oembed_json = @file_get_contents("https://graph.facebook.com/v18.0/instagram_oembed?url=" . urlencode($url));
+                        if ($oembed_json) {
+                            $oembed_data = json_decode($oembed_json, true);
+                            if (!empty($oembed_data['thumbnail_url'])) {
+                                $item['thumbnail'] = $oembed_data['thumbnail_url'];
+                            }
+                        }
+                    }
+                }
+
                 // Handle thumbnail upload per item
                 $uploaded_thumb = handle_upload('viral_thumb_' . $index);
                 if ($uploaded_thumb) {
