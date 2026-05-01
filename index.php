@@ -222,7 +222,7 @@
                 loading="lazy"
                 class="w-full h-auto aspect-[3/4] object-cover border-[2px] border-ink filter sepia hover:sepia-0 transition-all duration-500" />
               <p class="font-handwriting text-xl text-center mt-2">
-                <?php echo htmlspecialchars($data['about']['img_caption']); ?> 🏫
+                <?php echo htmlspecialchars($data['about']['img_caption'] ?? ''); ?>
               </p>
             </div>
           </div>
@@ -305,7 +305,7 @@
         <div
           class="bg-white border-[3px] border-ink shadow-brutal-md px-8 py-3 mb-16 rotate-[1deg] hover:rotate-0 transition-transform scroll-reveal">
           <h2 class="font-marker text-5xl md:text-7xl uppercase">
-            Latest Releases
+            <?php echo htmlspecialchars($data['music']['title'] ?? 'Latest Releases'); ?>
           </h2>
         </div>
 
@@ -348,11 +348,11 @@
       <div
         class="bg-accent-yellow border-[3px] border-ink shadow-brutal-md px-10 py-4 mb-20 rotate-[-3deg] z-20 hover:rotate-3 transition-transform scroll-reveal">
         <h2 class="font-marker text-5xl md:text-7xl uppercase text-ink">
-          Visuals
+          <?php echo htmlspecialchars($data['gallery']['title'] ?? 'Visuals'); ?>
         </h2>
         <div
           class="absolute -right-6 -bottom-6 bg-accent-pink text-white font-handwriting text-2xl h-14 w-14 rounded-full flex items-center justify-center border-[2px] border-ink animate-bounce shadow-md">
-          xox
+          <?php echo htmlspecialchars($data['gallery']['badge'] ?? 'xox'); ?>
         </div>
       </div>
 
