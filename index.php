@@ -92,13 +92,13 @@
           </a>
         </li>
         <?php if (!empty($data['viral']['items'])): ?>
-        <li class="text-center">
-          <a href="#viral"
-            class="font-mono font-bold text-xs sm:text-sm md:text-base hover:text-accent-blue transition-colors group">
-            <i class="fa-solid fa-fire mr-1 group-hover:fa-bounce"></i>
-            Viral
-          </a>
-        </li>
+          <li class="text-center">
+            <a href="#viral"
+              class="font-mono font-bold text-xs sm:text-sm md:text-base hover:text-accent-blue transition-colors group">
+              <i class="fa-solid fa-fire mr-1 group-hover:fa-bounce"></i>
+              Viral
+            </a>
+          </li>
         <?php endif; ?>
         <li class="text-center">
           <a href="#gallery"
@@ -145,7 +145,8 @@
 
         <!-- Main Name -->
         <h1 class="font-marker text-6xl md:text-8xl lg:text-9xl text-ink leading-none uppercase relative">
-           <span class="block relative z-10 transition-transform hover:-translate-y-2 duration-300"><?php echo htmlspecialchars($data['hero']['title_first']); ?></span>
+          <span
+            class="block relative z-10 transition-transform hover:-translate-y-2 duration-300"><?php echo htmlspecialchars($data['hero']['title_first']); ?></span>
           <span class="block relative z-10 transition-transform hover:-translate-y-2 duration-300 text-accent-blue"
             style="
                 -webkit-text-stroke: 1px var(--color-text-dark);
@@ -163,7 +164,8 @@
         <p class="font-handwriting text-2xl md:text-4xl text-ink mt-8 max-w-lg leading-relaxed relative rotation-1">
           <?php echo htmlspecialchars($data['hero']['subtitle']); ?>
           <br />
-          <span class="text-xl md:text-2xl font-mono opacity-80 mt-2 block tracking-tight"><?php echo htmlspecialchars($data['hero']['location']); ?></span>
+          <span
+            class="text-xl md:text-2xl font-mono opacity-80 mt-2 block tracking-tight"><?php echo htmlspecialchars($data['hero']['location']); ?></span>
         </p>
 
         <!-- CTA Button -->
@@ -193,7 +195,8 @@
           <!-- Accents -->
           <div
             class="absolute -bottom-10 -right-8 w-24 h-24 bg-accent-blue rounded-full border-[3px] border-ink shadow-brutal-sm flex items-center justify-center -rotate-12 hover-wiggle">
-            <span class="font-marker text-white text-xl text-center leading-none"><?php echo nl2br(htmlspecialchars($data['hero']['img_badge'] ?? 'Vibes\nOnly')); ?></span>
+            <span
+              class="font-marker text-white text-xl text-center leading-none"><?php echo nl2br(htmlspecialchars($data['hero']['img_badge'] ?? 'Vibes\nOnly')); ?></span>
           </div>
         </div>
       </div>
@@ -246,32 +249,32 @@
             </h2>
 
             <?php
-              // Map simple icon names to FontAwesome classes
-              $icon_map = [
-                'guitar' => 'fa-solid fa-guitar',
-                'microphone' => 'fa-solid fa-microphone',
-                'music' => 'fa-solid fa-music',
-                'star' => 'fa-solid fa-star',
-                'heart' => 'fa-solid fa-heart',
-                'fire' => 'fa-solid fa-fire',
-                'bolt' => 'fa-solid fa-bolt',
-                'headphones' => 'fa-solid fa-headphones',
-              ];
-              $badge_icon_key = $data['about']['badge_icon'] ?? 'guitar';
-              $badge_icon_class = $icon_map[$badge_icon_key] ?? 'fa-solid fa-guitar';
+            // Map simple icon names to FontAwesome classes
+            $icon_map = [
+              'guitar' => 'fa-solid fa-guitar',
+              'microphone' => 'fa-solid fa-microphone',
+              'music' => 'fa-solid fa-music',
+              'star' => 'fa-solid fa-star',
+              'heart' => 'fa-solid fa-heart',
+              'fire' => 'fa-solid fa-fire',
+              'bolt' => 'fa-solid fa-bolt',
+              'headphones' => 'fa-solid fa-headphones',
+            ];
+            $badge_icon_key = $data['about']['badge_icon'] ?? 'guitar';
+            $badge_icon_class = $icon_map[$badge_icon_key] ?? 'fa-solid fa-guitar';
 
-              // Auto-highlight keyword in content_p2
-              $p2_text = htmlspecialchars($data['about']['content_p2'] ?? '');
-              $p2_highlight = htmlspecialchars($data['about']['content_p2_highlight'] ?? '');
-              if (!empty($p2_highlight) && strpos($p2_text, $p2_highlight) !== false) {
-                $p2_rendered = str_replace(
-                  $p2_highlight,
-                  '<span class="bg-accent-blue px-3 py-1 rotate-[-1deg] inline-block shadow-brutal-sm text-white mt-1 mb-1 md:mt-0 md:mb-0">' . $p2_highlight . '</span>',
-                  $p2_text
-                );
-              } else {
-                $p2_rendered = $p2_text;
-              }
+            // Auto-highlight keyword in content_p2
+            $p2_text = htmlspecialchars($data['about']['content_p2'] ?? '');
+            $p2_highlight = htmlspecialchars($data['about']['content_p2_highlight'] ?? '');
+            if (!empty($p2_highlight) && strpos($p2_text, $p2_highlight) !== false) {
+              $p2_rendered = str_replace(
+                $p2_highlight,
+                '<span class="bg-accent-blue px-3 py-1 rotate-[-1deg] inline-block shadow-brutal-sm text-white mt-1 mb-1 md:mt-0 md:mb-0">' . $p2_highlight . '</span>',
+                $p2_text
+              );
+            } else {
+              $p2_rendered = $p2_text;
+            }
             ?>
             <div class="font-marker text-lg sm:text-xl md:text-2xl mb-4 leading-relaxed tracking-wide">
               <p class="mb-4">
@@ -290,7 +293,8 @@
             <div
               class="hidden md:flex absolute -right-4 md:-right-12 bottom-10 w-20 h-20 md:w-24 md:h-24 bg-accent-pink rounded-full border-[3px] border-ink flex flex-col items-center justify-center text-white polaroid hover-wiggle shadow-brutal-sm">
               <i class="<?php echo htmlspecialchars($badge_icon_class); ?> text-3xl mb-1"></i>
-              <span class="font-mono text-xs font-bold uppercase"><?php echo htmlspecialchars($data['about']['badge_text'] ?? '100% Raw'); ?></span>
+              <span
+                class="font-mono text-xs font-bold uppercase"><?php echo htmlspecialchars($data['about']['badge_text'] ?? '100% Raw'); ?></span>
             </div>
           </div>
         </div>
@@ -353,22 +357,23 @@
 
     <!-- Viral Content Section -->
     <?php if (!empty($data['viral']['items'])): ?>
-    <section id="viral" class="viral-section py-24 border-y-[4px] border-ink bg-ink">
-      <div class="viral-bg-pattern"></div>
-      <div class="relative w-full max-w-6xl mx-auto px-6 z-10 flex flex-col items-center">
-        <!-- Section Title -->
-        <div class="bg-accent-pink border-[3px] border-white shadow-[8px_8px_0px_rgba(255,255,255,0.3)] px-8 py-3 mb-4 rotate-[-2deg] hover:rotate-0 transition-transform scroll-reveal">
-          <h2 class="font-marker text-5xl md:text-7xl uppercase text-white">
-            <?php echo htmlspecialchars($data['viral']['title'] ?? 'Going Viral'); ?>
-          </h2>
-        </div>
-        <p class="font-handwriting text-2xl md:text-3xl text-white mb-12 text-center opacity-80 scroll-reveal">
-          <?php echo htmlspecialchars($data['viral']['subtitle'] ?? ''); ?>
-        </p>
+      <section id="viral" class="viral-section py-24 border-y-[4px] border-ink bg-ink">
+        <div class="viral-bg-pattern"></div>
+        <div class="relative w-full max-w-6xl mx-auto px-6 z-10 flex flex-col items-center">
+          <!-- Section Title -->
+          <div
+            class="bg-accent-pink border-[3px] border-white shadow-[8px_8px_0px_rgba(255,255,255,0.3)] px-8 py-3 mb-4 rotate-[-2deg] hover:rotate-0 transition-transform scroll-reveal">
+            <h2 class="font-marker text-5xl md:text-7xl uppercase text-white">
+              <?php echo htmlspecialchars($data['viral']['title'] ?? 'Going Viral'); ?>
+            </h2>
+          </div>
+          <p class="font-handwriting text-2xl md:text-3xl text-white mb-12 text-center opacity-80 scroll-reveal">
+            <?php echo htmlspecialchars($data['viral']['subtitle'] ?? ''); ?>
+          </p>
 
-        <!-- Cards -->
-        <div class="viral-scroll-container scroll-reveal" style="transition-delay: 200ms;">
-          <?php
+          <!-- Cards -->
+          <div class="viral-scroll-container scroll-reveal" style="transition-delay: 200ms;">
+            <?php
             $platform_icons = [
               'tiktok' => 'fa-brands fa-tiktok',
               'instagram' => 'fa-brands fa-instagram',
@@ -377,52 +382,45 @@
               'twitter' => 'fa-brands fa-x-twitter',
               'other' => 'fa-solid fa-play'
             ];
-            $viral_rotations = ['rotate-[-1deg]', 'rotate-[2deg]', 'rotate-[-2deg]', 'rotate-[1deg]', 'rotate-[3deg]'];
-          ?>
-          <?php foreach ($data['viral']['items'] as $vi => $vitem):
-            $vplatform = $vitem['platform'] ?? 'other';
-            $vicon = $platform_icons[$vplatform] ?? $platform_icons['other'];
-            $vrot = $viral_rotations[$vi % count($viral_rotations)];
-            $has_thumb = !empty($vitem['thumbnail']);
-          ?>
-            <a href="<?php echo htmlspecialchars($vitem['url'] ?? '#'); ?>" target="_blank"
-              class="viral-card <?php echo $vrot; ?>">
-              <div class="viral-card-media">
-                <?php if ($has_thumb): ?>
-                  <img src="<?php echo htmlspecialchars($vitem['thumbnail']); ?>"
-                    alt="<?php echo htmlspecialchars($vitem['title'] ?? 'Viral content'); ?>" loading="lazy">
-                <?php else: ?>
-                  <div class="viral-card-fallback platform-<?php echo htmlspecialchars($vplatform); ?>">
+            $viral_rotations = ['rotate-[-1deg]', 'rotate-[2deg]', 'rotate-[-2deg]', 'rotate-[1deg]'];
+            ?>
+            <?php foreach ($data['viral']['items'] as $vi => $vitem):
+              $vplatform = $vitem['platform'] ?? 'other';
+              $vicon = $platform_icons[$vplatform] ?? $platform_icons['other'];
+              $vrot = $viral_rotations[$vi % count($viral_rotations)];
+              $has_thumb = !empty($vitem['thumbnail']);
+              ?>
+              <a href="<?php echo htmlspecialchars($vitem['url'] ?? '#'); ?>" target="_blank"
+                class="viral-card <?php echo $vrot; ?>">
+                <div class="viral-card-media">
+                  <?php if ($has_thumb): ?>
+                    <img src="<?php echo htmlspecialchars($vitem['thumbnail']); ?>"
+                      alt="<?php echo htmlspecialchars($vitem['title'] ?? 'Viral content'); ?>" loading="lazy">
+                  <?php else: ?>
+                    <div class="viral-card-fallback platform-<?php echo htmlspecialchars($vplatform); ?>">
+                      <i class="<?php echo htmlspecialchars($vicon); ?>"></i>
+                    </div>
+                  <?php endif; ?>
+                  <!-- Platform badge -->
+                  <div class="viral-platform-badge platform-<?php echo htmlspecialchars($vplatform); ?>">
                     <i class="<?php echo htmlspecialchars($vicon); ?>"></i>
                   </div>
-                <?php endif; ?>
-                <!-- Platform badge -->
-                <div class="viral-platform-badge platform-<?php echo htmlspecialchars($vplatform); ?>">
-                  <i class="<?php echo htmlspecialchars($vicon); ?>"></i>
+                  <!-- Play overlay -->
+                  <div class="viral-play-overlay">
+                    <i class="fa-solid fa-play"></i>
+                  </div>
                 </div>
-                <!-- Play overlay -->
-                <div class="viral-play-overlay">
-                  <i class="fa-solid fa-play"></i>
+                <div class="viral-card-info">
+                  <span class="viral-card-title"><?php echo htmlspecialchars($vitem['title'] ?? ''); ?></span>
+                  <span class="viral-card-views">
+                    <i class="fa-solid fa-eye"></i> <?php echo htmlspecialchars($vitem['views'] ?? '0'); ?> views
+                  </span>
                 </div>
-              </div>
-              <div class="viral-card-info">
-                <span class="viral-card-title"><?php echo htmlspecialchars($vitem['title'] ?? ''); ?></span>
-                <span class="viral-card-views">
-                  <i class="fa-solid fa-eye"></i> <?php echo htmlspecialchars($vitem['views'] ?? '0'); ?> views
-                </span>
-              </div>
-            </a>
-          <?php endforeach; ?>
+              </a>
+            <?php endforeach; ?>
+          </div>
         </div>
-
-        <!-- Mobile scroll hint -->
-        <div class="viral-scroll-hint">
-          <span>👈</span>
-          <span class="font-mono text-white text-xs opacity-60 flex items-center">swipe</span>
-          <span>👉</span>
-        </div>
-      </div>
-    </section>
+      </section>
     <?php endif; ?>
 
     <!-- Gallery Section -->
@@ -443,14 +441,14 @@
       <div
         class="relative w-full max-w-6xl min-h-screen flex flex-wrap justify-center content-center gap-10 px-4 md:px-0 pb-32 scroll-reveal text-center">
         <?php
-          // Size to classes mapping
-          $size_classes_map = [
-            'small' => ['w-48 md:w-64', 'w-52 md:w-68', 'w-48 md:w-60'],
-            'medium' => ['w-56 md:w-72', 'w-60 md:w-80', 'w-64 md:w-80'],
-            'large' => ['w-72 md:w-96', 'w-80 md:w-[28rem]', 'w-72 md:w-[26rem]']
-          ];
-          $rotations_arr = ['-rotate-12', '-rotate-[8deg]', '-rotate-6', '-rotate-3', 'rotate-2', 'rotate-3', 'rotate-6', 'rotate-[7deg]', 'rotate-[15deg]'];
-          $margins_arr = ['', 'mt-12 md:mt-24', 'md:ml-12', 'md:-ml-20', 'mt-10 md:-mt-10', 'md:mt-20'];
+        // Size to classes mapping
+        $size_classes_map = [
+          'small' => ['w-48 md:w-64', 'w-52 md:w-68', 'w-48 md:w-60'],
+          'medium' => ['w-56 md:w-72', 'w-60 md:w-80', 'w-64 md:w-80'],
+          'large' => ['w-72 md:w-96', 'w-80 md:w-[28rem]', 'w-72 md:w-[26rem]']
+        ];
+        $rotations_arr = ['-rotate-12', '-rotate-[8deg]', '-rotate-6', '-rotate-3', 'rotate-2', 'rotate-3', 'rotate-6', 'rotate-[7deg]', 'rotate-[15deg]'];
+        $margins_arr = ['', 'mt-12 md:mt-24', 'md:ml-12', 'md:-ml-20', 'mt-10 md:-mt-10', 'md:mt-20'];
         ?>
         <?php foreach ($data['gallery']['images'] as $gi => $photo):
           $gsize = $photo['size'] ?? 'medium';
@@ -461,7 +459,7 @@
             $ws = $size_classes_map[$gsize] ?? $size_classes_map['medium'];
             $gallery_classes = $ws[$gi % count($ws)] . ' ' . $rotations_arr[$gi % count($rotations_arr)] . ' ' . $margins_arr[$gi % count($margins_arr)];
           }
-        ?>
+          ?>
           <div
             class="gallery-item polaroid bg-white p-3 md:p-4 pb-10 md:pb-12 border-[4px] border-ink cursor-grab hover:z-50 m-4 shadow-brutal-md transition-all duration-300 hover:scale-105 active:scale-95 max-w-[85vw] md:max-w-[400px] <?php echo htmlspecialchars(trim($gallery_classes)); ?>">
             <div class="w-full aspect-[4/5] border-[3px] border-ink overflow-hidden bg-gray-200">
@@ -490,7 +488,8 @@
             class="w-8 h-8 rounded-full bg-red-500 border-2 border-white shadow-md absolute -top-4 left-1/2 transform -translate-x-1/2">
             <div class="w-2 h-2 rounded-full bg-white absolute top-1 right-2 opacity-70"></div>
           </div>
-          <h2 class="font-marker text-5xl md:text-7xl mb-4 text-center"><?php echo htmlspecialchars($data['contact']['title'] ?? "Let's Connect"); ?></h2>
+          <h2 class="font-marker text-5xl md:text-7xl mb-4 text-center">
+            <?php echo htmlspecialchars($data['contact']['title'] ?? "Let's Connect"); ?></h2>
           <p class="font-handwriting text-2xl md:text-4xl text-center mb-10 leading-relaxed text-opacity-80">
             <?php echo htmlspecialchars($data['contact']['desc_p1'] ?? ''); ?><br /><?php echo htmlspecialchars($data['contact']['desc_p2'] ?? ''); ?>
           </p>
@@ -500,23 +499,31 @@
               <i class="fa-solid fa-envelope-open-text text-3xl group-hover:text-white transition-colors"></i>
               <div>
                 <h3 class="font-mono font-bold text-lg leading-none group-hover:text-white">Email</h3>
-                <span class="font-sans text-sm text-gray-600 group-hover:text-gray-200"><?php echo htmlspecialchars($data['contact']['email'] ?? '69.prince.0112@gmail.com'); ?></span>
+                <span
+                  class="font-sans text-sm text-gray-600 group-hover:text-gray-200"><?php echo htmlspecialchars($data['contact']['email'] ?? '69.prince.0112@gmail.com'); ?></span>
               </div>
             </a>
             <div class="grid grid-cols-2 gap-4 mt-2">
-              <a href="<?php echo htmlspecialchars($data['contact']['instagram'] ?? 'https://instagram.com/prince_on_guitar'); ?>" target="_blank"
+              <a href="<?php echo htmlspecialchars($data['contact']['instagram'] ?? 'https://instagram.com/prince_on_guitar'); ?>"
+                target="_blank"
                 class="bg-ink text-white border-[3px] border-ink p-4 flex justify-center items-center gap-2 hover:-translate-y-1 hover:shadow-brutal-sm transition-all rotate-[-1deg] hover:bg-accent-blue hover:text-ink">
                 <i class="fa-brands fa-instagram text-2xl"></i><span class="font-mono font-bold">Instagram</span>
               </a>
-              <a href="<?php echo htmlspecialchars($data['contact']['youtube'] ?? 'https://www.youtube.com/@Prince_on_guitar'); ?>" target="_blank"
+              <a href="<?php echo htmlspecialchars($data['contact']['youtube'] ?? 'https://www.youtube.com/@Prince_on_guitar'); ?>"
+                target="_blank"
                 class="bg-ink text-white border-[3px] border-ink p-4 flex justify-center items-center gap-2 hover:-translate-y-1 hover:shadow-brutal-sm transition-all rotate-[1deg] hover:bg-red-500 hover:text-white">
                 <i class="fa-brands fa-youtube text-2xl"></i><span class="font-mono font-bold">YouTube</span>
               </a>
-              <a href="<?php echo htmlspecialchars($data['contact']['tiktok'] ?? '#'); ?>" target="_blank" class="bg-ink text-white border-[3px] border-ink p-4 flex justify-center items-center gap-2 hover:-translate-y-1 hover:shadow-brutal-sm transition-all rotate-[2deg] hover:bg-black hover:text-white"><i class="fa-brands fa-tiktok text-2xl"></i><span class="font-mono font-bold">TikTok</span></a>
-              <a href="<?php echo htmlspecialchars($data['contact']['spotify'] ?? '#'); ?>" target="_blank" class="bg-ink text-white border-[3px] border-ink p-4 flex justify-center items-center gap-2 hover:-translate-y-1 hover:shadow-brutal-sm transition-all rotate-[-2deg] hover:bg-[#1DB954] hover:text-ink"><i class="fa-brands fa-spotify text-2xl"></i><span class="font-mono font-bold">Spotify</span></a>
+              <a href="<?php echo htmlspecialchars($data['contact']['tiktok'] ?? '#'); ?>" target="_blank"
+                class="bg-ink text-white border-[3px] border-ink p-4 flex justify-center items-center gap-2 hover:-translate-y-1 hover:shadow-brutal-sm transition-all rotate-[2deg] hover:bg-black hover:text-white"><i
+                  class="fa-brands fa-tiktok text-2xl"></i><span class="font-mono font-bold">TikTok</span></a>
+              <a href="<?php echo htmlspecialchars($data['contact']['spotify'] ?? '#'); ?>" target="_blank"
+                class="bg-ink text-white border-[3px] border-ink p-4 flex justify-center items-center gap-2 hover:-translate-y-1 hover:shadow-brutal-sm transition-all rotate-[-2deg] hover:bg-[#1DB954] hover:text-ink"><i
+                  class="fa-brands fa-spotify text-2xl"></i><span class="font-mono font-bold">Spotify</span></a>
             </div>
           </div>
-          <div class="absolute bottom-6 right-6 font-marker text-4xl text-ink transform rotate-[-10deg] opacity-70"><?php echo htmlspecialchars($data['contact']['signature'] ?? '- Prince'); ?></div>
+          <div class="absolute bottom-6 right-6 font-marker text-4xl text-ink transform rotate-[-10deg] opacity-70">
+            <?php echo htmlspecialchars($data['contact']['signature'] ?? '- Prince'); ?></div>
         </div>
         <div class="mt-20 text-center flex flex-col items-center">
           <p class="font-mono text-ink bg-white border-2 border-ink px-4 py-1 rotate-1 shadow-brutal-sm inline-block">

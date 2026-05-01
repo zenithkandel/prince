@@ -109,11 +109,25 @@ body {
 
 /* Animations */
 @keyframes wiggle {
-    0% { transform: rotate(0deg); }
-    25% { transform: rotate(-2deg); }
-    50% { transform: rotate(0deg); }
-    75% { transform: rotate(2deg); }
-    100% { transform: rotate(0deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-2deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(2deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
 }
 
 .hover-wiggle:hover {
@@ -121,9 +135,17 @@ body {
 }
 
 @keyframes float {
-    0% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(1deg); }
-    100% { transform: translateY(0px) rotate(0deg); }
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(1deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
 }
 
 .animate-float {
@@ -159,11 +181,16 @@ body {
 }
 
 /* Accessibility & Focus States */
-a:focus, button:focus, input:focus, textarea:focus {
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
     outline: 3px solid var(--color-accent-pink);
     outline-offset: 2px;
 }
-a:active, button:active {
+
+a:active,
+button:active {
     transform: translateY(2px);
 }
 
@@ -173,6 +200,7 @@ a:active, button:active {
     transform: translateY(30px) scale(0.95);
     transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+
 .scroll-reveal.is-visible {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -189,47 +217,42 @@ a:active, button:active {
     z-index: 15;
 }
 
-/* Horizontal scroll container for mobile */
+/* Responsive grid container */
 .viral-scroll-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 1.5rem;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding: 1rem 1.5rem 2rem;
-    scrollbar-width: none; /* Firefox */
+    padding: 1.5rem;
+    width: 100%;
 }
 
-.viral-scroll-container::-webkit-scrollbar {
-    display: none;
-}
-
-/* On desktop, grid layout */
 @media (min-width: 768px) {
     .viral-scroll-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
-        overflow-x: visible;
-        padding: 1rem 0 2rem;
+        padding: 2rem 0;
     }
 }
 
 @media (min-width: 1024px) {
     .viral-scroll-container {
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1280px) {
+    .viral-scroll-container {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
 /* Viral Card - 9:16 portrait */
 .viral-card {
-    flex-shrink: 0;
-    width: 200px;
-    scroll-snap-align: center;
-    border: 4px solid var(--color-text-dark);
-    background: white;
+    width: 100%;
+    border: var(--border-thick);
+    background: var(--color-white);
     box-shadow: var(--shadow-solid-md);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
     cursor: pointer;
@@ -237,16 +260,12 @@ a:active, button:active {
     color: var(--color-text-dark);
     display: flex;
     flex-direction: column;
-}
-
-@media (min-width: 768px) {
-    .viral-card {
-        width: 100%;
-    }
+    border-radius: 8px;
+    /* Visual polish */
 }
 
 .viral-card:hover {
-    transform: translateY(-6px) rotate(-1deg);
+    transform: translateY(-8px);
     box-shadow: var(--shadow-solid-lg);
 }
 
@@ -272,7 +291,7 @@ a:active, button:active {
 }
 
 .viral-card:hover .viral-card-media img {
-    transform: scale(1.08);
+    transform: scale(1.05);
 }
 
 /* Platform logo fallback (when no thumbnail) */
@@ -280,16 +299,22 @@ a:active, button:active {
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
 }
 
 .viral-card-fallback i {
-    font-size: 4rem;
-    color: white;
+    font-size: 5rem;
+    color: rgba(255, 255, 255, 0.9);
     z-index: 2;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
+    transition: transform 0.3s ease;
+}
+
+.viral-card:hover .viral-card-fallback i {
+    transform: scale(1.1);
 }
 
 /* Platform-specific gradients */
@@ -320,8 +345,8 @@ a:active, button:active {
 /* Platform badge on card */
 .viral-platform-badge {
     position: absolute;
-    top: 8px;
-    right: 8px;
+    top: 12px;
+    right: 12px;
     width: 36px;
     height: 36px;
     border-radius: 50%;
@@ -329,10 +354,15 @@ a:active, button:active {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: white;
     z-index: 10;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.viral-card:hover .viral-platform-badge {
+    transform: rotate(15deg) scale(1.1);
 }
 
 /* Play button overlay */
@@ -342,22 +372,22 @@ a:active, button:active {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0,0,0,0);
+    background: rgba(0, 0, 0, 0);
     transition: background 0.3s ease;
     z-index: 5;
 }
 
 .viral-card:hover .viral-play-overlay {
-    background: rgba(0,0,0,0.25);
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .viral-play-overlay i {
-    font-size: 3rem;
+    font-size: 4.5rem;
     color: white;
     opacity: 0;
-    transform: scale(0.7);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+    transform: scale(0.5);
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
 }
 
 .viral-card:hover .viral-play-overlay i {
@@ -367,57 +397,46 @@ a:active, button:active {
 
 /* Card info section */
 .viral-card-info {
-    padding: 12px;
+    padding: 14px;
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    border-top: 3px solid var(--color-text-dark);
+    gap: 6px;
+    border-top: var(--border-thick);
+    background: var(--color-white);
+    flex-grow: 1;
 }
 
 .viral-card-title {
-    font-family: var(--font-mono);
-    font-weight: 700;
-    font-size: 0.8rem;
-    line-height: 1.3;
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 1rem;
+    line-height: 1.4;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    text-transform: uppercase;
+    color: var(--color-text-dark);
 }
 
 .viral-card-views {
-    font-family: var(--font-handwriting);
-    font-size: 1.3rem;
-    color: var(--color-accent-pink);
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--color-text-dark);
     display: flex;
     align-items: center;
     gap: 6px;
     font-weight: 700;
+    margin-top: auto;
 }
 
 .viral-card-views i {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+    color: var(--color-accent-pink);
 }
 
 /* Scroll hint arrows for mobile */
 .viral-scroll-hint {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.5rem 0;
-}
-
-@media (min-width: 768px) {
-    .viral-scroll-hint {
-        display: none;
-    }
-}
-
-.viral-scroll-hint span {
-    font-size: 1.5rem;
-    animation: float 2s ease-in-out infinite;
-    opacity: 0.6;
+    display: none;
 }
 
 /* Dot pattern background for viral section */
