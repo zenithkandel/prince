@@ -94,8 +94,9 @@ function detect_platform($url)
  */
 function fetch_thumbnail_url($platform, $url)
 {
-    if (empty($url)) return '';
-    
+    if (empty($url))
+        return '';
+
     if ($platform === 'youtube') {
         preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i', $url, $matches);
         if (isset($matches[1])) {
@@ -118,7 +119,7 @@ function fetch_thumbnail_url($platform, $url)
             }
         }
     }
-    
+
     return '';
 }
 
