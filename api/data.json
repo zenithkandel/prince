@@ -174,30 +174,135 @@
             }
         },
         "growth": [
-            { "month": "Jan 2026", "instagram_guitar": 1200, "instagram_music": 300, "youtube": 800, "tiktok": 2500, "spotify": 150 },
-            { "month": "Feb 2026", "instagram_guitar": 1800, "instagram_music": 650, "youtube": 1200, "tiktok": 4200, "spotify": 320 },
-            { "month": "Mar 2026", "instagram_guitar": 2900, "instagram_music": 1100, "youtube": 2100, "tiktok": 8500, "spotify": 580 },
-            { "month": "Apr 2026", "instagram_guitar": 4500, "instagram_music": 2200, "youtube": 3800, "tiktok": 15000, "spotify": 1200 },
-            { "month": "May 2026", "instagram_guitar": 7200, "instagram_music": 3800, "youtube": 5500, "tiktok": 28000, "spotify": 2100 },
-            { "month": "Jun 2026", "instagram_guitar": 10500, "instagram_music": 5200, "youtube": 8200, "tiktok": 45000, "spotify": 3500 }
+            {
+                "month": "Jan 2026",
+                "instagram_guitar": 1200,
+                "instagram_music": 300,
+                "youtube": 800,
+                "tiktok": 2500,
+                "spotify": 150
+            },
+            {
+                "month": "Feb 2026",
+                "instagram_guitar": 1800,
+                "instagram_music": 650,
+                "youtube": 1200,
+                "tiktok": 4200,
+                "spotify": 320
+            },
+            {
+                "month": "Mar 2026",
+                "instagram_guitar": 2900,
+                "instagram_music": 1100,
+                "youtube": 2100,
+                "tiktok": 8500,
+                "spotify": 580
+            },
+            {
+                "month": "Apr 2026",
+                "instagram_guitar": 4500,
+                "instagram_music": 2200,
+                "youtube": 3800,
+                "tiktok": 15000,
+                "spotify": 1200
+            },
+            {
+                "month": "May 2026",
+                "instagram_guitar": 7200,
+                "instagram_music": 3800,
+                "youtube": 5500,
+                "tiktok": 28000,
+                "spotify": 2100
+            },
+            {
+                "month": "Jun 2026",
+                "instagram_guitar": 10500,
+                "instagram_music": 5200,
+                "youtube": 8200,
+                "tiktok": 45000,
+                "spotify": 3500
+            }
         ],
         "engagement": {
-            "labels": ["Reels", "Stories", "Posts", "Lives", "Collabs"],
-            "instagram_guitar": [85, 45, 60, 30, 70],
-            "instagram_music": [92, 55, 40, 65, 80]
+            "labels": [
+                "Reels",
+                "Stories",
+                "Posts",
+                "Lives",
+                "Collabs"
+            ],
+            "instagram_guitar": [
+                20,
+                15,
+                6,
+                93,
+                100
+            ],
+            "instagram_music": [
+                18,
+                9,
+                21,
+                7,
+                13
+            ]
         },
         "content_mix": {
-            "labels": ["Guitar Covers", "Original Songs", "Vocal Performances", "Behind the Scenes", "Collabs", "Viral Clips"],
-            "values": [30, 25, 18, 12, 8, 7],
-            "colors": ["#00e5ff", "#ff00ff", "#ffea00", "#E1306C", "#1DB954", "#00f2ea"]
+            "labels": [
+                "Guitar Covers",
+                "Original Songs",
+                "Vocal Performances",
+                "Behind the Scenes",
+                "Collabs",
+                "Viral Clips"
+            ],
+            "values": [
+                30,
+                25,
+                18,
+                12,
+                8,
+                7
+            ],
+            "colors": [
+                "#00e5ff",
+                "#ff00ff",
+                "#ffea00",
+                "#E1306C",
+                "#1DB954",
+                "#00f2ea"
+            ]
         },
         "music_stats": [
-            { "title": "Suryasta", "streams": 45000, "likes": 3200 },
-            { "title": "Ajambari", "streams": 38000, "likes": 2800 },
-            { "title": "Oi Chanchali", "streams": 52000, "likes": 4100 },
-            { "title": "Biraha", "streams": 29000, "likes": 2100 },
-            { "title": "Lust", "streams": 41000, "likes": 3500 },
-            { "title": "Confusion", "streams": 35000, "likes": 2600 }
+            {
+                "title": "Suryasta",
+                "streams": 45000,
+                "likes": 3200
+            },
+            {
+                "title": "Ajambari",
+                "streams": 38000,
+                "likes": 2800
+            },
+            {
+                "title": "Oi Chanchali",
+                "streams": 52000,
+                "likes": 4100
+            },
+            {
+                "title": "Biraha",
+                "streams": 29000,
+                "likes": 2100
+            },
+            {
+                "title": "Lust",
+                "streams": 41000,
+                "likes": 3500
+            },
+            {
+                "title": "Confusion",
+                "streams": 35000,
+                "likes": 2600
+            }
         ],
         "quick_stats": {
             "total_followers": 72400,
