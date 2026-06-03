@@ -100,55 +100,10 @@ $quick = $analytics['quick_stats'] ?? [];
           <canvas id="contentMixChart"></canvas>
         </div>
       </div>
-
-      <!-- Chart 4: Platform Color Legend Card -->
-      <div class="bg-white border-[3px] sm:border-[4px] border-ink shadow-brutal-lg p-4 sm:p-6 rotate-[-2deg] hover:rotate-0 transition-transform scroll-reveal" style="transition-delay: 500ms;">
-        <h3 class="font-marker text-xl sm:text-2xl md:text-3xl mb-4 flex items-center gap-2">
-          <i class="fa-solid fa-palette text-accent-blue"></i> Platform Colors
-        </h3>
-        <p class="font-mono text-xs text-gray-500 mb-4">What each color represents across all charts</p>
-        <div class="grid grid-cols-1 gap-3">
-          <div class="flex items-center gap-3 bg-gray-50 border-2 border-ink p-3">
-            <span class="w-6 h-6 flex-shrink-0 border-2 border-ink" style="background:#E1306C"></span>
-            <div>
-              <div class="font-mono font-bold text-sm">@prince_on_guitar</div>
-              <div class="font-sans text-xs text-gray-500">Guitar covers & originals</div>
-            </div>
-          </div>
-          <div class="flex items-center gap-3 bg-gray-50 border-2 border-ink p-3">
-            <span class="w-6 h-6 flex-shrink-0 border-2 border-ink" style="background:#833AB4"></span>
-            <div>
-              <div class="font-mono font-bold text-sm">@audiophile_prince</div>
-              <div class="font-sans text-xs text-gray-500">Vocals, production & vibes</div>
-            </div>
-          </div>
-          <div class="flex items-center gap-3 bg-gray-50 border-2 border-ink p-3">
-            <span class="w-6 h-6 flex-shrink-0 border-2 border-ink" style="background:#FF0000"></span>
-            <div>
-              <div class="font-mono font-bold text-sm">YouTube</div>
-              <div class="font-sans text-xs text-gray-500">Full performances & music videos</div>
-            </div>
-          </div>
-          <div class="flex items-center gap-3 bg-gray-50 border-2 border-ink p-3">
-            <span class="w-6 h-6 flex-shrink-0 border-2 border-ink" style="background:#00f2ea"></span>
-            <div>
-              <div class="font-mono font-bold text-sm">TikTok</div>
-              <div class="font-sans text-xs text-gray-500">Short-form viral content</div>
-            </div>
-          </div>
-          <div class="flex items-center gap-3 bg-gray-50 border-2 border-ink p-3">
-            <span class="w-6 h-6 flex-shrink-0 border-2 border-ink" style="background:#1DB954"></span>
-            <div>
-              <div class="font-mono font-bold text-sm">Spotify</div>
-              <div class="font-sans text-xs text-gray-500">Streaming numbers</div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- Chart 5: Music Performance Horizontal Bar -->
-    <div class="bg-white border-[3px] sm:border-[4px] border-ink shadow-brutal-lg p-4 sm:p-6 scroll-reveal mb-10 sm:mb-14" style="transition-delay: 600ms;">
+    <div class="bg-white border-[3px] sm:border-[4px] border-ink shadow-brutal-lg p-4 sm:p-6 scroll-reveal mb-10 sm:mb-14" style="transition-delay: 500ms;">
       <h3 class="font-marker text-xl sm:text-2xl md:text-3xl mb-2 flex items-center gap-2">
         <i class="fa-solid fa-music text-accent-blue"></i> Track Performance
       </h3>
@@ -163,7 +118,7 @@ $quick = $analytics['quick_stats'] ?? [];
     </div>
 
     <!-- Instagram Dual Accounts CTA -->
-    <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center scroll-reveal" style="transition-delay: 700ms;">
+    <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center scroll-reveal" style="transition-delay: 600ms;">
       <a href="<?php echo htmlspecialchars($data['contact']['instagram_guitar'] ?? '#'); ?>" target="_blank"
         class="bg-white border-[3px] border-ink shadow-brutal-md p-4 sm:p-5 flex items-center gap-3 sm:gap-4 hover:-translate-y-1 transition-all rotate-[-1deg] hover:rotate-0 group flex-1 max-w-sm">
         <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-[3px] border-ink flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #E1306C, #833AB4);">
