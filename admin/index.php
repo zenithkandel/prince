@@ -139,7 +139,7 @@ $icon_options = [
             <!-- TAB: GENERAL -->
             <?php if ($tab === 'general'): ?>
                 <div class="mb-10 border-b-8 border-black border-dashed pb-8">
-                    <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tight">General Settings</h2>
+                    <h2 class="text-3xl sm:text-4xl md:text-6xl font-black uppercase tracking-tight">General Settings</h2>
                     <p class="text-gray-600 font-mono mt-3 text-sm md:text-base bg-yellow-100 inline-block px-2 border-2 border-black border-dashed">Full control over every piece of content on your site.</p>
                 </div>
                 <form action="../api/update.php" method="POST" enctype="multipart/form-data" class="space-y-16">
@@ -339,7 +339,7 @@ $icon_options = [
             <?php if ($tab === 'music'): ?>
                 <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6 border-b-8 border-black border-dashed pb-8">
                     <div>
-                        <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tight text-[#00c2d8]">Music Config</h2>
+                        <h2 class="text-3xl sm:text-4xl md:text-6xl font-black uppercase tracking-tight text-[#00c2d8]">Music Config</h2>
                         <p class="text-gray-600 font-mono mt-3 text-sm bg-cyan-100 inline-block px-2 border-2 border-black border-dashed">Manage your releases.</p>
                     </div>
                     <button type="button" onclick="document.getElementById('music-modal').classList.remove('hidden')" class="bg-yellow-300 font-black flex items-center justify-center gap-3 border-[4px] border-black px-8 py-5 brutal-shadow hover:bg-yellow-400 hover:-translate-y-1 uppercase transition-all w-full text-xl md:text-2xl hover:scale-105 active:scale-95">
@@ -349,16 +349,16 @@ $icon_options = [
                 <form action="../api/update.php" method="POST" enctype="multipart/form-data" class="space-y-10">
                     <input type="hidden" name="action" value="save_music">
                     <?php if (empty($data['music']['releases'])): ?>
-                        <div class="bg-white border-[6px] border-dashed border-black p-16 flex flex-col items-center justify-center gap-6 brutal-shadow">
-                            <span class="text-7xl animate-bounce"><i class="fa-solid fa-compact-disc"></i></span>
-                            <p class="font-black uppercase text-3xl text-center">Your catalog is empty.</p>
+                        <div class="bg-white border-[4px] sm:border-[6px] border-dashed border-black p-8 sm:p-16 flex flex-col items-center justify-center gap-6 brutal-shadow">
+                            <span class="text-5xl sm:text-7xl animate-bounce"><i class="fa-solid fa-compact-disc"></i></span>
+                            <p class="font-black uppercase text-xl sm:text-3xl text-center">Your catalog is empty.</p>
                         </div>
                     <?php else: ?>
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-14">
                             <?php foreach ($data['music']['releases'] as $index => $item): ?>
-                                <div class="bg-white border-[6px] border-black p-6 md:p-8 pt-8 brutal-shadow flex flex-col gap-6 relative mt-4 group">
-                                    <button type="button" onclick="confirmDelete('del-music-<?php echo $index; ?>', '<?php echo htmlspecialchars(addslashes($item['title'] ?: 'Item #' . ($index + 1))); ?>')" class="absolute -top-4 -right-4 bg-red-500 text-white w-10 h-10 rounded-full border-4 border-black brutal-shadow flex items-center justify-center hover:bg-red-700 hover:scale-110 active:scale-95 transition-all z-50" title="Delete"><i class="fa-solid fa-trash text-sm"></i></button>
-                                    <div class="absolute -top-5 -left-5 bg-black text-[#00e5ff] border-4 border-black px-4 py-1.5 font-black transform -rotate-3 text-lg shadow-[4px_4px_0px_#00e5ff] group-hover:rotate-0 transition-transform z-10 flex items-center gap-2"><i class="fa-solid fa-compact-disc"></i> Release #<?php echo $index + 1; ?></div>
+                                <div class="bg-white border-[4px] sm:border-[6px] border-black p-4 sm:p-6 md:p-8 pt-8 brutal-shadow flex flex-col gap-6 relative mt-4 group">
+                                    <button type="button" onclick="confirmDelete('del-music-<?php echo $index; ?>', '<?php echo htmlspecialchars(addslashes($item['title'] ?: 'Item #' . ($index + 1))); ?>')" class="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 bg-red-500 text-white w-8 h-8 sm:w-10 sm:h-10 rounded-full border-3 sm:border-4 border-black brutal-shadow flex items-center justify-center hover:bg-red-700 hover:scale-110 active:scale-95 transition-all z-50" title="Delete"><i class="fa-solid fa-trash text-xs sm:text-sm"></i></button>
+                                    <div class="absolute -top-4 sm:-top-5 -left-3 sm:-left-5 bg-black text-[#00e5ff] border-3 sm:border-4 border-black px-3 sm:px-4 py-1 sm:py-1.5 font-black transform -rotate-3 text-sm sm:text-lg shadow-[4px_4px_0px_#00e5ff] group-hover:rotate-0 transition-transform z-10 flex items-center gap-2"><i class="fa-solid fa-compact-disc"></i> Release #<?php echo $index + 1; ?></div>
                                     <div class="flex flex-col xl:flex-row xl:items-center gap-5 mt-4 bg-white border-[3px] border-black p-4">
                                         <div class="w-full xl:w-24 h-48 xl:h-24 border-4 border-black bg-gray-100 flex-shrink-0 flex items-center justify-center overflow-hidden">
                                             <?php if (!empty($item['img'])): ?>
@@ -397,7 +397,7 @@ $icon_options = [
             <?php if ($tab === 'viral'): ?>
                 <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6 border-b-8 border-black border-dashed pb-8">
                     <div>
-                        <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tight text-[#ff00ff]">Viral Content</h2>
+                        <h2 class="text-3xl sm:text-4xl md:text-6xl font-black uppercase tracking-tight text-[#ff00ff]">Viral Content</h2>
                         <p class="text-gray-600 font-mono mt-3 text-sm bg-pink-100 inline-block px-2 border-2 border-black border-dashed">Showcase your viral short-form content.</p>
                     </div>
                     <button type="button" onclick="document.getElementById('viral-modal').classList.remove('hidden')" class="bg-[#ff00ff] text-white font-black flex items-center justify-center gap-3 border-[4px] border-black px-8 py-5 brutal-shadow hover:bg-pink-600 hover:-translate-y-1 uppercase transition-all w-full text-xl md:text-2xl hover:scale-105 active:scale-95">
@@ -407,9 +407,9 @@ $icon_options = [
                 <form action="../api/update.php" method="POST" enctype="multipart/form-data" class="space-y-10">
                     <input type="hidden" name="action" value="save_viral">
                     <?php if (empty($data['viral']['items'])): ?>
-                        <div class="bg-white border-[6px] border-dashed border-black p-16 flex flex-col items-center justify-center gap-6 brutal-shadow">
-                            <span class="text-7xl animate-bounce"><i class="fa-solid fa-fire"></i></span>
-                            <p class="font-black uppercase text-3xl text-center">No viral content yet.</p>
+                        <div class="bg-white border-[4px] sm:border-[6px] border-dashed border-black p-8 sm:p-16 flex flex-col items-center justify-center gap-6 brutal-shadow">
+                            <span class="text-5xl sm:text-7xl animate-bounce"><i class="fa-solid fa-fire"></i></span>
+                            <p class="font-black uppercase text-xl sm:text-3xl text-center">No viral content yet.</p>
                             <p class="text-gray-600 font-mono text-base text-center">Click the pink button above to add your first viral hit.</p>
                         </div>
                     <?php else: ?>
@@ -417,9 +417,9 @@ $icon_options = [
                             <?php
                             $platform_labels = ['tiktok'=>'TikTok','instagram'=>'Instagram','youtube'=>'YouTube','facebook'=>'Facebook','twitter'=>'X/Twitter','other'=>'Other'];
                             foreach ($data['viral']['items'] as $index => $item): ?>
-                                <div class="bg-white border-[6px] border-black p-6 md:p-8 pt-8 brutal-shadow flex flex-col gap-6 relative mt-4 group">
-                                    <button type="button" onclick="confirmDelete('del-viral-<?php echo $index; ?>', '<?php echo htmlspecialchars(addslashes($item['title'] ?: 'Item #' . ($index + 1))); ?>')" class="absolute -top-4 -right-4 bg-red-500 text-white w-10 h-10 rounded-full border-4 border-black brutal-shadow flex items-center justify-center hover:bg-red-700 hover:scale-110 active:scale-95 transition-all z-50"><i class="fa-solid fa-trash text-sm"></i></button>
-                                    <div class="absolute -top-5 -left-5 bg-[#ff00ff] text-white border-4 border-black px-4 py-1.5 font-black transform rotate-2 text-lg shadow-[4px_4px_0px_rgba(0,0,0,1)] group-hover:rotate-0 transition-transform z-10 flex items-center gap-2"><i class="fa-solid fa-fire"></i> #<?php echo $index + 1; ?></div>
+                                <div class="bg-white border-[4px] sm:border-[6px] border-black p-4 sm:p-6 md:p-8 pt-8 brutal-shadow flex flex-col gap-6 relative mt-4 group">
+                                    <button type="button" onclick="confirmDelete('del-viral-<?php echo $index; ?>', '<?php echo htmlspecialchars(addslashes($item['title'] ?: 'Item #' . ($index + 1))); ?>')" class="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 bg-red-500 text-white w-8 h-8 sm:w-10 sm:h-10 rounded-full border-3 sm:border-4 border-black brutal-shadow flex items-center justify-center hover:bg-red-700 hover:scale-110 active:scale-95 transition-all z-50"><i class="fa-solid fa-trash text-xs sm:text-sm"></i></button>
+                                    <div class="absolute -top-4 sm:-top-5 -left-3 sm:-left-5 bg-[#ff00ff] text-white border-3 sm:border-4 border-black px-3 sm:px-4 py-1 sm:py-1.5 font-black transform rotate-2 text-sm sm:text-lg shadow-[4px_4px_0px_rgba(0,0,0,1)] group-hover:rotate-0 transition-transform z-10 flex items-center gap-2"><i class="fa-solid fa-fire"></i> #<?php echo $index + 1; ?></div>
                                     <div class="flex flex-col gap-5 mt-4">
                                         <div class="flex flex-col gap-1.5">
                                             <label class="font-bold uppercase text-[10px] text-gray-400 tracking-widest">Title</label>
@@ -453,7 +453,7 @@ $icon_options = [
                                 </div>
                             <?php endforeach; ?>
                         </div>
-                        <div class="fixed bottom-24 md:bottom-10 right-6 z-[90]"><button type="submit" class="bg-[#ff00ff] text-white font-black text-xl md:text-2xl px-8 py-4 uppercase tracking-widest border-[4px] border-black brutal-shadow-lg hover:bg-pink-600 hover:scale-105 active:scale-95 transition-all"><i class="fa-solid fa-floppy-disk"></i> Save Viral</button></div>
+                        <div class="fixed bottom-16 md:bottom-10 right-4 sm:right-6 z-[90]"><button type="submit" class="bg-[#ff00ff] text-white font-black text-lg sm:text-xl md:text-2xl px-6 sm:px-8 py-3 sm:py-4 uppercase tracking-widest border-[3px] sm:border-[4px] border-black brutal-shadow-lg hover:bg-pink-600 hover:scale-105 active:scale-95 transition-all"><i class="fa-solid fa-floppy-disk"></i> Save Viral</button></div>
                     <?php endif; ?>
                 </form>
             <?php endif; ?>
@@ -462,7 +462,7 @@ $icon_options = [
             <?php if ($tab === 'gallery'): ?>
                 <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6 border-b-8 border-black border-dashed pb-8">
                     <div>
-                        <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tight text-[#d900d9]">Gallery Config</h2>
+                        <h2 class="text-3xl sm:text-4xl md:text-6xl font-black uppercase tracking-tight text-[#d900d9]">Gallery Config</h2>
                         <p class="text-gray-600 font-mono mt-3 text-sm bg-pink-100 inline-block px-2 border-2 border-black border-dashed">Manage your digital scrapbook.</p>
                     </div>
                     <button type="button" onclick="document.getElementById('gallery-modal').classList.remove('hidden')" class="bg-[#ff00ff] text-white font-black flex items-center justify-center gap-3 border-[4px] border-black px-8 py-5 brutal-shadow hover:bg-pink-600 hover:-translate-y-1 uppercase transition-all w-full text-xl md:text-2xl hover:scale-105 active:scale-95">
@@ -472,16 +472,16 @@ $icon_options = [
                 <form action="../api/update.php" method="POST" enctype="multipart/form-data" class="space-y-10">
                     <input type="hidden" name="action" value="save_gallery">
                     <?php if (empty($data['gallery']['images'])): ?>
-                        <div class="bg-white border-[6px] border-dashed border-black p-16 flex flex-col items-center justify-center gap-6 brutal-shadow">
-                            <span class="text-7xl"><i class="fa-solid fa-camera"></i></span>
-                            <p class="font-black uppercase text-3xl text-center">Your scrapbook is empty.</p>
+                        <div class="bg-white border-[4px] sm:border-[6px] border-dashed border-black p-8 sm:p-16 flex flex-col items-center justify-center gap-6 brutal-shadow">
+                            <span class="text-5xl sm:text-7xl"><i class="fa-solid fa-camera"></i></span>
+                            <p class="font-black uppercase text-xl sm:text-3xl text-center">Your scrapbook is empty.</p>
                         </div>
                     <?php else: ?>
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 gap-y-14">
                             <?php foreach ($data['gallery']['images'] as $index => $item): ?>
-                                <div class="bg-white border-[6px] border-black p-6 md:p-8 pt-8 brutal-shadow flex flex-col gap-6 relative mt-4 group">
-                                    <button type="button" onclick="confirmDelete('del-gallery-<?php echo $index; ?>', 'Photo #<?php echo $index + 1; ?>')" class="absolute -top-4 -right-4 bg-red-500 text-white w-10 h-10 rounded-full border-4 border-black brutal-shadow flex items-center justify-center hover:bg-red-700 hover:scale-110 active:scale-95 transition-all z-50"><i class="fa-solid fa-trash text-sm"></i></button>
-                                    <div class="absolute -top-5 -left-5 bg-[#ff00ff] text-white border-4 border-black px-4 py-1.5 font-black transform rotate-2 text-lg shadow-[4px_4px_0px_rgba(0,0,0,1)] group-hover:rotate-0 transition-transform z-10 flex items-center gap-2"><i class="fa-solid fa-camera"></i> Frame #<?php echo $index + 1; ?></div>
+                                <div class="bg-white border-[4px] sm:border-[6px] border-black p-4 sm:p-6 md:p-8 pt-8 brutal-shadow flex flex-col gap-6 relative mt-4 group">
+                                    <button type="button" onclick="confirmDelete('del-gallery-<?php echo $index; ?>', 'Photo #<?php echo $index + 1; ?>')" class="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 bg-red-500 text-white w-8 h-8 sm:w-10 sm:h-10 rounded-full border-3 sm:border-4 border-black brutal-shadow flex items-center justify-center hover:bg-red-700 hover:scale-110 active:scale-95 transition-all z-50"><i class="fa-solid fa-trash text-xs sm:text-sm"></i></button>
+                                    <div class="absolute -top-4 sm:-top-5 -left-3 sm:-left-5 bg-[#ff00ff] text-white border-3 sm:border-4 border-black px-3 sm:px-4 py-1 sm:py-1.5 font-black transform rotate-2 text-sm sm:text-lg shadow-[4px_4px_0px_rgba(0,0,0,1)] group-hover:rotate-0 transition-transform z-10 flex items-center gap-2"><i class="fa-solid fa-camera"></i> Frame #<?php echo $index + 1; ?></div>
                                     <div class="flex flex-col xl:flex-row xl:items-center gap-5 mt-4 bg-white border-[3px] border-black p-4">
                                         <div class="w-full xl:w-28 h-48 xl:h-28 flex-shrink-0 overflow-hidden border-2 border-gray-300 bg-gray-100">
                                             <?php if (!empty($item['img'])): ?>
@@ -511,7 +511,7 @@ $icon_options = [
                                 </div>
                             <?php endforeach; ?>
                         </div>
-                        <div class="fixed bottom-24 md:bottom-10 right-6 z-[90]"><button type="submit" class="bg-[#ff00ff] text-white font-black text-xl md:text-2xl px-8 py-4 uppercase tracking-widest border-[4px] border-black brutal-shadow-lg hover:bg-pink-600 hover:scale-105 active:scale-95 transition-all"><i class="fa-solid fa-floppy-disk"></i> Save Gallery</button></div>
+                        <div class="fixed bottom-16 md:bottom-10 right-4 sm:right-6 z-[90]"><button type="submit" class="bg-[#ff00ff] text-white font-black text-lg sm:text-xl md:text-2xl px-6 sm:px-8 py-3 sm:py-4 uppercase tracking-widest border-[3px] sm:border-[4px] border-black brutal-shadow-lg hover:bg-pink-600 hover:scale-105 active:scale-95 transition-all"><i class="fa-solid fa-floppy-disk"></i> Save Gallery</button></div>
                     <?php endif; ?>
                 </form>
             <?php endif; ?>
@@ -531,8 +531,8 @@ $icon_options = [
     <?php endforeach; endif; ?>
 
     <!-- Music Modal -->
-    <div id="music-modal" class="hidden fixed inset-0 z-[100] bg-black bg-opacity-70 flex items-center justify-center p-4 backdrop-blur-sm">
-        <div class="bg-white border-[6px] border-black brutal-shadow-lg w-full max-w-lg overflow-hidden transform -rotate-1">
+    <div id="music-modal" class="hidden fixed inset-0 z-[100] bg-black bg-opacity-70 flex items-center justify-center p-3 sm:p-4 backdrop-blur-sm">
+        <div class="bg-white border-[4px] sm:border-[6px] border-black brutal-shadow-lg w-full max-w-lg overflow-hidden transform -rotate-1 max-h-[90vh] overflow-y-auto">
             <div class="bg-yellow-300 border-b-4 border-black p-4 flex justify-between items-center">
                 <h2 class="font-black text-2xl uppercase tracking-widest"><i class="fa-solid fa-music"></i> Add Track</h2>
                 <button type="button" onclick="document.getElementById('music-modal').classList.add('hidden')" class="text-3xl font-black hover:text-red-600">&times;</button>
@@ -549,8 +549,8 @@ $icon_options = [
     </div>
 
     <!-- Gallery Modal -->
-    <div id="gallery-modal" class="hidden fixed inset-0 z-[100] bg-black bg-opacity-70 flex items-center justify-center p-4 backdrop-blur-sm">
-        <div class="bg-white border-[6px] border-black brutal-shadow-lg w-full max-w-lg overflow-hidden transform rotate-1">
+    <div id="gallery-modal" class="hidden fixed inset-0 z-[100] bg-black bg-opacity-70 flex items-center justify-center p-3 sm:p-4 backdrop-blur-sm">
+        <div class="bg-white border-[4px] sm:border-[6px] border-black brutal-shadow-lg w-full max-w-lg overflow-hidden transform rotate-1 max-h-[90vh] overflow-y-auto">
             <div class="bg-[#ff00ff] text-white border-b-4 border-black p-4 flex justify-between items-center">
                 <h2 class="font-black text-2xl uppercase tracking-widest"><i class="fa-solid fa-camera"></i> Add Photo</h2>
                 <button type="button" onclick="document.getElementById('gallery-modal').classList.add('hidden')" class="text-3xl font-black hover:text-black">&times;</button>
