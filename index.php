@@ -58,10 +58,11 @@
   <!-- FontAwesome Premium Icons -->
   <script defer src="https://zenithkandel.com.np/fontawesome/zenith-icons.js"></script>
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="images/1776560735_favicon.ico">
+
   <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/styles.css" />
-
-  <!-- Phosphor icons or other additions -->
 </head>
 
 <body class="bg-paper text-ink overflow-x-hidden min-h-screen relative w-full pt-20 lg:pt-0">
@@ -70,7 +71,7 @@
     <div class="max-w-7xl mx-auto flex justify-center md:justify-end">
       <!-- Navigation Sticker -->
       <ul
-        class="flex items-center gap-2 sm:gap-3 md:gap-6 bg-accent-yellow px-6 py-3 border-[3px] border-ink shadow-brutal-md rotate-1 hover:rotate-0 transition-transform duration-300">
+        class="flex items-center gap-1.5 sm:gap-3 md:gap-6 bg-accent-yellow px-3 sm:px-6 py-2 sm:py-3 border-[3px] border-ink shadow-brutal-md rotate-1 hover:rotate-0 transition-transform duration-300">
         <li class="text-center">
           <a href="#hero"
             class="font-mono font-bold text-xs sm:text-sm md:text-base hover:text-accent-pink transition-colors group">
@@ -107,7 +108,7 @@
             Gallery
           </a>
         </li>
-        <li class="text-center hidden sm:block">
+        <li class="text-center">
           <a href="#contact"
             class="font-mono font-bold text-xs sm:text-sm md:text-base hover:text-accent-pink transition-colors group">
             <i class="fa-solid fa-paper-plane mr-1 group-hover:fa-bounce"></i>
@@ -122,7 +123,7 @@
   <main class="relative w-full overflow-hidden flex flex-col items-center">
     <!-- Hero Section -->
     <section id="hero"
-      class="relative w-full min-h-screen flex flex-col md:flex-row items-center justify-center pt-10 px-6 max-w-7xl mx-auto gap-10 md:gap-0">
+      class="relative w-full min-h-[auto] md:min-h-screen flex flex-col md:flex-row items-center justify-center pt-10 pb-20 md:pb-0 px-6 max-w-7xl mx-auto gap-8 md:gap-0">
       <!-- Background Doodles / Accents -->
       <div class="absolute inset-0 pointer-events-none opacity-50 z-0 overflow-hidden">
         <!-- Stars & Scribbles using FontAwesome -->
@@ -144,7 +145,7 @@
         </div>
 
         <!-- Main Name -->
-        <h1 class="font-marker text-6xl md:text-8xl lg:text-9xl text-ink leading-none uppercase relative">
+        <h1 class="font-marker text-5xl sm:text-6xl md:text-8xl lg:text-9xl text-ink leading-none uppercase relative">
           <span
             class="block relative z-10 transition-transform hover:-translate-y-2 duration-300"><?php echo htmlspecialchars($data['hero']['title_first']); ?></span>
           <span class="block relative z-10 transition-transform hover:-translate-y-2 duration-300 text-accent-blue"
@@ -180,7 +181,7 @@
       <div class="relative z-10 w-full md:w-1/2 flex justify-center items-center mt-12 md:mt-0 scroll-reveal"
         style="transition-delay: 200ms;">
         <!-- Main Polaroid -->
-        <div class="relative w-72 md:w-96 polaroid rotate-3 interactive-hover group">
+        <div class="relative w-64 sm:w-72 md:w-96 polaroid rotate-3 interactive-hover group">
           <!-- Image container with mask -->
           <div class="w-full h-80 md:h-[450px] border-[3px] border-ink overflow-hidden bg-white mb-4">
             <img src="<?php echo htmlspecialchars($data['hero']['img']); ?>" alt="Prince Neupane - Hero Image"
@@ -194,9 +195,9 @@
 
           <!-- Accents -->
           <div
-            class="absolute -bottom-10 -right-8 w-24 h-24 bg-accent-blue rounded-full border-[3px] border-ink shadow-brutal-sm flex items-center justify-center -rotate-12 hover-wiggle">
+            class="absolute -bottom-6 -right-4 sm:-bottom-10 sm:-right-8 w-16 h-16 sm:w-24 sm:h-24 bg-accent-blue rounded-full border-[3px] border-ink shadow-brutal-sm flex items-center justify-center -rotate-12 hover-wiggle">
             <span
-              class="font-marker text-white text-xl text-center leading-none"><?php echo nl2br(htmlspecialchars($data['hero']['img_badge'] ?? 'Vibes\nOnly')); ?></span>
+              class="font-marker text-white text-sm sm:text-xl text-center leading-none"><?php echo nl2br(htmlspecialchars($data['hero']['img_badge'] ?? 'Vibes\nOnly')); ?></span>
           </div>
         </div>
       </div>
@@ -424,7 +425,7 @@
     <?php endif; ?>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="relative w-full min-h-[150vh] py-24 flex flex-col items-center z-10">
+    <section id="gallery" class="relative w-full min-h-[auto] py-24 flex flex-col items-center z-10">
       <!-- Title Marker -->
       <div
         class="bg-accent-yellow border-[3px] border-ink shadow-brutal-md px-10 py-4 mb-20 rotate-[-3deg] z-20 hover:rotate-3 transition-transform scroll-reveal">
@@ -439,7 +440,7 @@
 
       <!-- The Grid / Scatter Canvas -->
       <div
-        class="relative w-full max-w-6xl min-h-screen flex flex-wrap justify-center content-center gap-10 px-4 md:px-0 pb-32 scroll-reveal text-center">
+        class="relative w-full max-w-6xl min-h-screen flex flex-wrap justify-center content-center gap-4 sm:gap-10 px-2 sm:px-4 md:px-0 pb-32 scroll-reveal text-center">
         <?php
         // Size to classes mapping
         $size_classes_map = [
@@ -461,13 +462,13 @@
           }
           ?>
           <div
-            class="gallery-item polaroid bg-white p-3 md:p-4 pb-10 md:pb-12 border-[4px] border-ink cursor-grab hover:z-50 m-4 shadow-brutal-md transition-all duration-300 hover:scale-105 active:scale-95 max-w-[85vw] md:max-w-[400px] <?php echo htmlspecialchars(trim($gallery_classes)); ?>">
+            class="gallery-item polaroid bg-white p-2 sm:p-3 md:p-4 pb-8 md:pb-12 border-[3px] md:border-[4px] border-ink cursor-grab hover:z-50 m-2 sm:m-4 shadow-brutal-md transition-all duration-300 hover:scale-105 active:scale-95 max-w-[70vw] md:max-w-[400px] <?php echo htmlspecialchars(trim($gallery_classes)); ?>">
             <div class="w-full aspect-[4/5] border-[3px] border-ink overflow-hidden bg-gray-200">
               <img src="<?php echo htmlspecialchars($photo['img']); ?>"
                 alt="Gallery Photo - <?php echo htmlspecialchars($photo['caption'] ?? 'Prince Neupane'); ?>"
                 loading="lazy" class="w-full h-full object-cover">
             </div>
-            <p class="font-handwriting text-2xl text-center text-ink mt-2">
+            <p class="font-handwriting text-lg sm:text-2xl text-center text-ink mt-2">
               <?php echo htmlspecialchars($photo['caption'] ?? ''); ?>
             </p>
           </div>
@@ -477,7 +478,7 @@
 
     <!-- Contact Section -->
     <section id="contact"
-      class="relative w-full min-h-screen flex items-center justify-center pb-24 md:pb-0 z-30 pt-32 overflow-hidden bg-cover bg-center"
+      class="relative w-full min-h-[auto] md:min-h-screen flex items-center justify-center pb-32 md:pb-0 z-30 pt-20 md:pt-32 overflow-hidden bg-cover bg-center"
       style="background-image: radial-gradient(circle, var(--color-accent-blue) 10%, transparent 10.5%), radial-gradient(circle, var(--color-accent-pink) 10%, transparent 10.5%); background-size: 30px 30px; background-position: 0 0, 15px 15px; opacity: 0.95;">
       <div class="relative w-full max-w-4xl mx-auto px-4 flex flex-col items-center">
         <!-- Large Sticky Note -->
@@ -488,7 +489,7 @@
             class="w-8 h-8 rounded-full bg-red-500 border-2 border-white shadow-md absolute -top-4 left-1/2 transform -translate-x-1/2">
             <div class="w-2 h-2 rounded-full bg-white absolute top-1 right-2 opacity-70"></div>
           </div>
-          <h2 class="font-marker text-5xl md:text-7xl mb-4 text-center">
+          <h2 class="font-marker text-4xl sm:text-5xl md:text-7xl mb-4 text-center">
             <?php echo htmlspecialchars($data['contact']['title'] ?? "Let's Connect"); ?></h2>
           <p class="font-handwriting text-2xl md:text-4xl text-center mb-10 leading-relaxed text-opacity-80">
             <?php echo htmlspecialchars($data['contact']['desc_p1'] ?? ''); ?><br /><?php echo htmlspecialchars($data['contact']['desc_p2'] ?? ''); ?>
