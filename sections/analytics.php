@@ -56,21 +56,19 @@ $quick = $analytics['quick_stats'] ?? [];
           <i class="fa-brands fa-instagram text-[#E1306C]"></i> Instagram Breakdown
         </h3>
         <p class="font-mono text-xs text-gray-500 mb-4">Follower split between both accounts</p>
-        <div class="flex flex-col sm:flex-row items-center gap-4">
-          <div class="relative" style="width: 200px; height: 200px;">
+        <div class="flex flex-col items-center gap-4">
+          <div class="relative" style="width: 160px; height: 160px;">
             <canvas id="igComparisonChart"></canvas>
           </div>
-          <div class="flex flex-col gap-3 text-left">
+          <div class="flex flex-row flex-wrap justify-center gap-x-5 gap-y-2">
             <div class="flex items-center gap-2">
-              <span class="w-4 h-4 rounded-sm border-2 border-ink" style="background: #E1306C;"></span>
-              <span class="font-mono text-sm font-bold">@prince_on_guitar</span>
+              <span class="w-3 h-3 rounded-sm border-2 border-ink flex-shrink-0" style="background: #E1306C;"></span>
+              <span class="font-mono text-[11px] font-bold">@prince_on_guitar</span>
             </div>
-            <p class="font-sans text-xs text-gray-500 ml-6">Guitar covers & originals</p>
-            <div class="flex items-center gap-2 mt-1">
-              <span class="w-4 h-4 rounded-sm border-2 border-ink" style="background: #833AB4;"></span>
-              <span class="font-mono text-sm font-bold">@audiophile_prince</span>
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-sm border-2 border-ink flex-shrink-0" style="background: #833AB4;"></span>
+              <span class="font-mono text-[11px] font-bold">@audiophile_prince</span>
             </div>
-            <p class="font-sans text-xs text-gray-500 ml-6">Vocals, production & vibes</p>
           </div>
         </div>
       </div>
