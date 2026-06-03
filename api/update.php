@@ -154,7 +154,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data['about']['img'] = $about_img;
 
         // Contact
-        $contact_keys = ['title', 'desc_p1', 'desc_p2', 'email', 'youtube', 'instagram', 'tiktok', 'spotify', 'footer', 'signature'];
+        $contact_keys = ['title', 'desc_p1', 'desc_p2', 'email', 'youtube', 'instagram_guitar', 'instagram_music', 'tiktok', 'spotify', 'footer', 'signature'];
         foreach ($contact_keys as $key) {
             if (isset($_POST['contact'][$key])) {
                 $data['contact'][$key] = $_POST['contact'][$key];
@@ -405,6 +405,106 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
         }
         header("Location: ../admin/index.php?tab=viral&success=Deleted%20viral%20content");
+        exit;
+    }
+
+    // =========================================
+    // Action: Save Analytics Quick Stats
+    // =========================================
+    if (isset($_POST['action']) && $_POST['action'] === 'save_analytics_quick') {
+        if (isset($_POST['quick_stats']) && is_array($_POST['quick_stats'])) {
+            if (!isset($data['analytics'])) $data['analytics'] = [];
+            $data['analytics']['quick_stats'] = $_POST['quick_stats'];
+            file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        }
+        header("Location: ../admin/index.php?tab=analytics&success=Stats%20Updated");
+        exit;
+    }
+
+    // =========================================
+    // Action: Save Analytics Growth Data
+    // =========================================
+    if (isset($_POST['action']) && $_POST['action'] === 'save_analytics_growth') {
+        if (isset($_POST['growth']) && is_array($_POST['growth'])) {
+            if (!isset($data['analytics'])) $data['analytics'] = [];
+            $growth_data = [];
+            foreach ($_POST['growth'] as $g) {
+                if (!empty($g['month'])) {
+                    $growth_data[] = [
+                        'month' => $g['month'],
+                        'instagram_guitar' => intval($g['instagram_guitar'] ?? 0),
+                        'instagram_music' => intval($g['instagram_music'] ?? 0),
+                        'youtube' => intval($g['youtube'] ?? 0),
+                        'tiktok' => intval($g['tiktok'] ?? 0),
+                        'spotify' => intval($g['spotify'] ?? 0)
+                    ];
+                }
+            }
+            $data['analytics']['growth'] = $growth_data;
+            file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        }
+        header("Location: ../admin/index.php?tab=analytics&success=Growth%20Data%20Updated");
+        exit;
+    }
+
+    // =========================================
+    // Action: Save Analytics Engagement
+    // =========================================
+    if (isset($_POST['action']) && $_POST['action'] === 'save_analytics_engagement') {
+        if (!isset($data['analytics'])) $data['analytics'] = [];
+        $engagement = ['labels' => ['Reels', 'Stories', 'Posts', 'Lives', 'Collabs']];
+        if (isset($_POST['engagement_guitar']) && is_array($_POST['engagement_guitar'])) {
+            $engagement['instagram_guitar'] = array_map('intval', $_POST['engagement_guitar']);
+        }
+        if (isset($_POST['engagement_music']) && is_array($_POST['engagement_music'])) {
+            $engagement['instagram_music'] = array_map('intval', $_POST['engagement_music']);
+        }
+        $data['analytics']['engagement'] = $engagement;
+        file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        header("Location: ../admin/index.php?tab=analytics&success=Engagement%20Updated");
+        exit;
+    }
+
+    // =========================================
+    // Action: Save Analytics Content Mix
+    // =========================================
+    if (isset($_POST['action']) && $_POST['action'] === 'save_analytics_content_mix') {
+        if (!isset($data['analytics'])) $data['analytics'] = [];
+        $content_mix = ['labels' => [], 'values' => [], 'colors' => ['#00e5ff', '#ff00ff', '#ffea00', '#E1306C', '#1DB954', '#00f2ea', '#FF6B35', '#C41E3A']];
+        if (isset($_POST['content_mix_labels']) && is_array($_POST['content_mix_labels'])) {
+            foreach ($_POST['content_mix_labels'] as $i => $label) {
+                if (!empty(trim($label))) {
+                    $content_mix['labels'][] = $label;
+                    $content_mix['values'][] = intval($_POST['content_mix_values'][$i] ?? 0);
+                }
+            }
+        }
+        $data['analytics']['content_mix'] = $content_mix;
+        file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        header("Location: ../admin/index.php?tab=analytics&success=Content%20Mix%20Updated");
+        exit;
+    }
+
+    // =========================================
+    // Action: Save Analytics Music Stats
+    // =========================================
+    if (isset($_POST['action']) && $_POST['action'] === 'save_analytics_music_stats') {
+        if (isset($_POST['music_stats']) && is_array($_POST['music_stats'])) {
+            if (!isset($data['analytics'])) $data['analytics'] = [];
+            $stats = [];
+            foreach ($_POST['music_stats'] as $s) {
+                if (!empty($s['title'])) {
+                    $stats[] = [
+                        'title' => $s['title'],
+                        'streams' => intval($s['streams'] ?? 0),
+                        'likes' => intval($s['likes'] ?? 0)
+                    ];
+                }
+            }
+            $data['analytics']['music_stats'] = $stats;
+            file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        }
+        header("Location: ../admin/index.php?tab=analytics&success=Track%20Stats%20Updated");
         exit;
     }
 }

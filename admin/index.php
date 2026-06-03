@@ -87,6 +87,9 @@ $icon_options = [
             <a href="?tab=gallery" class="font-bold border-4 border-black p-3 brutal-shadow uppercase flex justify-between items-center <?php echo $tab === 'gallery' ? 'bg-[#ff00ff] text-white transform translate-x-2 scale-[1.02]' : 'bg-gray-50 hover:bg-pink-100 hover:translate-x-1 transition-all text-black'; ?>">
                 <span>Gallery</span> <span class="text-xl"><i class="fa-solid fa-camera"></i></span>
             </a>
+            <a href="?tab=analytics" class="font-bold border-4 border-black p-3 brutal-shadow uppercase flex justify-between items-center <?php echo $tab === 'analytics' ? 'bg-[#00e5ff] transform translate-x-2 scale-[1.02]' : 'bg-gray-50 hover:bg-cyan-100 hover:translate-x-1 transition-all'; ?>">
+                <span>Analytics</span> <span class="text-xl"><i class="fa-solid fa-chart-pie"></i></span>
+            </a>
         </nav>
         <div class="p-6 mt-8 flex flex-col gap-3 pt-6 border-t-4 border-black border-dashed">
             <a href="../index.php" target="_blank" class="block w-full text-center bg-black text-white font-black p-3 uppercase border-4 border-black brutal-shadow hover:bg-gray-800 hover:-translate-y-1 transition-transform flex justify-center items-center gap-2">
@@ -101,25 +104,30 @@ $icon_options = [
     <!-- Mobile Bottom Nav -->
     <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 px-2 pb-2">
         <div class="flex justify-center">
-            <ul class="flex items-center justify-between w-full max-w-md bg-yellow-300 px-3 py-2.5 border-[3px] border-black brutal-shadow">
+            <ul class="flex items-center justify-between w-full max-w-md bg-yellow-300 px-2 py-2 border-[3px] border-black brutal-shadow">
                 <li class="text-center flex-1">
-                    <a href="?tab=general" class="font-mono font-bold text-[9px] sm:text-[10px] uppercase flex flex-col items-center <?php echo $tab === 'general' ? 'text-black scale-110' : 'text-gray-800 opacity-80'; ?>">
-                        <i class="fa-solid fa-house mb-0.5 text-lg sm:text-xl"></i><span>General</span>
+                    <a href="?tab=general" class="font-mono font-bold text-[8px] sm:text-[9px] uppercase flex flex-col items-center <?php echo $tab === 'general' ? 'text-black scale-105' : 'text-gray-800 opacity-80'; ?>">
+                        <i class="fa-solid fa-house mb-0.5 text-base sm:text-lg"></i><span>General</span>
                     </a>
                 </li>
                 <li class="text-center flex-1">
-                    <a href="?tab=music" class="font-mono font-bold text-[9px] sm:text-[10px] uppercase flex flex-col items-center <?php echo $tab === 'music' ? 'text-black scale-110' : 'text-gray-800 opacity-80'; ?>">
-                        <i class="fa-solid fa-music mb-0.5 text-lg sm:text-xl"></i><span>Music</span>
+                    <a href="?tab=music" class="font-mono font-bold text-[8px] sm:text-[9px] uppercase flex flex-col items-center <?php echo $tab === 'music' ? 'text-black scale-105' : 'text-gray-800 opacity-80'; ?>">
+                        <i class="fa-solid fa-music mb-0.5 text-base sm:text-lg"></i><span>Music</span>
                     </a>
                 </li>
                 <li class="text-center flex-1">
-                    <a href="?tab=viral" class="font-mono font-bold text-[9px] sm:text-[10px] uppercase flex flex-col items-center <?php echo $tab === 'viral' ? 'text-black scale-110' : 'text-gray-800 opacity-80'; ?>">
-                        <i class="fa-solid fa-fire mb-0.5 text-lg sm:text-xl"></i><span>Viral</span>
+                    <a href="?tab=viral" class="font-mono font-bold text-[8px] sm:text-[9px] uppercase flex flex-col items-center <?php echo $tab === 'viral' ? 'text-black scale-105' : 'text-gray-800 opacity-80'; ?>">
+                        <i class="fa-solid fa-fire mb-0.5 text-base sm:text-lg"></i><span>Viral</span>
                     </a>
                 </li>
                 <li class="text-center flex-1">
-                    <a href="?tab=gallery" class="font-mono font-bold text-[9px] sm:text-[10px] uppercase flex flex-col items-center <?php echo $tab === 'gallery' ? 'text-black scale-110' : 'text-gray-800 opacity-80'; ?>">
-                        <i class="fa-solid fa-camera mb-0.5 text-lg sm:text-xl"></i><span>Gallery</span>
+                    <a href="?tab=gallery" class="font-mono font-bold text-[8px] sm:text-[9px] uppercase flex flex-col items-center <?php echo $tab === 'gallery' ? 'text-black scale-105' : 'text-gray-800 opacity-80'; ?>">
+                        <i class="fa-solid fa-camera mb-0.5 text-base sm:text-lg"></i><span>Gallery</span>
+                    </a>
+                </li>
+                <li class="text-center flex-1">
+                    <a href="?tab=analytics" class="font-mono font-bold text-[8px] sm:text-[9px] uppercase flex flex-col items-center <?php echo $tab === 'analytics' ? 'text-black scale-105' : 'text-gray-800 opacity-80'; ?>">
+                        <i class="fa-solid fa-chart-pie mb-0.5 text-base sm:text-lg"></i><span>Stats</span>
                     </a>
                 </li>
             </ul>
@@ -278,8 +286,12 @@ $icon_options = [
                                 <input type="url" name="contact[youtube]" value="<?php echo htmlspecialchars($data['contact']['youtube'] ?? ''); ?>" class="border-[3px] border-black p-4 font-mono focus:outline-none focus:ring-[4px] focus:ring-red-400 bg-transparent focus:bg-white border-b-8">
                             </div>
                             <div class="flex flex-col gap-2">
-                                <label class="font-bold uppercase text-sm flex items-center gap-2"><i class="fa-brands fa-instagram text-pink-500 text-lg"></i> Instagram</label>
-                                <input type="url" name="contact[instagram]" value="<?php echo htmlspecialchars($data['contact']['instagram'] ?? ''); ?>" class="border-[3px] border-black p-4 font-mono focus:outline-none focus:ring-[4px] focus:ring-[#ff00ff] bg-transparent focus:bg-white border-b-8">
+                                <label class="font-bold uppercase text-sm flex items-center gap-2"><i class="fa-brands fa-instagram text-pink-500 text-lg"></i> Instagram (Guitar)</label>
+                                <input type="url" name="contact[instagram_guitar]" value="<?php echo htmlspecialchars($data['contact']['instagram_guitar'] ?? ''); ?>" class="border-[3px] border-black p-4 font-mono focus:outline-none focus:ring-[4px] focus:ring-[#ff00ff] bg-transparent focus:bg-white border-b-8">
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <label class="font-bold uppercase text-sm flex items-center gap-2"><i class="fa-brands fa-instagram text-purple-500 text-lg"></i> Instagram (Vocals)</label>
+                                <input type="url" name="contact[instagram_music]" value="<?php echo htmlspecialchars($data['contact']['instagram_music'] ?? ''); ?>" class="border-[3px] border-black p-4 font-mono focus:outline-none focus:ring-[4px] focus:ring-purple-400 bg-transparent focus:bg-white border-b-8">
                             </div>
                             <div class="flex flex-col gap-2">
                                 <label class="font-bold uppercase text-sm flex items-center gap-2"><i class="fa-brands fa-tiktok text-lg"></i> TikTok</label>
@@ -514,6 +526,11 @@ $icon_options = [
                         <div class="fixed bottom-16 md:bottom-10 right-4 sm:right-6 z-[90]"><button type="submit" class="bg-[#ff00ff] text-white font-black text-lg sm:text-xl md:text-2xl px-6 sm:px-8 py-3 sm:py-4 uppercase tracking-widest border-[3px] sm:border-[4px] border-black brutal-shadow-lg hover:bg-pink-600 hover:scale-105 active:scale-95 transition-all"><i class="fa-solid fa-floppy-disk"></i> Save Gallery</button></div>
                     <?php endif; ?>
                 </form>
+            <?php endif; ?>
+
+            <!-- TAB: ANALYTICS -->
+            <?php if ($tab === 'analytics'): ?>
+                <?php include '../sections/admin-analytics.php'; ?>
             <?php endif; ?>
 
         </div>

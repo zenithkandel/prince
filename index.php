@@ -71,7 +71,7 @@
     <div class="max-w-7xl mx-auto flex justify-center md:justify-end">
       <!-- Navigation Sticker -->
       <ul
-        class="flex items-center gap-1.5 sm:gap-3 md:gap-6 bg-accent-yellow px-3 sm:px-6 py-2 sm:py-3 border-[3px] border-ink shadow-brutal-md rotate-1 hover:rotate-0 transition-transform duration-300">
+        class="flex items-center gap-1 sm:gap-2 md:gap-6 bg-accent-yellow px-2 sm:px-6 py-2 sm:py-3 border-[3px] border-ink shadow-brutal-md rotate-1 hover:rotate-0 transition-transform duration-300">
         <li class="text-center">
           <a href="#hero"
             class="font-mono font-bold text-xs sm:text-sm md:text-base hover:text-accent-pink transition-colors group">
@@ -106,6 +106,13 @@
             class="font-mono font-bold text-xs sm:text-sm md:text-base hover:text-accent-blue transition-colors group">
             <i class="fa-solid fa-camera-retro mr-1 group-hover:fa-bounce"></i>
             Gallery
+          </a>
+        </li>
+        <li class="text-center">
+          <a href="#analytics"
+            class="font-mono font-bold text-xs sm:text-sm md:text-base hover:text-accent-blue transition-colors group">
+            <i class="fa-solid fa-chart-pie mr-1 group-hover:fa-bounce"></i>
+            Stats
           </a>
         </li>
         <li class="text-center">
@@ -476,6 +483,9 @@
       </div>
     </section>
 
+    <!-- Analytics Section (included) -->
+    <?php include 'sections/analytics.php'; ?>
+
     <!-- Contact Section -->
     <section id="contact"
       class="relative w-full min-h-[auto] md:min-h-screen flex items-center justify-center pb-32 md:pb-0 z-30 pt-20 md:pt-32 overflow-hidden bg-cover bg-center"
@@ -505,10 +515,15 @@
               </div>
             </a>
             <div class="grid grid-cols-2 gap-2 sm:gap-4 mt-2">
-              <a href="<?php echo htmlspecialchars($data['contact']['instagram'] ?? 'https://instagram.com/prince_on_guitar'); ?>"
+              <a href="<?php echo htmlspecialchars($data['contact']['instagram_guitar'] ?? 'https://instagram.com/prince_on_guitar'); ?>"
                 target="_blank"
                 class="bg-ink text-white border-[3px] border-ink p-3 sm:p-4 flex justify-center items-center gap-1.5 sm:gap-2 hover:-translate-y-1 hover:shadow-brutal-sm transition-all rotate-[-1deg] hover:bg-accent-blue hover:text-ink">
-                <i class="fa-brands fa-instagram text-lg sm:text-2xl"></i><span class="font-mono font-bold text-xs sm:text-base">Instagram</span>
+                <i class="fa-brands fa-instagram text-lg sm:text-2xl"></i><span class="font-mono font-bold text-xs sm:text-base">Guitar</span>
+              </a>
+              <a href="<?php echo htmlspecialchars($data['contact']['instagram_music'] ?? 'https://instagram.com/audiophile_prince'); ?>"
+                target="_blank"
+                class="bg-ink text-white border-[3px] border-ink p-3 sm:p-4 flex justify-center items-center gap-1.5 sm:gap-2 hover:-translate-y-1 hover:shadow-brutal-sm transition-all rotate-[1deg] hover:bg-[#833AB4] hover:text-white">
+                <i class="fa-brands fa-instagram text-lg sm:text-2xl"></i><span class="font-mono font-bold text-xs sm:text-base">Vocals</span>
               </a>
               <a href="<?php echo htmlspecialchars($data['contact']['youtube'] ?? 'https://www.youtube.com/@Prince_on_guitar'); ?>"
                 target="_blank"

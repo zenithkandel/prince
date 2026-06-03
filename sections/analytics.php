@@ -109,7 +109,7 @@ $quick = $analytics['quick_stats'] ?? [];
     <!-- Chart 5: Music Performance Horizontal Bar -->
     <div class="bg-white border-[3px] sm:border-[4px] border-ink shadow-brutal-lg p-4 sm:p-6 scroll-reveal" style="transition-delay: 600ms;">
       <h3 class="font-marker text-xl sm:text-2xl md:text-3xl mb-6 flex items-center gap-2">
-        <i class="fa-solid famusic text-accent-blue"></i> Track Performance
+        <i class="fa-solid fa-music text-accent-blue"></i> Track Performance
       </h3>
       <div class="relative" style="height: 320px;">
         <canvas id="musicStatsChart"></canvas>
