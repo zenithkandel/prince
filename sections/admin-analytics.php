@@ -234,4 +234,15 @@ foreach ($music_stats as $ms) {
 }
 </style>
 
-
+<script>
+document.querySelectorAll('.track-show-toggle').forEach(function(cb) {
+    cb.addEventListener('change', function() {
+        var label = this.closest('label').querySelector('.track-label');
+        if (label) {
+            label.textContent = this.checked ? 'Visible' : 'Hidden';
+            label.classList.toggle('text-green-600', this.checked);
+            label.classList.toggle('text-gray-400', !this.checked);
+        }
+    });
+});
+</script>
