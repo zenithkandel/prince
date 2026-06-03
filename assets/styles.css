@@ -70,34 +70,6 @@ body {
     background-color: var(--bg-primary);
 }
 
-.bg-yellow {
-    background-color: var(--color-accent-yellow);
-}
-
-.bg-blue {
-    background-color: var(--color-accent-blue);
-}
-
-.bg-pink {
-    background-color: var(--color-accent-pink);
-}
-
-.border-brutal {
-    border: var(--border-thick);
-}
-
-.shadow-brutal-sm {
-    box-shadow: var(--shadow-solid-sm);
-}
-
-.shadow-brutal-md {
-    box-shadow: var(--shadow-solid-md);
-}
-
-.shadow-brutal-lg {
-    box-shadow: var(--shadow-solid-lg);
-}
-
 .interactive-hover {
     transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.2s ease;
 }
@@ -105,6 +77,18 @@ body {
 .interactive-hover:hover {
     transform: translate(-4px, -4px);
     box-shadow: var(--shadow-solid-lg);
+}
+
+/* Mobile touch-friendly interactive elements */
+@media (hover: none) and (pointer: coarse) {
+    .interactive-hover:hover {
+        transform: none;
+        box-shadow: var(--shadow-solid-md);
+    }
+    .interactive-hover:active {
+        transform: translate(-2px, -2px);
+        box-shadow: var(--shadow-solid-md);
+    }
 }
 
 /* Animations */
@@ -161,6 +145,12 @@ body {
     position: relative;
 }
 
+@media (max-width: 640px) {
+    .polaroid {
+        padding: 6px 6px 28px 6px;
+    }
+}
+
 .polaroid::after {
     content: '';
     position: absolute;
@@ -172,6 +162,14 @@ body {
     background-color: rgba(255, 255, 255, 0.7);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     border-radius: 2px;
+}
+
+@media (max-width: 640px) {
+    .polaroid::after {
+        width: 50px;
+        height: 20px;
+        top: -10px;
+    }
 }
 
 /* Selection */
@@ -449,4 +447,41 @@ button:active {
     pointer-events: none;
     background-image: radial-gradient(var(--color-text-dark) 1.5px, transparent 1.5px);
     background-size: 16px 16px;
+}
+
+/* ====================================
+   RESPONSIVE UTILITIES
+   ==================================== */
+
+/* Reduce animations on mobile for performance */
+@media (max-width: 768px) {
+    .scroll-reveal {
+        transform: translateY(20px) scale(0.97);
+    }
+
+    .viral-card:hover {
+        transform: none;
+    }
+
+    .viral-card:active {
+        transform: scale(0.98);
+    }
+}
+
+/* Safe area padding for devices with notches */
+@supports (padding: env(safe-area-inset-bottom)) {
+    nav {
+        padding-bottom: max(1rem, env(safe-area-inset-bottom));
+    }
+}
+
+/* Ensure minimum touch target size (44x44px) for accessibility */
+@media (hover: none) and (pointer: coarse) {
+    nav a,
+    nav button,
+    .viral-card,
+    .gallery-item {
+        min-height: 44px;
+        min-width: 44px;
+    }
 }

@@ -318,7 +318,7 @@
         <!-- Section Title (Sticker) -->
         <div
           class="bg-white border-[3px] border-ink shadow-brutal-md px-8 py-3 mb-16 rotate-[1deg] hover:rotate-0 transition-transform scroll-reveal">
-          <h2 class="font-marker text-5xl md:text-7xl uppercase">
+          <h2 class="font-marker text-4xl sm:text-5xl md:text-7xl uppercase">
             <?php echo htmlspecialchars($data['music']['title'] ?? 'Latest Releases'); ?>
           </h2>
         </div>
@@ -364,7 +364,7 @@
           <!-- Section Title -->
           <div
             class="bg-accent-pink border-[3px] border-white shadow-[8px_8px_0px_rgba(255,255,255,0.3)] px-8 py-3 mb-4 rotate-[-2deg] hover:rotate-0 transition-transform scroll-reveal">
-            <h2 class="font-marker text-5xl md:text-7xl uppercase text-white">
+            <h2 class="font-marker text-4xl sm:text-5xl md:text-7xl uppercase text-white">
               <?php echo htmlspecialchars($data['viral']['title'] ?? 'Going Viral'); ?>
             </h2>
           </div>
@@ -429,7 +429,7 @@
       <!-- Title Marker -->
       <div
         class="bg-accent-yellow border-[3px] border-ink shadow-brutal-md px-10 py-4 mb-20 rotate-[-3deg] z-20 hover:rotate-3 transition-transform scroll-reveal">
-        <h2 class="font-marker text-5xl md:text-7xl uppercase text-ink">
+        <h2 class="font-marker text-4xl sm:text-5xl md:text-7xl uppercase text-ink">
           <?php echo htmlspecialchars($data['gallery']['title'] ?? 'Visuals'); ?>
         </h2>
         <div
@@ -504,7 +504,7 @@
                   class="font-sans text-sm text-gray-600 group-hover:text-gray-200"><?php echo htmlspecialchars($data['contact']['email'] ?? '69.prince.0112@gmail.com'); ?></span>
               </div>
             </a>
-            <div class="grid grid-cols-2 gap-4 mt-2">
+            <div class="grid grid-cols-2 gap-2 sm:gap-4 mt-2">
               <a href="<?php echo htmlspecialchars($data['contact']['instagram'] ?? 'https://instagram.com/prince_on_guitar'); ?>"
                 target="_blank"
                 class="bg-ink text-white border-[3px] border-ink p-4 flex justify-center items-center gap-2 hover:-translate-y-1 hover:shadow-brutal-sm transition-all rotate-[-1deg] hover:bg-accent-blue hover:text-ink">
@@ -523,7 +523,7 @@
                   class="fa-brands fa-spotify text-2xl"></i><span class="font-mono font-bold">Spotify</span></a>
             </div>
           </div>
-          <div class="absolute bottom-6 right-6 font-marker text-4xl text-ink transform rotate-[-10deg] opacity-70">
+          <div class="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 font-marker text-2xl sm:text-4xl text-ink transform rotate-[-10deg] opacity-70">
             <?php echo htmlspecialchars($data['contact']['signature'] ?? '- Prince'); ?></div>
         </div>
         <div class="mt-20 text-center flex flex-col items-center">

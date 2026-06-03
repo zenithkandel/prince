@@ -34,6 +34,22 @@ $icon_options = [
         html { scroll-behavior: smooth; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        @media (max-width: 640px) {
+            .admin-card { position: relative; }
+            .admin-card .delete-btn {
+                position: absolute;
+                top: -8px;
+                right: -8px;
+                z-index: 50;
+            }
+            .admin-card .card-label {
+                position: relative;
+                top: auto;
+                left: auto;
+                transform: none;
+                margin-bottom: 0.5rem;
+            }
+        }
     </style>
 </head>
 <body class="bg-[#f0f0f0] font-sans flex flex-col md:flex-row min-h-screen selection:bg-yellow-300 pb-24 md:pb-0">
@@ -83,27 +99,27 @@ $icon_options = [
     </aside>
 
     <!-- Mobile Bottom Nav -->
-    <nav class="md:hidden fixed bottom-4 left-0 w-full z-50 px-4">
+    <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 px-2 pb-2">
         <div class="flex justify-center">
-            <ul class="flex items-center justify-between w-full max-w-md bg-yellow-300 px-4 py-3 border-[3px] border-black brutal-shadow rotate-1">
-                <li class="text-center w-1/4">
-                    <a href="?tab=general" class="font-mono font-bold text-[10px] uppercase flex flex-col items-center <?php echo $tab === 'general' ? 'text-black scale-110' : 'text-gray-800 opacity-80'; ?>">
-                        <i class="fa-solid fa-house mb-1 text-xl"></i><span>General</span>
+            <ul class="flex items-center justify-between w-full max-w-md bg-yellow-300 px-3 py-2.5 border-[3px] border-black brutal-shadow">
+                <li class="text-center flex-1">
+                    <a href="?tab=general" class="font-mono font-bold text-[9px] sm:text-[10px] uppercase flex flex-col items-center <?php echo $tab === 'general' ? 'text-black scale-110' : 'text-gray-800 opacity-80'; ?>">
+                        <i class="fa-solid fa-house mb-0.5 text-lg sm:text-xl"></i><span>General</span>
                     </a>
                 </li>
-                <li class="text-center w-1/4">
-                    <a href="?tab=music" class="font-mono font-bold text-[10px] uppercase flex flex-col items-center <?php echo $tab === 'music' ? 'text-black scale-110' : 'text-gray-800 opacity-80'; ?>">
-                        <i class="fa-solid fa-music mb-1 text-xl"></i><span>Music</span>
+                <li class="text-center flex-1">
+                    <a href="?tab=music" class="font-mono font-bold text-[9px] sm:text-[10px] uppercase flex flex-col items-center <?php echo $tab === 'music' ? 'text-black scale-110' : 'text-gray-800 opacity-80'; ?>">
+                        <i class="fa-solid fa-music mb-0.5 text-lg sm:text-xl"></i><span>Music</span>
                     </a>
                 </li>
-                <li class="text-center w-1/4">
-                    <a href="?tab=viral" class="font-mono font-bold text-[10px] uppercase flex flex-col items-center <?php echo $tab === 'viral' ? 'text-black scale-110' : 'text-gray-800 opacity-80'; ?>">
-                        <i class="fa-solid fa-fire mb-1 text-xl"></i><span>Viral</span>
+                <li class="text-center flex-1">
+                    <a href="?tab=viral" class="font-mono font-bold text-[9px] sm:text-[10px] uppercase flex flex-col items-center <?php echo $tab === 'viral' ? 'text-black scale-110' : 'text-gray-800 opacity-80'; ?>">
+                        <i class="fa-solid fa-fire mb-0.5 text-lg sm:text-xl"></i><span>Viral</span>
                     </a>
                 </li>
-                <li class="text-center w-1/4">
-                    <a href="?tab=gallery" class="font-mono font-bold text-[10px] uppercase flex flex-col items-center <?php echo $tab === 'gallery' ? 'text-black scale-110' : 'text-gray-800 opacity-80'; ?>">
-                        <i class="fa-solid fa-camera mb-1 text-xl"></i><span>Gallery</span>
+                <li class="text-center flex-1">
+                    <a href="?tab=gallery" class="font-mono font-bold text-[9px] sm:text-[10px] uppercase flex flex-col items-center <?php echo $tab === 'gallery' ? 'text-black scale-110' : 'text-gray-800 opacity-80'; ?>">
+                        <i class="fa-solid fa-camera mb-0.5 text-lg sm:text-xl"></i><span>Gallery</span>
                     </a>
                 </li>
             </ul>
@@ -111,7 +127,7 @@ $icon_options = [
     </nav>
 
     <!-- Main Content -->
-    <main class="flex-grow p-6 md:p-10 lg:p-14 overflow-y-auto relative z-10 w-full">
+    <main class="flex-grow p-4 sm:p-6 md:p-10 lg:p-14 overflow-y-auto relative z-10 w-full">
         <div class="max-w-5xl mx-auto">
             <?php if ($success): ?>
                 <div class="bg-green-400 border-[4px] border-black font-black p-4 mb-10 brutal-shadow text-xl uppercase transform -rotate-1 relative group w-full md:w-auto inline-flex items-center gap-3 animate-pulse cursor-pointer" onclick="this.remove()">
@@ -315,7 +331,7 @@ $icon_options = [
                         </div>
                     </section>
 
-                    <div class="fixed bottom-24 md:bottom-10 right-6 z-[90]"><button type="submit" class="bg-black text-white font-black text-xl md:text-2xl px-8 py-4 uppercase tracking-widest border-[4px] border-black brutal-shadow-lg hover:bg-gray-800 hover:scale-105 active:scale-95 transition-all"><i class="fa-solid fa-floppy-disk"></i> Save All</button></div>
+                    <div class="fixed bottom-16 md:bottom-10 right-4 sm:right-6 z-[90]"><button type="submit" class="bg-black text-white font-black text-lg sm:text-xl md:text-2xl px-6 sm:px-8 py-3 sm:py-4 uppercase tracking-widest border-[3px] sm:border-[4px] border-black brutal-shadow-lg hover:bg-gray-800 hover:scale-105 active:scale-95 transition-all"><i class="fa-solid fa-floppy-disk"></i> Save All</button></div>
                 </form>
             <?php endif; ?>
 
@@ -372,7 +388,7 @@ $icon_options = [
                                 </div>
                             <?php endforeach; ?>
                         </div>
-                        <div class="fixed bottom-24 md:bottom-10 right-6 z-[90]"><button type="submit" class="bg-[#00e5ff] text-black font-black text-xl md:text-2xl px-8 py-4 uppercase tracking-widest border-[4px] border-black brutal-shadow-lg hover:bg-cyan-300 hover:scale-105 active:scale-95 transition-all"><i class="fa-solid fa-floppy-disk"></i> Save Music</button></div>
+                        <div class="fixed bottom-16 md:bottom-10 right-4 sm:right-6 z-[90]"><button type="submit" class="bg-[#00e5ff] text-black font-black text-lg sm:text-xl md:text-2xl px-6 sm:px-8 py-3 sm:py-4 uppercase tracking-widest border-[3px] sm:border-[4px] border-black brutal-shadow-lg hover:bg-cyan-300 hover:scale-105 active:scale-95 transition-all"><i class="fa-solid fa-floppy-disk"></i> Save Music</button></div>
                     <?php endif; ?>
                 </form>
             <?php endif; ?>
