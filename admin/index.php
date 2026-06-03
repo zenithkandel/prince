@@ -55,14 +55,14 @@ $icon_options = [
 <body class="bg-[#f0f0f0] font-sans flex flex-col md:flex-row min-h-screen selection:bg-yellow-300 pb-24 md:pb-0">
 
     <!-- Mobile Header -->
-    <header class="md:hidden bg-white border-b-4 border-black p-4 flex justify-between items-center z-30 sticky top-0">
+    <header class="md:hidden bg-white border-b-4 border-black p-3 sm:p-4 flex justify-between items-center z-30 sticky top-0">
         <div>
-            <h1 class="text-2xl font-black uppercase tracking-tighter block leading-none">Control Center</h1>
-            <p class="text-[10px] font-mono font-bold mt-1 text-gray-500 uppercase tracking-widest inline-block bg-gray-100 px-1 border-2 border-dashed border-gray-300">v3.0 Full Control</p>
+            <h1 class="text-xl sm:text-2xl font-black uppercase tracking-tighter block leading-none">Control Center</h1>
+            <p class="text-[8px] sm:text-[10px] font-mono font-bold mt-1 text-gray-500 uppercase tracking-widest inline-block bg-gray-100 px-1 border-2 border-dashed border-gray-300">v3.0 Full Control</p>
         </div>
-        <div class="flex gap-3">
-            <a href="../index.php" target="_blank" class="bg-black text-white w-10 h-10 flex items-center justify-center border-2 border-black brutal-shadow"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-            <a href="?logout=1" class="bg-white text-black w-10 h-10 flex items-center justify-center border-2 border-black brutal-shadow hover:bg-red-600 hover:text-white"><i class="fa-solid fa-right-from-bracket"></i></a>
+        <div class="flex gap-2 sm:gap-3">
+            <a href="../index.php" target="_blank" class="bg-black text-white w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center border-2 border-black brutal-shadow"><i class="fa-solid fa-arrow-up-right-from-square text-sm"></i></a>
+            <a href="?logout=1" class="bg-white text-black w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center border-2 border-black brutal-shadow hover:bg-red-600 hover:text-white"><i class="fa-solid fa-right-from-bracket text-sm"></i></a>
         </div>
     </header>
 
@@ -342,8 +342,8 @@ $icon_options = [
                         <h2 class="text-3xl sm:text-4xl md:text-6xl font-black uppercase tracking-tight text-[#00c2d8]">Music Config</h2>
                         <p class="text-gray-600 font-mono mt-3 text-sm bg-cyan-100 inline-block px-2 border-2 border-black border-dashed">Manage your releases.</p>
                     </div>
-                    <button type="button" onclick="document.getElementById('music-modal').classList.remove('hidden')" class="bg-yellow-300 font-black flex items-center justify-center gap-3 border-[4px] border-black px-8 py-5 brutal-shadow hover:bg-yellow-400 hover:-translate-y-1 uppercase transition-all w-full text-xl md:text-2xl hover:scale-105 active:scale-95">
-                        <span class="text-3xl leading-none block align-middle mt-[-4px]">+</span> Add Release
+                    <button type="button" onclick="document.getElementById('music-modal').classList.remove('hidden')" class="bg-yellow-300 font-black flex items-center justify-center gap-2 sm:gap-3 border-[3px] sm:border-[4px] border-black px-5 sm:px-8 py-4 sm:py-5 brutal-shadow hover:bg-yellow-400 hover:-translate-y-1 uppercase transition-all w-full text-lg sm:text-xl md:text-2xl hover:scale-105 active:scale-95">
+                        <span class="text-2xl sm:text-3xl leading-none block align-middle mt-[-4px]">+</span> Add Release
                     </button>
                 </div>
                 <form action="../api/update.php" method="POST" enctype="multipart/form-data" class="space-y-10">
@@ -374,7 +374,7 @@ $icon_options = [
                                     <div class="flex flex-col gap-5 mt-2">
                                         <div class="flex flex-col gap-1.5">
                                             <label class="font-bold uppercase text-[10px] text-gray-400 tracking-widest">Title</label>
-                                            <input type="text" name="music_releases[<?php echo $index; ?>][title]" value="<?php echo htmlspecialchars($item['title'] ?? ''); ?>" placeholder="Enter Title..." class="border-b-[4px] border-black pb-2 font-black text-2xl md:text-3xl focus:outline-none focus:border-cyan-400 bg-transparent placeholder-gray-200">
+                                            <input type="text" name="music_releases[<?php echo $index; ?>][title]" value="<?php echo htmlspecialchars($item['title'] ?? ''); ?>" placeholder="Enter Title..." class="border-b-[4px] border-black pb-2 font-black text-xl sm:text-2xl md:text-3xl focus:outline-none focus:border-cyan-400 bg-transparent placeholder-gray-200">
                                         </div>
                                         <div class="flex flex-col gap-1.5">
                                             <label class="font-bold uppercase text-[10px] text-gray-400 tracking-widest">Description</label>
@@ -400,8 +400,8 @@ $icon_options = [
                         <h2 class="text-3xl sm:text-4xl md:text-6xl font-black uppercase tracking-tight text-[#ff00ff]">Viral Content</h2>
                         <p class="text-gray-600 font-mono mt-3 text-sm bg-pink-100 inline-block px-2 border-2 border-black border-dashed">Showcase your viral short-form content.</p>
                     </div>
-                    <button type="button" onclick="document.getElementById('viral-modal').classList.remove('hidden')" class="bg-[#ff00ff] text-white font-black flex items-center justify-center gap-3 border-[4px] border-black px-8 py-5 brutal-shadow hover:bg-pink-600 hover:-translate-y-1 uppercase transition-all w-full text-xl md:text-2xl hover:scale-105 active:scale-95">
-                        <span class="text-3xl leading-none block align-middle mt-[-4px]">+</span> Add Content
+                    <button type="button" onclick="document.getElementById('viral-modal').classList.remove('hidden')" class="bg-[#ff00ff] text-white font-black flex items-center justify-center gap-2 sm:gap-3 border-[3px] sm:border-[4px] border-black px-5 sm:px-8 py-4 sm:py-5 brutal-shadow hover:bg-pink-600 hover:-translate-y-1 uppercase transition-all w-full text-lg sm:text-xl md:text-2xl hover:scale-105 active:scale-95">
+                        <span class="text-2xl sm:text-3xl leading-none block align-middle mt-[-4px]">+</span> Add Content
                     </button>
                 </div>
                 <form action="../api/update.php" method="POST" enctype="multipart/form-data" class="space-y-10">
@@ -423,7 +423,7 @@ $icon_options = [
                                     <div class="flex flex-col gap-5 mt-4">
                                         <div class="flex flex-col gap-1.5">
                                             <label class="font-bold uppercase text-[10px] text-gray-400 tracking-widest">Title</label>
-                                            <input type="text" name="viral_items[<?php echo $index; ?>][title]" value="<?php echo htmlspecialchars($item['title'] ?? ''); ?>" class="border-b-[4px] border-black pb-2 font-black text-2xl focus:outline-none focus:border-[#ff00ff] bg-transparent placeholder-gray-200">
+                                            <input type="text" name="viral_items[<?php echo $index; ?>][title]" value="<?php echo htmlspecialchars($item['title'] ?? ''); ?>" class="border-b-[4px] border-black pb-2 font-black text-xl sm:text-2xl focus:outline-none focus:border-[#ff00ff] bg-transparent placeholder-gray-200">
                                         </div>
                                         <div class="flex flex-col gap-1.5">
                                             <label class="font-bold uppercase text-[10px] text-gray-400 tracking-widest">Content URL</label>
@@ -465,8 +465,8 @@ $icon_options = [
                         <h2 class="text-3xl sm:text-4xl md:text-6xl font-black uppercase tracking-tight text-[#d900d9]">Gallery Config</h2>
                         <p class="text-gray-600 font-mono mt-3 text-sm bg-pink-100 inline-block px-2 border-2 border-black border-dashed">Manage your digital scrapbook.</p>
                     </div>
-                    <button type="button" onclick="document.getElementById('gallery-modal').classList.remove('hidden')" class="bg-[#ff00ff] text-white font-black flex items-center justify-center gap-3 border-[4px] border-black px-8 py-5 brutal-shadow hover:bg-pink-600 hover:-translate-y-1 uppercase transition-all w-full text-xl md:text-2xl hover:scale-105 active:scale-95">
-                        <span class="text-3xl leading-none block align-middle mt-[-4px]">+</span> Add Photo
+                    <button type="button" onclick="document.getElementById('gallery-modal').classList.remove('hidden')" class="bg-[#ff00ff] text-white font-black flex items-center justify-center gap-2 sm:gap-3 border-[3px] sm:border-[4px] border-black px-5 sm:px-8 py-4 sm:py-5 brutal-shadow hover:bg-pink-600 hover:-translate-y-1 uppercase transition-all w-full text-lg sm:text-xl md:text-2xl hover:scale-105 active:scale-95">
+                        <span class="text-2xl sm:text-3xl leading-none block align-middle mt-[-4px]">+</span> Add Photo
                     </button>
                 </div>
                 <form action="../api/update.php" method="POST" enctype="multipart/form-data" class="space-y-10">
@@ -497,7 +497,7 @@ $icon_options = [
                                     <div class="flex flex-col gap-5 mt-2">
                                         <div class="flex flex-col gap-1.5">
                                             <label class="font-bold uppercase text-[10px] text-gray-400 tracking-widest">Caption</label>
-                                            <input type="text" name="gallery_images[<?php echo $index; ?>][caption]" value="<?php echo htmlspecialchars($item['caption'] ?? ''); ?>" class="border-b-[4px] border-black pb-2 font-black text-2xl focus:outline-none focus:border-[#ff00ff] bg-transparent placeholder-gray-200">
+                                            <input type="text" name="gallery_images[<?php echo $index; ?>][caption]" value="<?php echo htmlspecialchars($item['caption'] ?? ''); ?>" class="border-b-[4px] border-black pb-2 font-black text-xl sm:text-2xl focus:outline-none focus:border-[#ff00ff] bg-transparent placeholder-gray-200">
                                         </div>
                                         <div class="flex flex-col gap-1.5">
                                             <label class="font-bold uppercase text-[10px] text-gray-400 tracking-widest">Photo Size</label>
@@ -570,8 +570,8 @@ $icon_options = [
     </div>
 
     <!-- Viral Modal -->
-    <div id="viral-modal" class="hidden fixed inset-0 z-[100] bg-black bg-opacity-70 flex items-center justify-center p-4 backdrop-blur-sm">
-        <div class="bg-white border-[6px] border-black brutal-shadow-lg w-full max-w-lg overflow-hidden transform -rotate-1">
+    <div id="viral-modal" class="hidden fixed inset-0 z-[100] bg-black bg-opacity-70 flex items-center justify-center p-3 sm:p-4 backdrop-blur-sm">
+        <div class="bg-white border-[4px] sm:border-[6px] border-black brutal-shadow-lg w-full max-w-lg overflow-hidden transform -rotate-1 max-h-[90vh] overflow-y-auto">
             <div class="bg-[#ff00ff] text-white border-b-4 border-black p-4 flex justify-between items-center">
                 <h2 class="font-black text-2xl uppercase tracking-widest"><i class="fa-solid fa-fire"></i> Add Viral</h2>
                 <button type="button" onclick="document.getElementById('viral-modal').classList.add('hidden')" class="text-3xl font-black hover:text-black">&times;</button>
@@ -593,8 +593,8 @@ $icon_options = [
     </div>
 
     <!-- Delete Modal -->
-    <div id="delete-modal" class="hidden fixed inset-0 z-[200] bg-black bg-opacity-70 flex items-center justify-center p-4 backdrop-blur-sm">
-        <div class="bg-white border-[6px] border-black brutal-shadow-lg w-full max-w-sm overflow-hidden transform -rotate-1 relative">
+    <div id="delete-modal" class="hidden fixed inset-0 z-[200] bg-black bg-opacity-70 flex items-center justify-center p-3 sm:p-4 backdrop-blur-sm">
+        <div class="bg-white border-[4px] sm:border-[6px] border-black brutal-shadow-lg w-full max-w-sm overflow-hidden transform -rotate-1 relative">
             <div class="absolute -top-4 -right-4 bg-red-500 w-12 h-12 rounded-full border-4 border-black z-0"></div>
             <div class="bg-red-600 text-white border-b-4 border-black p-4 flex justify-between items-center relative z-10">
                 <h2 class="font-black text-2xl uppercase tracking-widest"><i class="fa-solid fa-triangle-exclamation"></i> Warning</h2>

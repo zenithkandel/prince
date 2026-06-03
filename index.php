@@ -140,7 +140,7 @@
         class="relative z-10 flex flex-col items-center md:items-start text-center md:text-left md:w-1/2 w-full mt-10 md:mt-0 scroll-reveal">
         <!-- Sticker Tag -->
         <div
-          class="inline-block bg-accent-pink text-white font-mono font-bold text-sm px-4 py-1 border-[3px] border-ink shadow-brutal-sm rotate-[-4deg] mb-6 interactive-hover">
+          class="inline-block bg-accent-pink text-white font-mono font-bold text-xs sm:text-sm px-3 sm:px-4 py-1 border-[3px] border-ink shadow-brutal-sm rotate-[-4deg] mb-4 sm:mb-6 interactive-hover">
           <i class="fa-brands fa-youtube mr-2"></i> <?php echo htmlspecialchars($data['hero']['tag']); ?>
         </div>
 
@@ -171,7 +171,7 @@
 
         <!-- CTA Button -->
         <a href="#music"
-          class="mt-8 group inline-flex items-center justify-center gap-3 bg-accent-yellow font-mono font-black text-xl px-8 py-4 border-[4px] border-ink shadow-brutal-md transition-all duration-300 hover:shadow-brutal-lg hover:-translate-y-1 hover:-translate-x-1 active:shadow-brutal-sm active:translate-y-1 active:translate-x-1 rotate-2">
+          class="mt-6 sm:mt-8 group inline-flex items-center justify-center gap-2 sm:gap-3 bg-accent-yellow font-mono font-black text-lg sm:text-xl px-6 sm:px-8 py-3 sm:py-4 border-[3px] sm:border-[4px] border-ink shadow-brutal-md transition-all duration-300 hover:shadow-brutal-lg hover:-translate-y-1 hover:-translate-x-1 active:shadow-brutal-sm active:translate-y-1 active:translate-x-1 rotate-2">
           <i class="fa-solid fa-play group-hover:fa-beat"></i>
           <?php echo htmlspecialchars($data['hero']['cta']); ?>
         </a>
@@ -243,7 +243,7 @@
           <!-- Right: Text Content -->
           <div class="w-full md:w-2/3 relative z-20 flex flex-col justify-center">
             <h2
-              class="font-marker text-4xl sm:text-5xl md:text-7xl mb-6 md:mb-8 mt-6 md:mt-0 relative inline-block break-words">
+              class="font-marker text-3xl sm:text-4xl md:text-5xl lg:text-7xl mb-4 sm:mb-6 md:mb-8 mt-4 sm:mt-6 md:mt-0 relative inline-block break-words">
               <?php echo htmlspecialchars($data['about']['title']); ?>
               <i
                 class="fa-solid fa-sparkle absolute -top-4 -right-4 md:-right-8 text-2xl md:text-3xl text-accent-pink animate-pulse"></i>
@@ -277,7 +277,7 @@
               $p2_rendered = $p2_text;
             }
             ?>
-            <div class="font-marker text-lg sm:text-xl md:text-2xl mb-4 leading-relaxed tracking-wide">
+            <div class="font-marker text-base sm:text-lg md:text-xl lg:text-2xl mb-4 leading-relaxed tracking-wide">
               <p class="mb-4">
                 <?php echo htmlspecialchars($data['about']['content_p1'] ?? ''); ?>
               </p>
@@ -349,7 +349,7 @@
 
         <!-- CTA -->
         <a href="<?php echo htmlspecialchars($data['music']['cta_link']); ?>" target="_blank"
-          class="mt-12 bg-accent-pink text-white font-mono font-black text-xl px-10 py-4 border-[4px] border-ink shadow-brutal-md transition-all duration-300 hover:shadow-brutal-lg hover:-translate-y-1 rotate-[-1deg]">
+          class="mt-8 sm:mt-12 bg-accent-pink text-white font-mono font-black text-lg sm:text-xl px-8 sm:px-10 py-3 sm:py-4 border-[3px] sm:border-[4px] border-ink shadow-brutal-md transition-all duration-300 hover:shadow-brutal-lg hover:-translate-y-1 rotate-[-1deg]">
           <i class="fa-brands fa-youtube mr-2"></i>
           <?php echo htmlspecialchars($data['music']['cta']); ?>
         </a>
@@ -496,7 +496,7 @@
           </p>
           <div class="flex flex-col gap-4 max-w-md mx-auto">
             <a href="mailto:<?php echo htmlspecialchars($data['contact']['email'] ?? '69.prince.0112@gmail.com'); ?>"
-              class="bg-white border-[3px] border-ink p-4 flex items-center gap-4 hover-wiggle group cursor-pointer transition-colors hover:bg-accent-pink shadow-brutal-sm">
+              class="bg-white border-[3px] border-ink p-3 sm:p-4 flex items-center gap-3 sm:gap-4 hover-wiggle group cursor-pointer transition-colors hover:bg-accent-pink shadow-brutal-sm">
               <i class="fa-solid fa-envelope-open-text text-3xl group-hover:text-white transition-colors"></i>
               <div>
                 <h3 class="font-mono font-bold text-lg leading-none group-hover:text-white">Email</h3>
@@ -507,27 +507,27 @@
             <div class="grid grid-cols-2 gap-2 sm:gap-4 mt-2">
               <a href="<?php echo htmlspecialchars($data['contact']['instagram'] ?? 'https://instagram.com/prince_on_guitar'); ?>"
                 target="_blank"
-                class="bg-ink text-white border-[3px] border-ink p-4 flex justify-center items-center gap-2 hover:-translate-y-1 hover:shadow-brutal-sm transition-all rotate-[-1deg] hover:bg-accent-blue hover:text-ink">
-                <i class="fa-brands fa-instagram text-2xl"></i><span class="font-mono font-bold">Instagram</span>
+                class="bg-ink text-white border-[3px] border-ink p-3 sm:p-4 flex justify-center items-center gap-1.5 sm:gap-2 hover:-translate-y-1 hover:shadow-brutal-sm transition-all rotate-[-1deg] hover:bg-accent-blue hover:text-ink">
+                <i class="fa-brands fa-instagram text-lg sm:text-2xl"></i><span class="font-mono font-bold text-xs sm:text-base">Instagram</span>
               </a>
               <a href="<?php echo htmlspecialchars($data['contact']['youtube'] ?? 'https://www.youtube.com/@Prince_on_guitar'); ?>"
                 target="_blank"
-                class="bg-ink text-white border-[3px] border-ink p-4 flex justify-center items-center gap-2 hover:-translate-y-1 hover:shadow-brutal-sm transition-all rotate-[1deg] hover:bg-red-500 hover:text-white">
-                <i class="fa-brands fa-youtube text-2xl"></i><span class="font-mono font-bold">YouTube</span>
+                class="bg-ink text-white border-[3px] border-ink p-3 sm:p-4 flex justify-center items-center gap-1.5 sm:gap-2 hover:-translate-y-1 hover:shadow-brutal-sm transition-all rotate-[1deg] hover:bg-red-500 hover:text-white">
+                <i class="fa-brands fa-youtube text-lg sm:text-2xl"></i><span class="font-mono font-bold text-xs sm:text-base">YouTube</span>
               </a>
               <a href="<?php echo htmlspecialchars($data['contact']['tiktok'] ?? '#'); ?>" target="_blank"
-                class="bg-ink text-white border-[3px] border-ink p-4 flex justify-center items-center gap-2 hover:-translate-y-1 hover:shadow-brutal-sm transition-all rotate-[2deg] hover:bg-black hover:text-white"><i
-                  class="fa-brands fa-tiktok text-2xl"></i><span class="font-mono font-bold">TikTok</span></a>
+                class="bg-ink text-white border-[3px] border-ink p-3 sm:p-4 flex justify-center items-center gap-1.5 sm:gap-2 hover:-translate-y-1 hover:shadow-brutal-sm transition-all rotate-[2deg] hover:bg-black hover:text-white"><i
+                  class="fa-brands fa-tiktok text-lg sm:text-2xl"></i><span class="font-mono font-bold text-xs sm:text-base">TikTok</span></a>
               <a href="<?php echo htmlspecialchars($data['contact']['spotify'] ?? '#'); ?>" target="_blank"
-                class="bg-ink text-white border-[3px] border-ink p-4 flex justify-center items-center gap-2 hover:-translate-y-1 hover:shadow-brutal-sm transition-all rotate-[-2deg] hover:bg-[#1DB954] hover:text-ink"><i
-                  class="fa-brands fa-spotify text-2xl"></i><span class="font-mono font-bold">Spotify</span></a>
+                class="bg-ink text-white border-[3px] border-ink p-3 sm:p-4 flex justify-center items-center gap-1.5 sm:gap-2 hover:-translate-y-1 hover:shadow-brutal-sm transition-all rotate-[-2deg] hover:bg-[#1DB954] hover:text-ink"><i
+                  class="fa-brands fa-spotify text-lg sm:text-2xl"></i><span class="font-mono font-bold text-xs sm:text-base">Spotify</span></a>
             </div>
           </div>
           <div class="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 font-marker text-2xl sm:text-4xl text-ink transform rotate-[-10deg] opacity-70">
             <?php echo htmlspecialchars($data['contact']['signature'] ?? '- Prince'); ?></div>
         </div>
         <div class="mt-20 text-center flex flex-col items-center">
-          <p class="font-mono text-ink bg-white border-2 border-ink px-4 py-1 rotate-1 shadow-brutal-sm inline-block">
+          <p class="font-mono text-xs sm:text-sm md:text-base text-ink bg-white border-2 border-ink px-3 sm:px-4 py-1 rotate-1 shadow-brutal-sm inline-block">
             <?php echo isset($data['contact']['footer']) ? htmlspecialchars($data['contact']['footer']) : '© 2026 Prince Neupane. All rights reserved.'; ?>
           </p>
           <a href="https://github.com/zenithkandel" target="_blank"
