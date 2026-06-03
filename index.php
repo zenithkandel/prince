@@ -74,8 +74,46 @@
         class="flex items-center gap-1 sm:gap-2 md:gap-6 bg-accent-yellow px-2 sm:px-6 py-2 sm:py-3 border-[3px] border-ink shadow-brutal-md rotate-1 hover:rotate-0 transition-transform duration-300">
         <li class="text-center">
           <a href="#hero"
-            class="font-mono font-bold text-xs sm:text-sm md:text-base hover:text-accent-pink transition-colors group">
-            <i class="fa-solid fa-home mr-1 group-hover:fa-bounce"></i> Home
+            class="font-mono font-bold text-[9px] sm:text-xs md:text-base hover:text-accent-pink transition-colors group">
+            <i class="fa-solid fa-home sm:mr-1 group-hover:fa-bounce"></i><span class="hidden sm:inline"> Home</span>
+          </a>
+        </li>
+        <li class="text-center">
+          <a href="#about"
+            class="font-mono font-bold text-[9px] sm:text-xs md:text-base hover:text-accent-blue transition-colors group">
+            <i class="fa-solid fa-user-music sm:mr-1 group-hover:fa-bounce"></i><span class="hidden sm:inline"> About</span>
+          </a>
+        </li>
+        <li class="text-center">
+          <a href="#music"
+            class="font-mono font-bold text-[9px] sm:text-xs md:text-base hover:text-accent-pink transition-colors group">
+            <i class="fa-solid fa-cassette-tape sm:mr-1 group-hover:fa-bounce"></i><span class="hidden sm:inline"> Music</span>
+          </a>
+        </li>
+        <?php if (!empty($data['viral']['items'])): ?>
+          <li class="text-center">
+            <a href="#viral"
+              class="font-mono font-bold text-[9px] sm:text-xs md:text-base hover:text-accent-blue transition-colors group">
+              <i class="fa-solid fa-fire sm:mr-1 group-hover:fa-bounce"></i><span class="hidden sm:inline"> Viral</span>
+            </a>
+          </li>
+        <?php endif; ?>
+        <li class="text-center">
+          <a href="#gallery"
+            class="font-mono font-bold text-[9px] sm:text-xs md:text-base hover:text-accent-blue transition-colors group">
+            <i class="fa-solid fa-camera-retro sm:mr-1 group-hover:fa-bounce"></i><span class="hidden sm:inline"> Gallery</span>
+          </a>
+        </li>
+        <li class="text-center">
+          <a href="#analytics"
+            class="font-mono font-bold text-[9px] sm:text-xs md:text-base hover:text-accent-blue transition-colors group">
+            <i class="fa-solid fa-chart-pie sm:mr-1 group-hover:fa-bounce"></i><span class="hidden sm:inline"> Stats</span>
+          </a>
+        </li>
+        <li class="text-center">
+          <a href="#contact"
+            class="font-mono font-bold text-[9px] sm:text-xs md:text-base hover:text-accent-pink transition-colors group">
+            <i class="fa-solid fa-paper-plane sm:mr-1 group-hover:fa-bounce"></i><span class="hidden sm:inline"> Contact</span>
           </a>
         </li>
         <li class="text-center">
