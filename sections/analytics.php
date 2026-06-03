@@ -163,14 +163,13 @@ document.addEventListener('DOMContentLoaded', function() {
   const borderSettings = { borderWidth: 3, borderColor: '#121212' };
 
   // Chart 1: Instagram Comparison Doughnut
-  if (document.getElementById('igComparisonChart') && analyticsData.growth && analyticsData.growth.length > 0) {
-    const latest = analyticsData.growth[analyticsData.growth.length - 1];
+  if (document.getElementById('igComparisonChart') && analyticsData.ig_accounts) {
     new Chart(document.getElementById('igComparisonChart'), {
       type: 'doughnut',
       data: {
         labels: ['@prince_on_guitar', '@audiophile_prince'],
         datasets: [{
-          data: [latest.instagram_guitar || 0, latest.instagram_music || 0],
+          data: [analyticsData.ig_accounts.guitar || 0, analyticsData.ig_accounts.music || 0],
           backgroundColor: ['#E1306C', '#833AB4'],
           borderWidth: 3, borderColor: '#121212', hoverOffset: 8
         }]

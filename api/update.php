@@ -412,9 +412,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Action: Save Analytics Quick Stats
     // =========================================
     if (isset($_POST['action']) && $_POST['action'] === 'save_analytics_quick') {
-        if (isset($_POST['quick_stats']) && is_array($_POST['quick_stats'])) {
+        if (isset($_POST['quick_stats'])) {
             if (!isset($data['analytics'])) $data['analytics'] = [];
             $data['analytics']['quick_stats'] = $_POST['quick_stats'];
+            if (isset($_POST['ig_accounts'])) {
+                $data['analytics']['ig_accounts'] = [
+                    'guitar' => intval($_POST['ig_accounts']['guitar'] ?? 0),
+                    'music' => intval($_POST['ig_accounts']['music'] ?? 0)
+                ];
+            }
             file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
         }
         header("Location: ../admin/index.php?tab=analytics&success=Stats%20Updated");
@@ -422,30 +428,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // =========================================
-    // Action: Save Analytics Growth Data
-    // =========================================
-    if (isset($_POST['action']) && $_POST['action'] === 'save_analytics_growth') {
-        if (isset($_POST['growth']) && is_array($_POST['growth'])) {
-            if (!isset($data['analytics'])) $data['analytics'] = [];
-            $growth_data = [];
-            foreach ($_POST['growth'] as $g) {
-                if (!empty($g['month'])) {
-                    $growth_data[] = [
-                        'month' => $g['month'],
-                        'instagram_guitar' => intval($g['instagram_guitar'] ?? 0),
-                        'instagram_music' => intval($g['instagram_music'] ?? 0),
-                        'youtube' => intval($g['youtube'] ?? 0),
-                        'tiktok' => intval($g['tiktok'] ?? 0),
-                        'spotify' => intval($g['spotify'] ?? 0)
-                    ];
-                }
-            }
-            $data['analytics']['growth'] = $growth_data;
-            file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-        }
-        header("Location: ../admin/index.php?tab=analytics&success=Growth%20Data%20Updated");
-        exit;
-    }
+
 
     // =========================================
     // Action: Save Analytics Engagement

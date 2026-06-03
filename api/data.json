@@ -309,6 +309,10 @@
             "total_streams": 240000,
             "total_views": "1.2M",
             "growth_rate": "+185%"
+        },
+        "ig_accounts": {
+            "guitar": 52000,
+            "music": 20400
         }
     }
 }
