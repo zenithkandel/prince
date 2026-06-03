@@ -48,7 +48,7 @@ $quick = $analytics['quick_stats'] ?? [];
     </div>
 
     <!-- Charts Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-10 sm:mb-14">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-14">
 
       <!-- Chart 1: Instagram Account Comparison Doughnut -->
       <div class="bg-white border-[3px] sm:border-[4px] border-ink shadow-brutal-lg p-4 sm:p-6 rotate-[1deg] hover:rotate-0 transition-transform scroll-reveal" style="transition-delay: 200ms;">
@@ -239,35 +239,39 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Chart 4: Music Performance Horizontal Bar
+  // Chart 4: Music Performance Horizontal Bar (only visible tracks)
   if (document.getElementById('musicStatsChart') && analyticsData.music_stats) {
-    const labels = analyticsData.music_stats.map(m => m.title);
-    new Chart(document.getElementById('musicStatsChart'), {
-      type: 'bar',
-      data: {
-        labels: labels,
-        datasets: [
-          {
-            label: 'Streams',
-            data: analyticsData.music_stats.map(m => m.streams || 0),
-            backgroundColor: '#00e5ff', borderColor: '#121212', borderWidth: 3, borderRadius: 0
-          },
-          {
-            label: 'Likes',
-            data: analyticsData.music_stats.map(m => m.likes || 0),
-            backgroundColor: '#ff00ff', borderColor: '#121212', borderWidth: 3, borderRadius: 0
+    const visible = analyticsData.music_stats.filter(m => m.show === 1);
+    if (visible.length > 0) {
+      new Chart(document.getElementById('musicStatsChart'), {
+        type: 'bar',
+        data: {
+          labels: visible.map(m => m.title),
+          datasets: [
+            {
+              label: 'Streams',
+              data: visible.map(m => m.streams || 0),
+              backgroundColor: '#00e5ff', borderColor: '#121212', borderWidth: 3, borderRadius: 0
+            },
+            {
+              label: 'Likes',
+              data: visible.map(m => m.likes || 0),
+              backgroundColor: '#ff00ff', borderColor: '#121212', borderWidth: 3, borderRadius: 0
+            }
+          ]
+        },
+        options: {
+          indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { grid: { color: gridColor }, border: borderSettings, beginAtZero: true },
+            y: { grid: { display: false }, border: borderSettings }
           }
-        ]
-      },
-      options: {
-        indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-          x: { grid: { color: gridColor }, border: borderSettings, beginAtZero: true },
-          y: { grid: { display: false }, border: borderSettings }
         }
-      }
-    });
+      });
+    } else {
+      document.getElementById('musicStatsChart').parentElement.innerHTML = '<p class="font-mono text-sm text-gray-400 text-center py-8">No tracks visible. Enable tracks in admin.</p>';
+    }
   }
 });
 </script>

@@ -480,7 +480,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $stats[] = [
                         'title' => $s['title'],
                         'streams' => intval($s['streams'] ?? 0),
-                        'likes' => intval($s['likes'] ?? 0)
+                        'likes' => intval($s['likes'] ?? 0),
+                        'show' => ($s['show'] ?? '0') === '1' ? 1 : 0
                     ];
                 }
             }

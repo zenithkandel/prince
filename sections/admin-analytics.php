@@ -152,7 +152,7 @@ foreach ($music_stats as $ms) {
     </form>
 </div>
 
-<!-- Track Stats - Auto-pulled from Music Releases -->
+<!-- Track Stats - Pulled from Music Releases, admin picks which to show -->
 <div class="mb-10">
     <h3 class="font-black text-xl uppercase mb-4 flex items-center gap-2"><i class="fa-solid fa-music text-[#00e5ff]"></i> Track Stats</h3>
     <?php if (empty($releases)): ?>
@@ -162,16 +162,23 @@ foreach ($music_stats as $ms) {
             <p class="font-mono text-sm text-gray-500 mt-1">Add music releases first in the Music tab. Stats appear here automatically.</p>
         </div>
     <?php else: ?>
-        <p class="text-gray-500 font-mono text-xs mb-4 bg-cyan-50 inline-block px-2 border border-black border-dashed">Tracks pulled from your Music releases. Just fill in the numbers.</p>
+        <p class="text-gray-500 font-mono text-xs mb-4 bg-cyan-50 inline-block px-2 border border-black border-dashed">Toggle which tracks appear on the site. Fill in streams & likes for each.</p>
         <form action="../api/update.php" method="POST" class="space-y-4">
             <input type="hidden" name="action" value="save_analytics_music_stats">
             <div class="space-y-3">
                 <?php foreach ($releases as $ri => $release):
                     $title = $release['title'] ?? '';
-                    $existing = $stats_by_title[$title] ?? ['streams' => 0, 'likes' => 0];
+                    $existing = $stats_by_title[$title] ?? ['streams' => 0, 'likes' => 0, 'show' => 1];
+                    $is_shown = ($existing['show'] ?? 1) == 1;
                 ?>
-                    <div class="bg-white border-[3px] border-black p-3 sm:p-4 brutal-shadow flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
+                    <div class="bg-white border-[3px] border-black p-3 sm:p-4 brutal-shadow flex flex-col sm:flex-row gap-3 items-stretch sm:items-center <?php echo $is_shown ? '' : 'opacity-50'; ?>">
                         <input type="hidden" name="music_stats[<?php echo $ri; ?>][title]" value="<?php echo htmlspecialchars($title); ?>">
+                        <input type="hidden" name="music_stats[<?php echo $ri; ?>][show]" value="0">
+                        <!-- Toggle -->
+                        <label class="flex items-center gap-2 flex-shrink-0 cursor-pointer">
+                            <input type="checkbox" name="music_stats[<?php echo $ri; ?>][show]" value="1" <?php echo $is_shown ? 'checked' : ''; ?> class="track-show-toggle w-5 h-5 accent-green-500 cursor-pointer" onchange="this.closest('.bg-white').classList.toggle('opacity-50', !this.checked)">
+                            <span class="font-mono text-[10px] font-bold uppercase <?php echo $is_shown ? 'text-green-600' : 'text-gray-400'; ?> track-label"><?php echo $is_shown ? 'Visible' : 'Hidden'; ?></span>
+                        </label>
                         <div class="font-black text-base sm:text-lg uppercase flex items-center gap-2 min-w-0 sm:w-48">
                             <i class="fa-solid fa-compact-disc text-[#00e5ff] flex-shrink-0"></i>
                             <span class="truncate"><?php echo htmlspecialchars($title); ?></span>
