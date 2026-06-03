@@ -162,11 +162,11 @@
         </h1>
 
         <!-- Subtitle / Bio Snippet -->
-        <p class="font-handwriting text-2xl md:text-4xl text-ink mt-8 max-w-lg leading-relaxed relative rotation-1">
+        <p class="font-handwriting text-xl sm:text-2xl md:text-4xl text-ink mt-6 sm:mt-8 max-w-lg leading-relaxed relative rotation-1">
           <?php echo htmlspecialchars($data['hero']['subtitle']); ?>
           <br />
-          <span
-            class="text-xl md:text-2xl font-mono opacity-80 mt-2 block tracking-tight"><?php echo htmlspecialchars($data['hero']['location']); ?></span>
+            <span
+              class="text-base sm:text-xl md:text-2xl font-mono opacity-80 mt-2 block tracking-tight"><?php echo htmlspecialchars($data['hero']['location']); ?></span>
         </p>
 
         <!-- CTA Button -->
@@ -491,7 +491,7 @@
           </div>
           <h2 class="font-marker text-4xl sm:text-5xl md:text-7xl mb-4 text-center">
             <?php echo htmlspecialchars($data['contact']['title'] ?? "Let's Connect"); ?></h2>
-          <p class="font-handwriting text-2xl md:text-4xl text-center mb-10 leading-relaxed text-opacity-80">
+          <p class="font-handwriting text-xl sm:text-2xl md:text-4xl text-center mb-6 sm:mb-10 leading-relaxed text-opacity-80">
             <?php echo htmlspecialchars($data['contact']['desc_p1'] ?? ''); ?><br /><?php echo htmlspecialchars($data['contact']['desc_p2'] ?? ''); ?>
           </p>
           <div class="flex flex-col gap-4 max-w-md mx-auto">
