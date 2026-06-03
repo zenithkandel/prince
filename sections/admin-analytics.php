@@ -73,26 +73,36 @@ foreach ($music_stats as $ms) {
                         <input type="text" name="growth[<?php echo $gi; ?>][month]" value="<?php echo htmlspecialchars($g['month'] ?? ''); ?>" class="font-black text-lg uppercase border-b-2 border-transparent hover:border-black focus:border-[#ff00ff] focus:outline-none bg-transparent flex-1" placeholder="Month">
                     </div>
 
-                    <!-- Platform Inputs - Clean Grid -->
+                    <!-- Platform Inputs - Clean Grid with Labels -->
                     <div class="grid grid-cols-2 gap-2">
-                        <div class="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-none p-2">
-                            <span class="w-3 h-3 flex-shrink-0 border border-black" style="background:#E1306C"></span>
+                        <div class="flex flex-col bg-gray-50 border border-gray-200 p-2">
+                            <label class="font-mono text-[9px] font-bold uppercase text-gray-400 mb-1 flex items-center gap-1">
+                                <span class="w-2 h-2 flex-shrink-0 border border-black" style="background:#E1306C"></span> IG Guitar
+                            </label>
                             <input type="number" name="growth[<?php echo $gi; ?>][instagram_guitar]" value="<?php echo htmlspecialchars($g['instagram_guitar'] ?? 0); ?>" class="w-full font-mono text-sm font-bold border-b border-transparent hover:border-gray-300 focus:border-[#E1306C] focus:outline-none bg-transparent" min="0" placeholder="0">
                         </div>
-                        <div class="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-none p-2">
-                            <span class="w-3 h-3 flex-shrink-0 border border-black" style="background:#833AB4"></span>
+                        <div class="flex flex-col bg-gray-50 border border-gray-200 p-2">
+                            <label class="font-mono text-[9px] font-bold uppercase text-gray-400 mb-1 flex items-center gap-1">
+                                <span class="w-2 h-2 flex-shrink-0 border border-black" style="background:#833AB4"></span> IG Vocals
+                            </label>
                             <input type="number" name="growth[<?php echo $gi; ?>][instagram_music]" value="<?php echo htmlspecialchars($g['instagram_music'] ?? 0); ?>" class="w-full font-mono text-sm font-bold border-b border-transparent hover:border-gray-300 focus:border-[#833AB4] focus:outline-none bg-transparent" min="0" placeholder="0">
                         </div>
-                        <div class="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-none p-2">
-                            <span class="w-3 h-3 flex-shrink-0 border border-black" style="background:#FF0000"></span>
+                        <div class="flex flex-col bg-gray-50 border border-gray-200 p-2">
+                            <label class="font-mono text-[9px] font-bold uppercase text-gray-400 mb-1 flex items-center gap-1">
+                                <span class="w-2 h-2 flex-shrink-0 border border-black" style="background:#FF0000"></span> YouTube
+                            </label>
                             <input type="number" name="growth[<?php echo $gi; ?>][youtube]" value="<?php echo htmlspecialchars($g['youtube'] ?? 0); ?>" class="w-full font-mono text-sm font-bold border-b border-transparent hover:border-gray-300 focus:border-[#FF0000] focus:outline-none bg-transparent" min="0" placeholder="0">
                         </div>
-                        <div class="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-none p-2">
-                            <span class="w-3 h-3 flex-shrink-0 border border-black" style="background:#00f2ea"></span>
+                        <div class="flex flex-col bg-gray-50 border border-gray-200 p-2">
+                            <label class="font-mono text-[9px] font-bold uppercase text-gray-400 mb-1 flex items-center gap-1">
+                                <span class="w-2 h-2 flex-shrink-0 border border-black" style="background:#00f2ea"></span> TikTok
+                            </label>
                             <input type="number" name="growth[<?php echo $gi; ?>][tiktok]" value="<?php echo htmlspecialchars($g['tiktok'] ?? 0); ?>" class="w-full font-mono text-sm font-bold border-b border-transparent hover:border-gray-300 focus:border-[#00f2ea] focus:outline-none bg-transparent" min="0" placeholder="0">
                         </div>
-                        <div class="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-none p-2 col-span-2">
-                            <span class="w-3 h-3 flex-shrink-0 border border-black" style="background:#1DB954"></span>
+                        <div class="flex flex-col bg-gray-50 border border-gray-200 p-2 col-span-2">
+                            <label class="font-mono text-[9px] font-bold uppercase text-gray-400 mb-1 flex items-center gap-1">
+                                <span class="w-2 h-2 flex-shrink-0 border border-black" style="background:#1DB954"></span> Spotify
+                            </label>
                             <input type="number" name="growth[<?php echo $gi; ?>][spotify]" value="<?php echo htmlspecialchars($g['spotify'] ?? 0); ?>" class="w-full font-mono text-sm font-bold border-b border-transparent hover:border-gray-300 focus:border-[#1DB954] focus:outline-none bg-transparent" min="0" placeholder="0">
                         </div>
                     </div>
@@ -306,24 +316,24 @@ function confirmAddMonth() {
             <input type="text" name="growth[${growthCardIndex}][month]" value="${monthName}" class="font-black text-lg uppercase border-b-2 border-transparent hover:border-black focus:border-[#ff00ff] focus:outline-none bg-transparent flex-1">
         </div>
         <div class="grid grid-cols-2 gap-2">
-            <div class="flex items-center gap-2 bg-gray-50 border border-gray-200 p-2">
-                <span class="w-3 h-3 flex-shrink-0 border border-black" style="background:#E1306C"></span>
+            <div class="flex flex-col bg-gray-50 border border-gray-200 p-2">
+                <label class="font-mono text-[9px] font-bold uppercase text-gray-400 mb-1 flex items-center gap-1"><span class="w-2 h-2 flex-shrink-0 border border-black" style="background:#E1306C"></span> IG Guitar</label>
                 <input type="number" name="growth[${growthCardIndex}][instagram_guitar]" value="0" class="w-full font-mono text-sm font-bold border-b border-transparent hover:border-gray-300 focus:border-[#E1306C] focus:outline-none bg-transparent" min="0">
             </div>
-            <div class="flex items-center gap-2 bg-gray-50 border border-gray-200 p-2">
-                <span class="w-3 h-3 flex-shrink-0 border border-black" style="background:#833AB4"></span>
+            <div class="flex flex-col bg-gray-50 border border-gray-200 p-2">
+                <label class="font-mono text-[9px] font-bold uppercase text-gray-400 mb-1 flex items-center gap-1"><span class="w-2 h-2 flex-shrink-0 border border-black" style="background:#833AB4"></span> IG Vocals</label>
                 <input type="number" name="growth[${growthCardIndex}][instagram_music]" value="0" class="w-full font-mono text-sm font-bold border-b border-transparent hover:border-gray-300 focus:border-[#833AB4] focus:outline-none bg-transparent" min="0">
             </div>
-            <div class="flex items-center gap-2 bg-gray-50 border border-gray-200 p-2">
-                <span class="w-3 h-3 flex-shrink-0 border border-black" style="background:#FF0000"></span>
+            <div class="flex flex-col bg-gray-50 border border-gray-200 p-2">
+                <label class="font-mono text-[9px] font-bold uppercase text-gray-400 mb-1 flex items-center gap-1"><span class="w-2 h-2 flex-shrink-0 border border-black" style="background:#FF0000"></span> YouTube</label>
                 <input type="number" name="growth[${growthCardIndex}][youtube]" value="0" class="w-full font-mono text-sm font-bold border-b border-transparent hover:border-gray-300 focus:border-[#FF0000] focus:outline-none bg-transparent" min="0">
             </div>
-            <div class="flex items-center gap-2 bg-gray-50 border border-gray-200 p-2">
-                <span class="w-3 h-3 flex-shrink-0 border border-black" style="background:#00f2ea"></span>
+            <div class="flex flex-col bg-gray-50 border border-gray-200 p-2">
+                <label class="font-mono text-[9px] font-bold uppercase text-gray-400 mb-1 flex items-center gap-1"><span class="w-2 h-2 flex-shrink-0 border border-black" style="background:#00f2ea"></span> TikTok</label>
                 <input type="number" name="growth[${growthCardIndex}][tiktok]" value="0" class="w-full font-mono text-sm font-bold border-b border-transparent hover:border-gray-300 focus:border-[#00f2ea] focus:outline-none bg-transparent" min="0">
             </div>
-            <div class="flex items-center gap-2 bg-gray-50 border border-gray-200 p-2 col-span-2">
-                <span class="w-3 h-3 flex-shrink-0 border border-black" style="background:#1DB954"></span>
+            <div class="flex flex-col bg-gray-50 border border-gray-200 p-2 col-span-2">
+                <label class="font-mono text-[9px] font-bold uppercase text-gray-400 mb-1 flex items-center gap-1"><span class="w-2 h-2 flex-shrink-0 border border-black" style="background:#1DB954"></span> Spotify</label>
                 <input type="number" name="growth[${growthCardIndex}][spotify]" value="0" class="w-full font-mono text-sm font-bold border-b border-transparent hover:border-gray-300 focus:border-[#1DB954] focus:outline-none bg-transparent" min="0">
             </div>
         </div>

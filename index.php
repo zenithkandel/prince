@@ -116,50 +116,6 @@
             <i class="fa-solid fa-paper-plane sm:mr-1 group-hover:fa-bounce"></i><span class="hidden sm:inline"> Contact</span>
           </a>
         </li>
-        <li class="text-center">
-          <a href="#about"
-            class="font-mono font-bold text-xs sm:text-sm md:text-base hover:text-accent-blue transition-colors group">
-            <i class="fa-solid fa-user-music mr-1 group-hover:fa-bounce"></i>
-            About
-          </a>
-        </li>
-        <li class="text-center">
-          <a href="#music"
-            class="font-mono font-bold text-xs sm:text-sm md:text-base hover:text-accent-pink transition-colors group">
-            <i class="fa-solid fa-cassette-tape mr-1 group-hover:fa-bounce"></i>
-            Music
-          </a>
-        </li>
-        <?php if (!empty($data['viral']['items'])): ?>
-          <li class="text-center">
-            <a href="#viral"
-              class="font-mono font-bold text-xs sm:text-sm md:text-base hover:text-accent-blue transition-colors group">
-              <i class="fa-solid fa-fire mr-1 group-hover:fa-bounce"></i>
-              Viral
-            </a>
-          </li>
-        <?php endif; ?>
-        <li class="text-center">
-          <a href="#gallery"
-            class="font-mono font-bold text-xs sm:text-sm md:text-base hover:text-accent-blue transition-colors group">
-            <i class="fa-solid fa-camera-retro mr-1 group-hover:fa-bounce"></i>
-            Gallery
-          </a>
-        </li>
-        <li class="text-center">
-          <a href="#analytics"
-            class="font-mono font-bold text-xs sm:text-sm md:text-base hover:text-accent-blue transition-colors group">
-            <i class="fa-solid fa-chart-pie mr-1 group-hover:fa-bounce"></i>
-            Stats
-          </a>
-        </li>
-        <li class="text-center">
-          <a href="#contact"
-            class="font-mono font-bold text-xs sm:text-sm md:text-base hover:text-accent-pink transition-colors group">
-            <i class="fa-solid fa-paper-plane mr-1 group-hover:fa-bounce"></i>
-            Contact
-          </a>
-        </li>
       </ul>
     </div>
   </nav>
@@ -441,7 +397,11 @@
                 <div class="viral-card-media">
                   <?php if ($has_thumb): ?>
                     <img src="<?php echo htmlspecialchars($vitem['thumbnail']); ?>"
-                      alt="<?php echo htmlspecialchars($vitem['title'] ?? 'Viral content'); ?>" loading="lazy">
+                      alt="<?php echo htmlspecialchars($vitem['title'] ?? 'Viral content'); ?>" loading="lazy"
+                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="viral-card-fallback platform-<?php echo htmlspecialchars($vplatform); ?>" style="display:none;">
+                      <i class="<?php echo htmlspecialchars($vicon); ?>"></i>
+                    </div>
                   <?php else: ?>
                     <div class="viral-card-fallback platform-<?php echo htmlspecialchars($vplatform); ?>">
                       <i class="<?php echo htmlspecialchars($vicon); ?>"></i>
