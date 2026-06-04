@@ -81,13 +81,15 @@
         <li class="text-center">
           <a href="#about"
             class="font-mono font-bold text-[9px] sm:text-xs md:text-base hover:text-accent-blue transition-colors group">
-            <i class="fa-solid fa-user-music sm:mr-1 group-hover:fa-bounce"></i><span class="hidden sm:inline"> About</span>
+            <i class="fa-solid fa-user-music sm:mr-1 group-hover:fa-bounce"></i><span class="hidden sm:inline">
+              About</span>
           </a>
         </li>
         <li class="text-center">
           <a href="#music"
             class="font-mono font-bold text-[9px] sm:text-xs md:text-base hover:text-accent-pink transition-colors group">
-            <i class="fa-solid fa-cassette-tape sm:mr-1 group-hover:fa-bounce"></i><span class="hidden sm:inline"> Music</span>
+            <i class="fa-solid fa-cassette-tape sm:mr-1 group-hover:fa-bounce"></i><span class="hidden sm:inline">
+              Music</span>
           </a>
         </li>
         <?php if (!empty($data['viral']['items'])): ?>
@@ -101,19 +103,22 @@
         <li class="text-center">
           <a href="#gallery"
             class="font-mono font-bold text-[9px] sm:text-xs md:text-base hover:text-accent-blue transition-colors group">
-            <i class="fa-solid fa-camera-retro sm:mr-1 group-hover:fa-bounce"></i><span class="hidden sm:inline"> Gallery</span>
+            <i class="fa-solid fa-camera-retro sm:mr-1 group-hover:fa-bounce"></i><span class="hidden sm:inline">
+              Gallery</span>
           </a>
         </li>
         <li class="text-center">
           <a href="#analytics"
             class="font-mono font-bold text-[9px] sm:text-xs md:text-base hover:text-accent-blue transition-colors group">
-            <i class="fa-solid fa-chart-pie sm:mr-1 group-hover:fa-bounce"></i><span class="hidden sm:inline"> Stats</span>
+            <i class="fa-solid fa-chart-pie sm:mr-1 group-hover:fa-bounce"></i><span class="hidden sm:inline">
+              Stats</span>
           </a>
         </li>
         <li class="text-center">
           <a href="#contact"
             class="font-mono font-bold text-[9px] sm:text-xs md:text-base hover:text-accent-pink transition-colors group">
-            <i class="fa-solid fa-paper-plane sm:mr-1 group-hover:fa-bounce"></i><span class="hidden sm:inline"> Contact</span>
+            <i class="fa-solid fa-paper-plane sm:mr-1 group-hover:fa-bounce"></i><span class="hidden sm:inline">
+              Contact</span>
           </a>
         </li>
       </ul>
@@ -163,11 +168,12 @@
         </h1>
 
         <!-- Subtitle / Bio Snippet -->
-        <p class="font-handwriting text-xl sm:text-2xl md:text-4xl text-ink mt-6 sm:mt-8 max-w-lg leading-relaxed relative rotation-1">
+        <p
+          class="font-handwriting text-xl sm:text-2xl md:text-4xl text-ink mt-6 sm:mt-8 max-w-lg leading-relaxed relative rotation-1">
           <?php echo htmlspecialchars($data['hero']['subtitle']); ?>
           <br />
-            <span
-              class="text-base sm:text-xl md:text-2xl font-mono opacity-80 mt-2 block tracking-tight"><?php echo htmlspecialchars($data['hero']['location']); ?></span>
+          <span
+            class="text-base sm:text-xl md:text-2xl font-mono opacity-80 mt-2 block tracking-tight"><?php echo htmlspecialchars($data['hero']['location']); ?></span>
         </p>
 
         <!-- CTA Button -->
@@ -399,7 +405,8 @@
                     <img src="<?php echo htmlspecialchars($vitem['thumbnail']); ?>"
                       alt="<?php echo htmlspecialchars($vitem['title'] ?? 'Viral content'); ?>" loading="lazy"
                       onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="viral-card-fallback platform-<?php echo htmlspecialchars($vplatform); ?>" style="display:none;">
+                    <div class="viral-card-fallback platform-<?php echo htmlspecialchars($vplatform); ?>"
+                      style="display:none;">
                       <i class="<?php echo htmlspecialchars($vicon); ?>"></i>
                     </div>
                   <?php else: ?>
@@ -498,8 +505,10 @@
             <div class="w-2 h-2 rounded-full bg-white absolute top-1 right-2 opacity-70"></div>
           </div>
           <h2 class="font-marker text-4xl sm:text-5xl md:text-7xl mb-4 text-center">
-            <?php echo htmlspecialchars($data['contact']['title'] ?? "Let's Connect"); ?></h2>
-          <p class="font-handwriting text-xl sm:text-2xl md:text-4xl text-center mb-6 sm:mb-10 leading-relaxed text-opacity-80">
+            <?php echo htmlspecialchars($data['contact']['title'] ?? "Let's Connect"); ?>
+          </h2>
+          <p
+            class="font-handwriting text-xl sm:text-2xl md:text-4xl text-center mb-6 sm:mb-10 leading-relaxed text-opacity-80">
             <?php echo htmlspecialchars($data['contact']['desc_p1'] ?? ''); ?><br /><?php echo htmlspecialchars($data['contact']['desc_p2'] ?? ''); ?>
           </p>
           <div class="flex flex-col gap-4 max-w-md mx-auto">
@@ -516,34 +525,42 @@
               <a href="<?php echo htmlspecialchars($data['contact']['instagram_guitar'] ?? 'https://instagram.com/prince_on_guitar'); ?>"
                 target="_blank"
                 class="bg-ink text-white border-[3px] border-ink p-3 sm:p-4 flex justify-center items-center gap-1.5 sm:gap-2 hover:-translate-y-1 hover:shadow-brutal-sm transition-all rotate-[-1deg] hover:bg-accent-blue hover:text-ink">
-                <i class="fa-brands fa-instagram text-lg sm:text-2xl"></i><span class="font-mono font-bold text-xs sm:text-base">Guitar</span>
+                <i class="fa-brands fa-instagram text-lg sm:text-2xl"></i><span
+                  class="font-mono font-bold text-xs sm:text-base">Guitar</span>
               </a>
               <a href="<?php echo htmlspecialchars($data['contact']['instagram_music'] ?? 'https://instagram.com/audiophile_prince'); ?>"
                 target="_blank"
                 class="bg-ink text-white border-[3px] border-ink p-3 sm:p-4 flex justify-center items-center gap-1.5 sm:gap-2 hover:-translate-y-1 hover:shadow-brutal-sm transition-all rotate-[1deg] hover:bg-[#833AB4] hover:text-white">
-                <i class="fa-brands fa-instagram text-lg sm:text-2xl"></i><span class="font-mono font-bold text-xs sm:text-base">Vocals</span>
+                <i class="fa-brands fa-instagram text-lg sm:text-2xl"></i><span
+                  class="font-mono font-bold text-xs sm:text-base">Vocals</span>
               </a>
               <a href="<?php echo htmlspecialchars($data['contact']['youtube'] ?? 'https://www.youtube.com/@Prince_on_guitar'); ?>"
                 target="_blank"
                 class="bg-ink text-white border-[3px] border-ink p-3 sm:p-4 flex justify-center items-center gap-1.5 sm:gap-2 hover:-translate-y-1 hover:shadow-brutal-sm transition-all rotate-[1deg] hover:bg-red-500 hover:text-white">
-                <i class="fa-brands fa-youtube text-lg sm:text-2xl"></i><span class="font-mono font-bold text-xs sm:text-base">YouTube</span>
+                <i class="fa-brands fa-youtube text-lg sm:text-2xl"></i><span
+                  class="font-mono font-bold text-xs sm:text-base">YouTube</span>
               </a>
               <a href="<?php echo htmlspecialchars($data['contact']['tiktok'] ?? '#'); ?>" target="_blank"
                 class="bg-ink text-white border-[3px] border-ink p-3 sm:p-4 flex justify-center items-center gap-1.5 sm:gap-2 hover:-translate-y-1 hover:shadow-brutal-sm transition-all rotate-[2deg] hover:bg-black hover:text-white"><i
-                  class="fa-brands fa-tiktok text-lg sm:text-2xl"></i><span class="font-mono font-bold text-xs sm:text-base">TikTok</span></a>
+                  class="fa-brands fa-tiktok text-lg sm:text-2xl"></i><span
+                  class="font-mono font-bold text-xs sm:text-base">TikTok</span></a>
               <a href="<?php echo htmlspecialchars($data['contact']['spotify'] ?? '#'); ?>" target="_blank"
                 class="bg-ink text-white border-[3px] border-ink p-3 sm:p-4 flex justify-center items-center gap-1.5 sm:gap-2 hover:-translate-y-1 hover:shadow-brutal-sm transition-all rotate-[-2deg] hover:bg-[#1DB954] hover:text-ink"><i
-                  class="fa-brands fa-spotify text-lg sm:text-2xl"></i><span class="font-mono font-bold text-xs sm:text-base">Spotify</span></a>
+                  class="fa-brands fa-spotify text-lg sm:text-2xl"></i><span
+                  class="font-mono font-bold text-xs sm:text-base">Spotify</span></a>
             </div>
           </div>
-          <div class="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 font-marker text-2xl sm:text-4xl text-ink transform rotate-[-10deg] opacity-70">
-            <?php echo htmlspecialchars($data['contact']['signature'] ?? '- Prince'); ?></div>
+          <div
+            class="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 font-marker text-2xl sm:text-4xl text-ink transform rotate-[-10deg] opacity-70">
+            <?php echo htmlspecialchars($data['contact']['signature'] ?? '- Prince'); ?>
+          </div>
         </div>
         <div class="mt-20 text-center flex flex-col items-center">
-          <p class="font-mono text-xs sm:text-sm md:text-base text-ink bg-white border-2 border-ink px-3 sm:px-4 py-1 rotate-1 shadow-brutal-sm inline-block">
+          <p
+            class="font-mono text-xs sm:text-sm md:text-base text-ink bg-white border-2 border-ink px-3 sm:px-4 py-1 rotate-1 shadow-brutal-sm inline-block">
             <?php echo isset($data['contact']['footer']) ? htmlspecialchars($data['contact']['footer']) : '© 2026 Prince Neupane. All rights reserved.'; ?>
           </p>
-          <a href="https://github.com/zenithkandel" target="_blank"
+          <a href="https://zenithkandel.com.np" target="_blank"
             class="font-mono text-sm mt-6 text-gray-800 hover:text-accent-pink transition-colors underline underline-offset-4 font-bold decoration-2 mb-10">Made
             by Zenith</a>
         </div>
